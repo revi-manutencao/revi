@@ -6,7 +6,40 @@
  * Time: 22:25
  */
 
-class DeliveryMethod extends BaseModel
+class DeliveryMethodFeatures extends BaseModel
 {
+    private $idDeliveryMethod;
 
+    /**
+     * @return mixed
+     */
+    public function getIdDeliveryMethod()
+    {
+        return $this->idDeliveryMethod;
+    }
+
+    /**
+     * @param mixed $idDeliveryMethod
+     */
+    public function setIdDeliveryMethod($idDeliveryMethod)
+    {
+        $this->idDeliveryMethod = $idDeliveryMethod;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeliveryMethodFeatures()
+    {
+        return $this->DeliveryMethodFeatures;
+    }
+
+    /**
+     * @param mixed $DeliveryMethodFeatures
+     */
+    public function setDeliveryMethodFeatures($DeliveryMethodFeatures)
+    {
+        $this->DeliveryMethodFeatures = $DeliveryMethodFeatures;
+    }
+    private $DeliveryMethodFeatures;
 }

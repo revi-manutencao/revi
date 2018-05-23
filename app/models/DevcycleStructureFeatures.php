@@ -6,7 +6,25 @@
  * Time: 22:26
  */
 
-class DevcycleStructure extends BaseModel
+class DevcycleStructureFeatures extends BaseModel
 {
+    private $idDevcycleStructure;
+
+    /**
+     * @return mixed
+     */
+    public function getIdDevcycleStructure()
+    {
+        return $this->idDevcycleStructure;
+    }
+
+    /**
+     * @param mixed $idDevcycleStructure
+     */
+    public function setIdDevcycleStructure($idDevcycleStructure)
+    {
+        $this->idDevcycleStructure = $idDevcycleStructure;
+    }
+
 
 }

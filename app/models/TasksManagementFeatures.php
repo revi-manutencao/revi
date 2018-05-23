@@ -6,7 +6,24 @@
  * Time: 22:25
  */
 
-class TasksManagement extends BaseModel
+class TasksManagementFeatures extends BaseModel
 {
+    private $idTasksManagement;
+
+    /**
+     * @return mixed
+     */
+    public function getIdTasksManagement()
+    {
+        return $this->idTasksManagement;
+    }
+
+    /**
+     * @param mixed $idTasksManagement
+     */
+    public function setIdTasksManagement($idTasksManagement)
+    {
+        $this->idTasksManagement = $idTasksManagement;
+    }
 
 }

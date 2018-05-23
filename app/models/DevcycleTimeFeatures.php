@@ -6,7 +6,24 @@
  * Time: 22:27
  */
 
-class DevcycleTime extends BaseModel
+class DevcycleTimeFeatures extends BaseModel
 {
+        private $idDevcycleTime;
+
+    /**
+     * @return mixed
+     */
+    public function getIdDevcycleTime()
+    {
+        return $this->idDevcycleTime;
+    }
+
+    /**
+     * @param mixed $idDevcycleTime
+     */
+    public function setIdDevcycleTime($idDevcycleTime)
+    {
+        $this->idDevcycleTime = $idDevcycleTime;
+    }
 
 }

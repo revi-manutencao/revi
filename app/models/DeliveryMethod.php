@@ -8,5 +8,4 @@
 
 class DeliveryMethod extends BaseModel
 {
-
 }
