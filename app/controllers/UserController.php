@@ -1,8 +1,6 @@
 <?php defined('INITIALIZED') OR exit('You cannot access this file directly');
 
-class MainController extends Controller {
+class UserController extends Controller {
 
-	public function index () {
-		view('Default');
-	}
+	public function index () { }
 }
