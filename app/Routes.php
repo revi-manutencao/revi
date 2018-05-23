@@ -12,3 +12,7 @@
  *
  */
 
+
+
+// Rotas para a construção das parada
+Router::define('cc/tasksmgmt', 'ConstructorController/createTasksMgmt');
