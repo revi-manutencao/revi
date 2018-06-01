@@ -3,6 +3,12 @@
 class MainController extends Controller {
 
 	public function index () {
-		view('Default');
+		view('UserHome');
+		if(isset($_POST)){
+		    $this->LoginPost();
+        }
 	}
+	public function LoginPost(){
+	    echo "aaa";
+    }
 }

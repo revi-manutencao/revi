@@ -1,0 +1,12 @@
+body {
+	display: block;
+	font-family: "OpenSans Light", sans-serif;
+	text-align: center;
+}
+
+body.container{
+	border: black;
+	border-style: solid;
+	width: 180%;
+	height: 90%;
+}

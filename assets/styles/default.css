@@ -1,46 +1,39 @@
-@font-face { 
-    font-family: "OpenSans Light"; 
-    src: url("../fonts/OpenSans-Light.eot"), url("../fonts/OpenSans-Light.ttf");
-    font-weight: 100;
-}
+*{padding: 2px;margin: 2px;}
 
+#main{
+	display: grid;
+	grid-template-rows: 5vh 10vh 75vh 10vh;
+	grid-template-areas:"header header" "nav nav"
+	"content aside" "footer footer"
+}
 body {
 	font-family: "OpenSans Light", sans-serif;
 	text-align: center;
 }
 
-a, a:visited {
-	color: rgba(100,100,255,0.7);
+.mainHeader {
+	grid-area: header;
+	background: deepskyblue
 }
-
-#logo{
-	display: block;
-	width: 345px;
-	height: 175px;
-	background: url(../images/luvi.png) no-repeat center center;
-	background-size: 170px auto;
-	margin: 0 auto;
-	color: transparent;
+.mainNav {
+	grid-area: nav;
+	background: antiquewhite
 }
-
-#maintitle {
-	display: block;
-	font-size: 28px;	
-	text-transform: uppercase;
-	margin-top: 15%;
+.mainContent {
+	grid-area: content;
+	background: darkkhaki
 }
-
-#maintitle h1 {
-	font-size: 72pt;
-	margin: 5px;
+.mainAside {
+	grid-area: aside;
+	background: darksalmon
 }
-
-#maintitle h2 {
-	font-size: 22pt;
-	font-weight: lighter;
-	color: rgb(170,170,170);
+.mainFooter {
+	grid-area: footer;
+	background: darkslategray
 }
+.mainArticleContent {
+	grid-area: mainArticleContent;
+	background: lightblue;
+	width: 70vw;
 
-.upper {
-	text-transform: uppercase;
 }

@@ -1,24 +1,29 @@
-<?php defined('INITIALIZED') OR exit('You cannot access this file directly'); ?>
+<?php
+/**
+ * Created by PhpStorm.
+ * User: renato
+ * Date: 01/06/18
+ * Time: 10:23
+ */
 
-<!DOCTYPE html>
-<html>
+?>
+<!doctype html>
+<html lang="pt_br">
 <head>
-
-	<title>Luvi</title>
-	<meta charset="utf-8">
-	<meta name="author" content="Vinicius Baroni Soares">
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="assets/styles/default.css">
-	<link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
-	<link rel="apple-touch-icon" href="assets/images/favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="login"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../../assets/styles/default.css">
+    <title>Login</title>
 </head>
 <body>
-	<span id="maintitle">
-        <span id="logo">Luvi</span>
-		<h2>Foco na simplicidade.</h2>
-		<br>
-		<span style="font-size: 70%">Ir para a <a href="docs/" target="new">documentação</a></span>
-	</span>
+<section id="main">
+    <header class="mainHeader">Cabeçalho</header>
+    <nav class="mainNav">Navegação</nav>
+    <article class="mainContent">Conteúdo</article>
+    <aside class="mainAside">Aside</aside>
+    <footer class="mainFooter">Rodapé</footer>
+</section>
 </body>
 </html>
-
