@@ -20,7 +20,6 @@
 <body>
 <section id="main">
     <header class="mainHeader">Cabeçalho</header>
-    <nav class="mainNav">Navegação</nav>
     <article class="mainContent">Conteúdo</article>
     <aside class="mainAside">Aside</aside>
     <footer class="mainFooter">Rodapé</footer>

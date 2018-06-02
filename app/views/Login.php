@@ -6,6 +6,8 @@
  * Time: 13:59
  */
 
+$pathCreateAccount = 'app/views/CreateAccount.php';
+
 ?>
 <!doctype html>
 <html lang="pt_br">
@@ -20,7 +22,8 @@
 <body>
     <section id="main">
         <header class="mainHeader">Cabeçalho</header>
-        <nav class="mainNav">Navegação</nav>
+        <nav class="mainNav">
+        </nav>
         <article class="mainContent">
             <section id="mainArticle">
                 <sub class="mainArticleContent">
@@ -37,12 +40,12 @@
                 <sub class="login">
 
                     <br><br><h3>Fazer login</h3>
-                    <form action="login" method="post">
+                    <form action="UserHome.php" method="post">
                         <input type="text" name="login" id="login" placeholder="Usuário"><br>
                         <input type="password" name="password" id="password" placeholder="Senha"><br>
                         <button type="submit" name="Login" id="logar">Logar</button><br>
                         Não tem conta?<br>
-                        <a>Criar conta</a>
+                        <a href="/../oficinabase/app/views/CreateAccount.php">Criar conta</a>
                     </form>
                 </sub>
             </section>

@@ -21,11 +21,13 @@ body {
 }
 .mainContent {
 	grid-area: content;
-	background: darkkhaki
+	background: darkkhaki;
+	width: 70vw;
 }
 .mainAside {
 	grid-area: aside;
-	background: darksalmon
+	background: darksalmon;
+	width: 30vw	;
 }
 .mainFooter {
 	grid-area: footer;
