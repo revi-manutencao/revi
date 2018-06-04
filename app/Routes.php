@@ -12,6 +12,8 @@
  *
  */
 
+Router::define('entrar', 'MainController/login');
+
 
 
 // Rotas para a construção das parada

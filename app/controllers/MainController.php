@@ -3,11 +3,19 @@
 class MainController extends Controller {
 
 	public function index () {
-		view('UserHome');
-		if(isset($_POST)){
-		    $this->LoginPost();
-        }
+	    view('home-info');
+
+//		view('UserHome');
+//		if(isset($_POST)){
+//		    $this->LoginPost();
+//        }
 	}
+
+	public function login () {
+	    view('login');
+    }
+
+
 	public function LoginPost(){
 	    echo "aaa";
     }

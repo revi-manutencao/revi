@@ -1,0 +1,124 @@
+@font-face {
+    font-family: "OpenSans Light";
+    src: url("../fonts/OpenSans-Light.eot"), url("../fonts/OpenSans-Light.ttf");
+    font-weight: 100;
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "OpenSans Light", sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+/* --------- Campos de formulário --------- */
+input, select, textarea {
+    /*-webkit-appearance: none;
+    -moz-appearance: none;*/
+    width: 80%;
+    height: 40px;
+    border: 1px solid rgb(200,200,200);
+    padding: 0 15px;
+    font-size: 10pt;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 15px;
+    font-size: 10pt;
+    background: aquamarine;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+
+
+
+/* -------- IDs -------- */
+#sidebar {
+    display: inline-block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: aquamarine;
+    height: 100%;
+    width: 60px;
+}
+
+    #sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #sidebar ul li {
+        width: 50px;
+        margin: 5px;
+    }
+
+    #sidebar ul li.logo {
+        background: red;
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+    }
+
+    #sidebar ul li.last {
+        position: absolute;
+        left: 0;
+        bottom: 5px;
+    }
+
+
+
+#maincontent {
+    display: inline-block;
+    position: absolute;
+    left: 60px;
+    top: 0;
+    width: calc(100% - 60px);
+    min-height: 100%;
+}
+
+
+
+
+/* -------- Classes -------- */
+.container {
+    margin: 15px;
+}
+
+.cover {
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* ------- Formulário de login ------- */
+#loginform {
+    text-align: center;
+    display: block;
+    margin: 40px auto;
+    background: #FFF;
+    min-height: 200px;
+    max-width: 500px;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    padding: 35px;
+}
+
+    #loginform input {
+        display: block;
+        margin: 0 auto;
+    }
+
+    #loginform input[type="password"] {
+        border-top: none;
+    }

@@ -17,7 +17,7 @@ define('DB_DRIVER', 'mysql'); // Options: mysql, pgsql, sqlite
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'teste');
+define('DB_NAME', 'oficina');
 
 
 // Email settings
