@@ -11,11 +11,16 @@ body, html {
     font-family: "OpenSans Light", sans-serif;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
 }
 
 a, a:visited {
     color: mediumaquamarine;
     text-decoration: none;
+}
+
+p {
+    margin: 15px;
 }
 
 /* --------- Campos de formulário --------- */
@@ -44,12 +49,20 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
+    input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, button:hover {
+        background: mediumaquamarine;
+        color: #FFFFFF;
+        transition: 0.3s;
+    }
 
 
 
-/* -------- IDs -------- */
+
+    /* -------- IDs -------- */
 #sidebar {
     z-index: 10;
     display: inline-block;
@@ -58,7 +71,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     top: 0;
     height: 100%;
     width: 60px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    /*box-shadow: 0 0 5px rgba(0,0,0,0.2);*/
 }
 
     #sidebar ul {
@@ -106,12 +119,28 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     margin: 15px;
 }
 
+.side-side {
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+}
+
 .cover {
     z-index: -1;
     position: fixed;
     width: 100%;
     height: 100%;
 }
+
+
+.linearcolor {
+    background: linear-gradient(180deg, aquamarine 0%, #2cb5e8 130%);
+}
+
+.graycolor {
+    background: rgb(245,245,245);
+}
+
 
 .tooltiptext {
     position: absolute;
@@ -130,21 +159,24 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         visibility: visible;
     }
 
-.linearcolor {
-    background: linear-gradient(180deg, aquamarine 0%, #2cb5e8 130%);
+
+.content {
+    display: block;
+    margin: 40px auto;
+    min-height: 200px;
+    width: 80%;
+    max-width: 800px;
+    padding: 15px;
+    border: 1px solid black;
 }
 
 
 .block {
-    text-align: center;
     display: block;
-    margin: 40px auto;
-    background: #FFF;
-    min-height: 200px;
-    max-width: 500px;
+    background: rgba(255,255,255,1);
     border-radius: 5px;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-    padding: 35px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    border: none;
 }
 
     .block input {
@@ -153,13 +185,46 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     }
 
 
-
-/* ------- Formulário de login ------- */
-#loginform {
+.blocklist {
+    margin: 10px auto;
     text-align: center;
-    margin: 40px auto;
+    list-style: none;
+    padding: 0;
+}
+
+    .blocklist li {
+        display: inline-block;
+        margin: 15px;
+        width: calc(20% - 15px);
+        max-width: 190px;
+    }
+
+
+.transluscentblock {
+    display: block;
+    min-height: 150px;
+    width: 80%;
+    max-width: 90%;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.6);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    padding: 15px;
+    transition: 0.3s;
+}
+
+    .transluscentblock:hover {
+        background: rgba(255,255,255,0.8);
+        transition: 0.3s;
+    }
+
+
+
+/* ------- Formulário de login e registro ------- */
+#loginform, #regform {
+    text-align: center;
     min-height: 200px;
     max-width: 500px;
+    width: calc(100% - 75px);
     padding: 35px;
 }
 
@@ -168,6 +233,85 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         margin: 0 auto;
     }
 
-    #loginform input[type="password"] {
-        border-top: none;
+
+
+
+@media screen and (orientation: portrait) {
+    /* -------- IDs -------- */
+    #sidebar {
+        top: auto;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        /*box-shadow: 0 -1px 5px rgba(0,0,0,0.2);*/
     }
+
+    #sidebar ul li {
+        display: inline-block;
+    }
+
+    #sidebar ul li.logo {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        background: rgba(255,255,255,0.8);
+    }
+
+    #sidebar ul li.last {
+        right: 5px;
+        left: auto;
+        bottom: 0;
+    }
+
+
+    #maincontent {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 60px;
+        min-height: calc(100% - 60px);
+        width: 100%;
+        margin-bottom: 65px;
+    }
+
+
+    /* --------- Classes ---------- */
+    .container{
+        margin: 20px;
+        padding-bottom: 65px;
+    }
+
+        .container .block {
+            margin: 25px auto;
+        }
+
+    .tooltip:hover .tooltiptext {
+        visibility: hidden;
+    }
+
+    .linearcolor {
+        background: linear-gradient(90deg, aquamarine 0%, #2cb5e8 130%);
+    }
+
+    ul.blocklist {
+        width: calc(100% + 10px);
+        margin: 20px -20px;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 0 15px;
+    }
+
+        ul.blocklist li {
+            display: inline-block;
+            margin: 15px 10px;
+            width: calc(100% - 20px);
+        }
+
+
+    /* ------- Formulário de login e registro ------- */
+    #loginform, #regform {
+        width: calc(100% - 70px);
+    }
+}
