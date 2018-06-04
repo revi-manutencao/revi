@@ -1,13 +1,9 @@
-@extends('main')
+@extends('sidebar')
 
-@section('sidebar')
-<ul>
-    <a href="<?=route('/')?>">
-        <li id="home" class="logo">LOGO</li>
-    </a>
-
+@section('sidebarcontent')
     <a href="<?=route('/entrar')?>">
-        <li id="login" class="last">Entrar</li>
+        <li id="login" class="last tooltip">
+            <span class="tooltiptext">Fazer login</span>
+        </li>
     </a>
-</ul>
 @endsection

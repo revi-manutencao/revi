@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?=asset('styles/main.css')?>">
 </head>
 <body>
-    <div id="sidebar">
+    <div id="sidebar" class="linearcolor">
         !!section('sidebar')!!
     </div>
     <div id="maincontent">

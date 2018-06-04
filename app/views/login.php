@@ -6,7 +6,7 @@
 @endsection
 
 @section('maincontent')
-    <div class="cover" style="background: aquamarine"></div>
+    <div class="cover linearcolor"></div>
 
 
     <form action="entrar" method="post" id="loginform">
@@ -17,5 +17,13 @@
         <input type="password" name="password" placeholder="Senha">
         <br>
         <button>Entrar</button>
+
+        <br>
+        <br>
+
+        <p>
+            Não possui conta?
+        </p>
+        <p><a href="cadastro">Crie uma nova</a></p>
     </form>
 @endsection
