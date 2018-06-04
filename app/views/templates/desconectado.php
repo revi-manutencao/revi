@@ -3,7 +3,7 @@
 @section('sidebarcontent')
     <a href="<?=route('/entrar')?>">
         <li id="login" class="last tooltip">
-            <span class="tooltiptext">Fazer login</span>
+            <span class="tooltiptext">Entrar</span>
         </li>
     </a>
 @endsection

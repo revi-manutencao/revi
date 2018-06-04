@@ -33,6 +33,11 @@ class MainController extends Controller {
         }
     }
 
+
+    public function user () {
+	    view('home-user');
+    }
+
 //
 //	public function LoginPost(){
 //	    echo "aaa";

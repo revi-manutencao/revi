@@ -14,7 +14,7 @@
 
 Router::define('entrar', 'MainController/login');
 Router::define('cadastro', 'MainController/cadastro');
-
+Router::define('user', 'MainController/user');
 
 
 // Rotas para a construção das parada

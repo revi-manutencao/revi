@@ -15,5 +15,7 @@
     <div id="maincontent">
         !!section('maincontent')!!
     </div>
+
+    <div class="cover linearcolor"></div>
 </body>
 </html>
