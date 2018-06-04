@@ -47,46 +47,6 @@
             Outra fruta
             <br>
             Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
         </div>
 
         <ul class="blocklist">
