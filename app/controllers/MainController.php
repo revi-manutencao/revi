@@ -12,11 +12,29 @@ class MainController extends Controller {
 	}
 
 	public function login () {
-	    view('login');
+	    switch($this->getRequest()) {
+            case 'get':
+                view('login');
+                break;
+            case 'post':
+                echo 'abbsfafrw4';
+                break;
+        }
     }
 
-
-	public function LoginPost(){
-	    echo "aaa";
+	public function cadastro () {
+	    switch($this->getRequest()) {
+            case 'get':
+                view('cadastro');
+                break;
+            case 'post':
+                echo 'abbsfafrw4';
+                break;
+        }
     }
+
+//
+//	public function LoginPost(){
+//	    echo "aaa";
+//    }
 }

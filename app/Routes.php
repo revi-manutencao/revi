@@ -13,6 +13,7 @@
  */
 
 Router::define('entrar', 'MainController/login');
+Router::define('cadastro', 'MainController/cadastro');
 
 
 

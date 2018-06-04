@@ -9,21 +9,16 @@
     <div class="cover linearcolor"></div>
 
 
-    <form action="entrar" method="post" id="loginform" class="block">
+    <form action="cadastro" method="post" class="block">
         <h1>Entrar</h1>
         <br>
 
         <input type="text" name="username" placeholder="Nome de usuário">
+        <input type="email" name="email" placeholder="E-mail">
+        <br><br>
         <input type="password" name="password" placeholder="Senha">
+        <input type="password" name="confirmpassword" placeholder="Repita a senha">
         <br>
-        <button>Entrar</button>
-
-        <br>
-        <br>
-
-        <p>
-            Não possui conta?
-        </p>
-        <p><a href="cadastro">Crie uma nova</a></p>
+        <button>Cadastrar</button>
     </form>
 @endsection

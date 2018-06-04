@@ -51,6 +51,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 
 /* -------- IDs -------- */
 #sidebar {
+    z-index: 10;
     display: inline-block;
     position: fixed;
     left: 0;
@@ -134,9 +135,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 }
 
 
-
-/* ------- Formulário de login ------- */
-#loginform {
+.block {
     text-align: center;
     display: block;
     margin: 40px auto;
@@ -145,6 +144,22 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     max-width: 500px;
     border-radius: 5px;
     box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    padding: 35px;
+}
+
+    .block input {
+        display: block;
+        margin: 3px auto;
+    }
+
+
+
+/* ------- Formulário de login ------- */
+#loginform {
+    text-align: center;
+    margin: 40px auto;
+    min-height: 200px;
+    max-width: 500px;
     padding: 35px;
 }
 
