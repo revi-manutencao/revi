@@ -137,11 +137,6 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     background: linear-gradient(180deg, aquamarine 0%, #2cb5e8 130%);
 }
 
-.graycolor {
-    background: rgb(245,245,245);
-}
-
-
 .tooltiptext {
     position: absolute;
     background: rgba(0,0,0,0.4);
@@ -167,7 +162,6 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     width: 80%;
     max-width: 800px;
     padding: 15px;
-    border: 1px solid black;
 }
 
 
@@ -176,7 +170,6 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     background: rgba(255,255,255,1);
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    border: none;
 }
 
     .block input {
@@ -296,7 +289,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     }
 
     ul.blocklist {
-        width: calc(100% + 10px);
+        width: 100%;
         margin: 20px -20px;
         overflow-x: auto;
         white-space: nowrap;
