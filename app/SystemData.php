@@ -16,7 +16,7 @@ define('SESSION_ACTIVITY_TIME', 2);
 define('DB_DRIVER', 'mysql'); // Options: mysql, pgsql, sqlite
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_PASS', 'root');
 define('DB_NAME', 'oficina');
 
 

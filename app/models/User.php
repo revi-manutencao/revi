@@ -6,7 +6,7 @@
  * Time: 22:28
  */
 
-class User{
+class User extends Model{
     private $id;
     private $name;
     private $email;

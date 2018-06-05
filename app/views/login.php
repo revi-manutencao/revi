@@ -9,12 +9,16 @@
     <div class="container">
         <form action="entrar" method="post" id="loginform" class="content block">
             <h1>Entrar</h1>
+
             <br>
+
+            <?=hasFlash('success') ? flash('success').'<br>' : ''?>
 
             <input type="text" name="username" placeholder="Nome de usuário">
             <input type="password" name="password" placeholder="Senha">
+            <?=(hasFlash('passwordError'))? flash('passwordError'):''?>
             <br>
-            <button type="button" onclick="location.href='user';">Entrar</button>
+            <button>Entrar</button>
 
             <br>
             <br>

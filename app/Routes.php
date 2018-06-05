@@ -12,9 +12,9 @@
  *
  */
 
-Router::define('entrar', 'MainController/login');
-Router::define('cadastro', 'MainController/cadastro');
-Router::define('user', 'MainController/user');
+Router::define('entrar', 'UserController/login');
+Router::define('cadastro', 'UserController/cadastro');
+Router::define('sair', 'UserController/logout');
 
 
 // Rotas para a construção das parada
