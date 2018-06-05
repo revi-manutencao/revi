@@ -101,8 +101,14 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         height: 50px;
         margin: 5px;
         margin-bottom: 20px;
-        background: rgba(255,255,255,0.8);
+        /*background: rgba(255,255,255,0.8);*/
     }
+
+        #sidebar ul li.logo img {
+            width: 45px;
+            height: 45px;
+            margin: 2.5px;
+        }
 
     #sidebar ul li.last {
         position: absolute;
@@ -361,7 +367,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         height: 50px;
         margin: 5px;
         margin-right: 10px;
-        background: rgba(255,255,255,0.8);
+        /*background: rgba(255,255,255,0.8);*/
     }
 
     #sidebar ul li.last {

@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>!!section('pagetitle')!!</title>
     <link rel="stylesheet" href="<?=asset('styles/main.css')?>">
+
+    <link rel="shortcut icon" type="image/png" href="<?=asset('images/logo.png')?>">
+    <link rel="apple-touch-icon" href="<?=asset('images/logo.png')?>">
 </head>
 <body>
     <div id="sidebar" class="linearcolor">
