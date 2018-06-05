@@ -22,7 +22,9 @@ class UserController extends Controller {
                     }
 
                     $user = User::make()->where('login = ? and password = ?',
-                        [$post['login'], Auth::hashPassword($post['password'])]);
+                        [$post['username'], Auth::hashPassword($post['password'])])->find()[0];
+
+                    $user->setPassword(null);
 
                     Auth::createAuthSession($user, '/');
                     break;
@@ -64,7 +66,6 @@ class UserController extends Controller {
 
                     redirect('entrar')
                         ->flash('success', 'Usuário '.$user->getLogin().' criado com sucesso.');
-                    dump($user);
                     break;
             }
     }
@@ -73,5 +74,13 @@ class UserController extends Controller {
     public function logout () {
 	    Auth::doLogout();
 	    redirect('/');
+    }
+
+
+    public static function listaProcessos () {
+	    $user = Auth::getLoggedUser();
+	    $processos = Process::make()->where('id_user = ?', $user->getId())->find();
+
+        view('home-user', ['processos' => $processos]);
     }
 }

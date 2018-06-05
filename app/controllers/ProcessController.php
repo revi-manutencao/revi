@@ -3,4 +3,8 @@
 class ProcessController extends Controller {
 
 	public function index () { }
+
+	public function novoProcesso () {
+	    view('choice-base');
+    }
 }

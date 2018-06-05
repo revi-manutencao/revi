@@ -46,7 +46,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     font-size: 10pt;
     background: aquamarine;
     border: none;
-    border-radius: 3px;
+    border-radius: 35px 5px 35px 5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     text-transform: uppercase;
     cursor: pointer;
@@ -54,9 +54,18 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 }
 
     input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, button:hover {
-        background: mediumaquamarine;
-        color: #FFFFFF;
+        background: #2cb5e8;
+        color: #FFF;
         transition: 0.3s;
+    }
+
+    .btn-white {
+        background: rgb(235,235,235);
+        color: #000;
+    }
+    .btn-white:hover {
+        background: aquamarine;
+        color: #000;
     }
 
 
@@ -84,13 +93,14 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         width: 40px;
         height: 40px;
         margin: 10px;
-        background: rgba(0,0,0,0.2);
+        /*background: rgba(0,0,0,0.2);*/
     }
 
     #sidebar ul li.logo {
         width: 50px;
         height: 50px;
         margin: 5px;
+        margin-bottom: 20px;
         background: rgba(255,255,255,0.8);
     }
 
@@ -98,6 +108,11 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         position: absolute;
         left: 0;
         bottom: 5px;
+    }
+
+    #sidebar ul li img {
+        width: 40px;
+        height: 40px;
     }
 
 
@@ -119,10 +134,18 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     margin: 15px;
 }
 
-.side-side {
+.halfwidth {
     display: inline-block;
-    margin: 0;
+    width:49%;
     vertical-align: top;
+}
+
+.textcenter {
+    text-align: center;
+}
+
+.textright {
+    text-align: right;
 }
 
 .cover {
@@ -139,15 +162,19 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 
 .tooltiptext {
     position: absolute;
-    background: rgba(0,0,0,0.4);
+    background: rgba(255,255,255,0.75);
     z-index: 1;
     padding: 5px 10px;
     text-align: center;
-    color: #FFF;
+    color: rgb(0,0,0);
     border-radius: 4px;
-    left: 60px;
+    margin-left: 10px;
+    /*margin-left: 50px;*/
+    margin-top: 5px;
     visibility: hidden;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    font-size: 10pt;
+    white-space: nowrap;
 }
 
     .tooltip:hover .tooltiptext {
@@ -156,13 +183,30 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 
 
 .content {
+    text-align: justify;
     display: block;
     margin: 40px auto;
-    min-height: 200px;
     width: 80%;
     max-width: 800px;
     padding: 15px;
 }
+
+    .content.fit {
+        margin: 10px auto;
+    }
+
+    .content h2 {
+        margin-top: 10px;
+        margin-bottom: 35px;
+    }
+    
+    .content.textright {
+        text-align: right;
+    }
+    
+    .content.textcenter {
+        text-align: center;
+    }
 
 
 .block {
@@ -186,11 +230,34 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 }
 
     .blocklist li {
+        vertical-align: top;
         display: inline-block;
         margin: 15px;
         width: calc(20% - 15px);
         max-width: 190px;
     }
+
+    .blocklist li input[type="radio"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin-left: -5px;
+        margin-right: -20px;
+        margin-top: -5px;
+        float: left;
+        display: inline-block;
+        padding: 0;
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        border: 2px solid rgb(60,60,60);
+        transition: 0.3s;
+    }
+
+        .blocklist li input[type="radio"]:checked {
+            transition: 0.3s;
+            background: rgb(60,60,60);
+            box-shadow: inset 0 0 0 3px rgba(255,255,255,0.8);
+        }
 
 
 .transluscentblock {
@@ -208,6 +275,19 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     .transluscentblock:hover {
         background: rgba(255,255,255,0.8);
         transition: 0.3s;
+    }
+
+
+.progress {
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+}
+
+    .progress.block {
+        width: 80%;
+        max-width: 200px;
+        padding: 10px 5px 5px;
     }
 
 
@@ -242,12 +322,14 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 
     #sidebar ul li {
         display: inline-block;
+        vertical-align: top;
     }
 
     #sidebar ul li.logo {
         width: 50px;
         height: 50px;
         margin: 5px;
+        margin-right: 10px;
         background: rgba(255,255,255,0.8);
     }
 
@@ -280,6 +362,14 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
             margin: 25px auto;
         }
 
+    .halfwidth {
+        display: block;
+        max-width: 90%;
+        width: auto;
+        padding: 10px 0;
+        text-align: center;
+    }
+
     .tooltip:hover .tooltiptext {
         visibility: hidden;
     }
@@ -288,7 +378,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         background: linear-gradient(90deg, aquamarine 0%, #2cb5e8 130%);
     }
 
-    ul.blocklist {
+    .blocklist {
         width: 100%;
         margin: 20px -20px;
         overflow-x: auto;
@@ -296,11 +386,15 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         padding: 0 15px;
     }
 
-        ul.blocklist li {
+        .blocklist li {
             display: inline-block;
             margin: 15px 10px;
             width: calc(100% - 20px);
         }
+        
+    .textright.comp-align {
+        /*text-align: center;*/
+    }
 
 
     /* ------- Formulário de login e registro ------- */

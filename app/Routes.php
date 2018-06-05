@@ -15,6 +15,7 @@
 Router::define('entrar', 'UserController/login');
 Router::define('cadastro', 'UserController/cadastro');
 Router::define('sair', 'UserController/logout');
+Router::define('criar', 'ProcessController/novoProcesso');
 
 
 // Rotas para a construção das parada

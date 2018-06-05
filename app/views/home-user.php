@@ -2,63 +2,21 @@
 
 
 @section('pagetitle')
-    Processinho, é você?
+    meus processos
 @endsection
 
 @section('maincontent')
     <div class="container">
-        <div class="content block">
-            Abacaxi
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-            <br>
-            Outra fruta
-        </div>
+        <h1 class="textcenter">meus processos</h1>
+        <?php
+            $processos = $data['processos'];
 
-        <ul class="blocklist">
-            <li class="transluscentblock">
-                Astolfo
-            </li>
-            <li class="transluscentblock">
-                Astolfo
-            </li>
-            <li class="transluscentblock">
-                Astolfo
-            </li>
-        </ul>
+            if(count($processos) > 0) {
+                echo 'Whoa! Você já tem pelo menos um processo';
+            } else
+                echo '<div class="content block textcenter">'
+                    .'<b>Está solitário por aqui</b>. Que tal criar um novo processo?'
+                    .'</div>';
+        ?>
     </div>
 @endsection

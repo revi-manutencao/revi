@@ -1,18 +1,21 @@
 @extends('sidebar')
 
 @section('sidebarcontent')
-    <a href="<?=route('/')?>">
+    <a href="<?=route('/meusdados')?>">
         <li id="processos" class="tooltip">
-            <span class="tooltiptext">Meus processos</span>
+            <img src="<?=asset('images/icons/user.png')?>">
+            <span class="tooltiptext">meus dados</span>
         </li>
-    </a><a href="<?=route('/novo')?>">
+    </a><a href="<?=route('/criar')?>">
         <li id="novo" class="tooltip">
-            <span class="tooltiptext">Novo processo</span>
+            <img src="<?=asset('images/icons/plus.png')?>">
+            <span class="tooltiptext">criar processo</span>
         </li>
     </a>
     <a href="<?=route('/sair')?>">
         <li id="logout" class="last tooltip">
-            <span class="tooltiptext">Sair</span>
+            <img src="<?=asset('images/icons/signout.png')?>">
+            <span class="tooltiptext">sair</span>
         </li>
     </a>
 @endsection
