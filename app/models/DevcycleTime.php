@@ -8,5 +8,5 @@
 
 class DevcycleTime extends BaseModel
 {
-
+    public $tableName = 'devcycle_time';
 }

@@ -8,6 +8,7 @@
 
 class MetricsMethodFeatures extends BaseModel
 {
+    public $tableName = 'metrics_method_features';
     private $idMetricsMethod;
 
     /**

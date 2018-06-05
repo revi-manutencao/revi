@@ -8,6 +8,7 @@
 
 class PeopleManagementFeatures extends BaseModel
 {
+    public $tableName = 'people_management_features';
     private $idPeopleManagement;
 
     /**

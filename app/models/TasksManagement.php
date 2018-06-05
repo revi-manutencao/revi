@@ -8,5 +8,5 @@
 
 class TasksManagement extends BaseModel
 {
-
+    public $tableName = 'tasks_management';
 }

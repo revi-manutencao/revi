@@ -8,6 +8,7 @@
 
 class DevcycleStructureFeatures extends BaseModel
 {
+    public $tableName = 'devcycle_structure_features';
     private $idDevcycleStructure;
 
     /**

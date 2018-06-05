@@ -8,5 +8,5 @@
 
 class PeopleManagement extends BaseModel
 {
-
+    public $tableName = 'people_management';
 }

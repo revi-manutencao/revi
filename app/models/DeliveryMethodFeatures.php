@@ -8,6 +8,7 @@
 
 class DeliveryMethodFeatures extends BaseModel
 {
+    public $tableName = 'delivery_method_features';
     private $idDeliveryMethod;
 
     /**

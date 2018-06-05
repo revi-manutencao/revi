@@ -14,8 +14,8 @@ class ConstructorController extends Controller {
         dump($tm1->save());
 
         $tm2->setName('Kanban');
-        $tm2->setDescription("O kanban é uma simbologia visual utilizada para registrar ações. Você pode 
-        seguir à risca a proposta do Kanban, separando em to do, doing e done, ou ampliar essas fases para fazer um 
+        $tm2->setDescription("O kanban é uma simbologia visual utilizada para registrar ações. Você pode
+        seguir à risca a proposta do Kanban, separando em to do, doing e done, ou ampliar essas fases para fazer um
         gerenciamento mais detalhado, e se surpreender com os resultados!");
         $tm2->setActive(true);
         dump($tm2->save());

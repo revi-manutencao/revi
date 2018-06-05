@@ -8,5 +8,5 @@
 
 class DevcycleStructure extends BaseModel
 {
-
+    public $tableName = 'devcycle_structure';
 }

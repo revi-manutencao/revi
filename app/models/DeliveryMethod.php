@@ -8,4 +8,5 @@
 
 class DeliveryMethod extends BaseModel
 {
+    public $tableName = 'delivery_method';
 }

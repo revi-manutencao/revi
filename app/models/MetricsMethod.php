@@ -8,5 +8,5 @@
 
 class MetricsMethod extends BaseModel
 {
-
+    public $tableName = 'metrics_method';
 }

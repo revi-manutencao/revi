@@ -8,7 +8,8 @@
 
 class DevcycleTimeFeatures extends BaseModel
 {
-        private $idDevcycleTime;
+    public $tableName = 'devcycle_time_features';
+    private $idDevcycleTime;
 
     /**
      * @return mixed

@@ -8,6 +8,7 @@
 
 class TasksManagementFeatures extends BaseModel
 {
+    public $tableName = 'tasks_management_features';
     private $idTasksManagement;
 
     /**
