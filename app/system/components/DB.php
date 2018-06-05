@@ -127,7 +127,6 @@ class DB
             $stmt = null;
             return $object;
         } else {
-            dump($sql);
             $con = null;
             return $stmt->errorInfo()[2];
         }

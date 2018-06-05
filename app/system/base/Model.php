@@ -105,18 +105,23 @@ abstract class Model {
      *
      * Obtém os atributos do objeto e seus valores
      */
-	public function getObjVars () {
-		$reflection = new ReflectionClass($this);
+    public function getObjVars () {
+        $reflection = new ReflectionClass($this);
+        $parentVars = $reflection->getParentClass()->getProperties();
         $vars = $reflection->getProperties();
 
         $arrVars = array();
 
         foreach ($vars as $privateVar) {
-         	$arrVars[] = $privateVar->getName();
+            $arrVars[] = $privateVar->getName();
+        }
+        foreach ($parentVars as $privateVar) {
+            if(!in_array($privateVar->getName(), $arrVars))
+                $arrVars[] = $privateVar->getName();
         }
 
         return $arrVars;
-	}
+    }
 
 
     /**
