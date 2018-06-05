@@ -7,4 +7,8 @@ class ProcessController extends Controller {
 	public function novoProcesso () {
 	    view('choice-base');
     }
+
+	public function verDadoProcesso () {
+	    view('info-base');
+    }
 }

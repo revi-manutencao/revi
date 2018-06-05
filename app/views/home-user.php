@@ -14,7 +14,7 @@
             if(count($processos) > 0) {
                 echo 'Whoa! Você já tem pelo menos um processo';
             } else
-                echo '<div class="content block textcenter">'
+                echo '<div class="content textcenter">'
                     .'<b>Está solitário por aqui</b>. Que tal criar um novo processo?'
                     .'</div>';
         ?>

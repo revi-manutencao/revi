@@ -17,6 +17,8 @@ Router::define('cadastro', 'UserController/cadastro');
 Router::define('sair', 'UserController/logout');
 Router::define('criar', 'ProcessController/novoProcesso');
 
+Router::define('info', 'ProcessController/verDadoProcesso');
+
 
 // Rotas para a construção das parada
 Router::define('cc/tasksmgmt', 'ConstructorController/createTasksMgmt');
