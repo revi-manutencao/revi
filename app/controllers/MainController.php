@@ -3,7 +3,7 @@
 class MainController extends Controller {
 
 	public function index () {
-	    if(Auth::isLogged())
+        if(Auth::isLogged())
             UserController::listaProcessos();
         else
 	        view('home-info');

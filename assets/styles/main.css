@@ -272,7 +272,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 
     .blocklist label {
         display: block;
-        margin: 15px auto;
+        margin: 20px auto;
         width: 80%;
         max-width: 220px;
         border-radius: 5px;
