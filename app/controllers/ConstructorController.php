@@ -65,8 +65,9 @@ class ConstructorController extends Controller {
         dump($ph6->save());
     }
 
-
     public function createFeatures() {
+        //---------------- Gerenciamento de tarefas
+
         $ft1 = new Feature();
         $ft1->setIdPhase(1);
         $ft1->setName('Checklist');
@@ -79,9 +80,10 @@ class ConstructorController extends Controller {
         $ft2 = new Feature();
         $ft2->setIdPhase(1);
         $ft2->setName('Quadro dividido por colunas');
-        $ft2->setDescription('O kanban é uma simbologia visual utilizada para registrar ações. Você pode
-            seguir à risca a proposta do Kanban, separando em to do, doing e done, ou ampliar essas fases para fazer um
-            gerenciamento mais detalhado, e se surpreender com os resultados!');
+        $ft2->setDescription('Um bom exemplo de utilização de quadros divididos por colunas é o Kanban. 
+            O kanban é uma simbologia visual utilizada para registrar ações. Você pode seguir à risca a proposta do 
+            Kanban, separando em to do, doing e done, ou ampliar essas fases para fazer um gerenciamento mais detalhado, 
+            e se surpreender com os resultados!');
         $ft2->setActive(true);
         dump($ft2->save());
 
@@ -93,5 +95,54 @@ class ConstructorController extends Controller {
             tarefas, os quais devem ser seguidos à risca para a execução de cada uma!');
         $ft2->setActive(true);
         dump($ft2->save());
+
+        //---------------- Gerenciamento de pessoas
+
+        $ft2 = new Feature();
+        $ft2->setIdPhase(1);
+        $ft2->setName('Delegação de tarefas');
+        $ft2->setDescription('Dentre tantas atividades desenvolvidas pelo gestor na sua rotina diária, talvez
+            a delegação seja uma das que possibilite maior probabilidade em atingir melhores resultados, por 
+            proporcionar ao gestor tempo para focar-se nos aspectos de maior importância e pontos estratégicos 
+            de sua função, bem como, gerar maior comprometimento dos colaboradores com o trabalho, diante da percepção 
+            do desenvolvimento suas habilidades.
+		    Delegar, além de permitir maior disponibilidade ao gestor faz com que esse possa avaliar a potencialidade 
+		    dos seus colaboradores.');
+        $ft2->setActive(true);
+        dump($ft2->save());
+
+        $ft2 = new Feature();
+        $ft2->setIdPhase(1);
+        $ft2->setName('Escolha de tarefa por membro');
+        $ft2->setDescription('Um bom exemplo de como organizar as tarefas de um modo que os desenvolvedores 
+            não fiquem dependentes de uma delegação de tarefas por meio do gerente de projetos é o Trello. Com ele, você 
+            pode criar cartões com as tarefas posicionadas estratégicamente em colunas. Assim, basta que o desenvolvedor 
+            consulte a coluna "ToDo" e desenvolva alguma das tarefas, dando mais liberdade a sua equipe!');
+        $ft2->setActive(true);
+        dump($ft2->save());
+
+        //---------------- Gerenciamento de interação com o cliente
+
+        $ft2 = new Feature();
+        $ft2->setIdPhase(1);
+        $ft2->setName('Entregas parciais');
+        $ft2->setDescription('Entregas parciais são amplamente utilizadas para validação de um escopo 
+            de desenvolvimento. Com um bom plamejamento de entregas, você garante o feedback do cliente em etapas cruciais 
+            do seu sistema, promove validação dos seus requisitos. Utilize desta estratégia para atingir o sucesso de seu 
+            projeto!');
+        $ft2->setActive(true);
+        dump($ft2->save());
+
+        $ft2 = new Feature();
+        $ft2->setIdPhase(1);
+        $ft2->setName('Interação continua');
+        $ft2->setDescription('O cliente: trabalhar com ele e não para ele. A interação continua  é um ótimo 
+            metodo de promover a comunicação Requisitos em Projetos de Software! 
+		    Utilizar deste conceito da forma correta pode lhe auxiliar a obter a total satisfação do cliente para com o 
+		    seu projeto. Esta técnica visa o feedback contínuo do cliente para com a aplicação desenvolvite. Atinja a 
+		    satistfação total do seu cliente trabalhando com ele em seu projeto!');
+        $ft2->setActive(true);
+        dump($ft2->save());
+
     }
 }
