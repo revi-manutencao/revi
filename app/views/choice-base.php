@@ -25,9 +25,12 @@
                 <div class="content block">
                     <h2><?=$phase->getName()?></h2>
 
-                    <span class="maintext">
+                    <p>
                         <?=nl2br($phase->getDescription())?>
-                    </span>
+                    </p>
+
+                    <p id="shortdesc"></p>
+                    <p id="longdesc"></p>
                 </div>
             </div>
 
@@ -54,19 +57,41 @@
         </form>
     </div>
     <script>
+        var baseurl = '<?=SYSROOT?>/api/feature/';
+
         function checkContent(element) {
             var id = element.value;
 
             $.ajax({
-                url: '<?=SYSROOT?>/api/feature/'+id,
+                url: baseurl + id,
                 method: 'get',
                 dataType: 'json',
                 success: function(data) {
-                    $('.maintext').html('<h4>'+ data.Feature.name + '</h4>'+
-                        data.Feature.shortdescription.replace('\n', '<br />'));
+                    $('#shortdesc').html('<br><h4>'+ data.Feature.name + '</h4>'+
+                        data.Feature.shortdescription.replace('\n', '<br/>')+
+                        '<span id="vermais"><br><br>'+
+                        '<button type="button" onclick="showMore('+id+')">Ver mais</button></span>');
+
+                    $('#longdesc').html('');
                 },
                 error: function(data) {
                     console.error('Não foi possível obter os dados da opção selecionada.');
+                }
+            });
+        }
+
+        function showMore(idFeature) {
+            $('#vermais').remove();
+
+            $.ajax({
+                url: baseurl + idFeature,
+                method: 'get',
+                dataType: 'json',
+                success: function(data) {
+                    $('#longdesc').html('<br>'+data.Feature.longdescription.replace('\n', '<br/>'));
+                },
+                error: function(data) {
+                    console.error('Não foi possível obter os dados do objeto.');
                 }
             });
         }
