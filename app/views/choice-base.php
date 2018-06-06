@@ -19,7 +19,7 @@
             </div>
         </span>
 
-        <form action="" method="post" class="form-container">
+        <form action="criar" method="post" class="form-container">
 
             <div class="container side-side">
                 <div class="content block">

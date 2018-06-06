@@ -2,9 +2,6 @@
 
 class UserController extends Controller {
 
-	public function index () { }
-
-
     public function login () {
 	    if(Auth::isLogged())
 	        redirect('/');
@@ -80,7 +77,7 @@ class UserController extends Controller {
     public function logout () {
 	    Auth::setRestricted('entrar');
 	    Auth::doLogout();
-//	    unset($_SESSION['currentProcess']);
+	    unset($_SESSION['currentProcess']);
 	    redirect('/');
     }
 

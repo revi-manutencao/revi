@@ -2,80 +2,116 @@
 
 class ProcessController extends Controller {
 
-	public function index () { }
-
 	public function novoProcesso () {
 	    Auth::setRestricted('entrar');
 
+        // Obtém o(s) processo(s) ativos e não finalizado(s) do usuário (ideal que seja no máximo 1)
+        $unfinishedProcesses = Process::make()
+            ->where('active = true and name = "" and id_user = ?', Auth::getLoggedUser()->getId())
+            ->find();
+
+
+        // Define o processo a ser preenchido
+        if(count($unfinishedProcesses) == 0)
+            $currentProcess = new Process();
+        else
+            $currentProcess = $unfinishedProcesses[0];
+
+
+
+        // Verifica quão completo o processo está e define a etapa atual da escolha
+        if($currentProcess->getId() == null)
+            $phaseNumber = 1;
+        else {
+            $processFeatures = ProcessFeature::make()->where('id_process = ?', $currentProcess->getId())->find();
+
+            $phaseNumber = count($processFeatures) + 1;
+        }
+
+        // Conta o total de etapas de processo a serem preenchidas
+        $countPhases = count(Phase::make()->all());
+
+
+        // Verifica o método da requisição
 	    switch (getRequest()){
             case 'get':
 
-                /**
-                 * VERIFICAR SE EXISTE PROCESSO NÃO FINALIZADO NO BD, REMOVER USO DE SESSÃO
-                 */
+                // Armazena o valor de completude do processo atualmente
+                $percentage = number_format((($phaseNumber/$countPhases) - (1/$countPhases)) * 100, 2);
 
-                // Obtém o(s) processo(s) ativos e não finalizado(s) do usuário (ideal que seja no máximo 1)
-                $unfinishedProcesses = Process::make()->where(
-                    'active = true and name is null and id_user = ?',
-                    Auth::getLoggedUser()->getId()
-                )->find();
+                if($phaseNumber <= $countPhases) {
+                    // Obtém o objeto referente à etapa atual
+                    $objPhase = Phase::make()->where('active = true and id = ?', $phaseNumber)->find();
 
 
-                dd($unfinishedProcesses);
+                    // Caso não encontre a etapa do processo em questão
+                    if (count($objPhase) == 0) {
+                        echo 'Houve um problema';
+                        die;
+                    }
 
+                    // Retira o objeto do vetor
+                    $objPhase = $objPhase[0];
 
-                if(session('currentProcess') == null)
-                    session('currentProcess', ['idProcess' => null, 'phase' => 1]);
+                    // Obtém as features da etapa
+                    $features = Feature::make()->where('id_phase = ?', $objPhase->getId())->find();
 
-                $phase = Phase::make()->where('active = true and id = ?', session('currentProcess')['phase'])->find();
-                $countPhases = count(Phase::make()->all());
+                    // Define os dados que serão enviados para a view
+                    $viewData = ['phase' => $objPhase, 'features' => $features, 'percentage' => $percentage];
 
-
-                // Caso não encontre a etapa do processo em questão
-                if(count($phase) == 0) {
-                    echo 'Houve um problema';
-                    die;
+                    view('choice-base', $viewData);
                 }
-
-                $phase = $phase[0];
-                $features = Feature::make()->where('id_phase = ?', $phase->getId())->find();
-
-                $percentage = number_format((($phase->getId()/$countPhases) - (1/$countPhases)) * 100, 2);
-
-                $viewData = ['phase' => $phase, 'features' => $features, 'percentage' => $percentage];
-
-                view('choice-base', $viewData);
+                else {
+                    // Quando acabarem as etapas de escolha, solicitar o nome e descrição
+                    view('process-namer');
+                }
                 break;
 
 
 
 
             case 'post':
+                // Obtém os dados do POST
                 $post = filterPost();
-                $cp = session('currentProcess');
-                dump($cp);
 
-                if($cp['idProcess'] == null) {
-                    $process = new Process();
-                    $process->setCreatedAt(date('Y-m-d H:i:s'));
-                } else
-                    $process = Process::make()->get($cp['idProcess']);
+                if($phaseNumber <= $countPhases) {
+                    // Preenche os dados do processo
+                    if ($currentProcess->getCreatedAt() == null) {
+                        $currentProcess->setCreatedAt(date('Y-m-d H:i:s'));
+                        $currentProcess->setActive(true);
+                        $currentProcess->setIdUser(Auth::getLoggedUser()->getId());
+                    }
 
-                $process->setUpdatedAt(date('Y-m-d H:i:s'));
-                $process->setActive(true);
-                $process->setIdUser(Auth::getLoggedUser()->getId());
-                $process->save();
+                    $currentProcess->setUpdatedAt(date('Y-m-d H:i:s'));
+                    $currentProcess->save();
 
-                $pf = new ProcessFeature();
-                $pf->setIdProcess($process->getId());
-                $pf->setIdFeature($post['choice']);
-                $pf->save();
 
-                $cp['idProcess'] = $process->getId();
-                $cp['phase']++;
-                session('currentProcess', $cp);
+                    // Salva o objeto ProcessFeature relacionando à opção realizada pelo usuário
+                    $pf = new ProcessFeature();
+                    $pf->setIdProcess($currentProcess->getId());
+                    $pf->setIdFeature($post['choice']);
+                    $pf->save();
 
-                redirect('criar');
+                    // Redireciona para a mesma página a fim de continuar o processo
+                    redirect('criar');
+                }
+                else {
+                    // Preenche o nome e descrição do processo ao final de todas as etapas
+                    $valid = Validation::check($post, array(
+                        'nomeprocesso' => 'required|max:200'
+                    ));
+
+                    if(!$valid)
+                        back()->withValues();
+
+
+                    // Salva os dados novos do processo
+                    $currentProcess->setName($post['nomeprocesso']);
+                    $currentProcess->setDescription($post['descricaoprocesso']);
+                    $currentProcess->save();
+
+                    redirect('/');
+                }
                 break;
         }
     }
