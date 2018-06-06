@@ -2,7 +2,7 @@
 
 
 @section('pagetitle')
-    info | revi
+    criar processo | revi
 @endsection
 
 @section('maincontent')
