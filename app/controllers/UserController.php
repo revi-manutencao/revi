@@ -79,7 +79,7 @@ class UserController extends Controller {
 
     public function logout () {
 	    Auth::doLogout();
-	    unset($_SESSION['currentProcess']);
+//	    unset($_SESSION['currentProcess']);
 	    redirect('/');
     }
 

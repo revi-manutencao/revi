@@ -15,7 +15,7 @@
                 foreach($processos as $processo) {
 
                     echo '<div class="content textcenter block">';
-                    echo '<b>'.(($processo->getName() != null) ? $processo->getName() : '<i>Processo sem nome</i>').'</b>';
+                    echo '<b>'.(($processo->getName() != null) ? $processo->getName() : '<i>Processo não finalizado</i>').'</b>';
                     echo ', atualizado em ' . date('d/m/Y, H:i', strtotime($processo->getUpdatedAt()));
                     echo '</div>';
                 }
