@@ -1,13 +1,11 @@
 <?php
 
-class Process extends Model{
+class Feature extends Model{
     private $id;
     private $name;
     private $description;
     private $active;
-    private $idUser;
-    private $createdAt;
-    private $updatedAt;
+    private $idPhase;
 
     /**
      * @return mixed
@@ -76,50 +74,17 @@ class Process extends Model{
     /**
      * @return mixed
      */
-    public function getIdUser()
+    public function getIdPhase()
     {
-        return $this->idUser;
+        return $this->idPhase;
     }
 
     /**
-     * @param mixed $idUser
+     * @param mixed $idPhase
      */
-    public function setIdUser($idUser)
+    public function setIdPhase($idPhase)
     {
-        $this->idUser = $idUser;
+        $this->idPhase = $idPhase;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param mixed $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param mixed $updatedAt
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-
+    
 }

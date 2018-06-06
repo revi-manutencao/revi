@@ -1,13 +1,10 @@
 <?php
 
-class Process extends Model{
+class Phase extends Model{
     private $id;
     private $name;
     private $description;
     private $active;
-    private $idUser;
-    private $createdAt;
-    private $updatedAt;
 
     /**
      * @return mixed
@@ -72,54 +69,5 @@ class Process extends Model{
     {
         $this->active = $active;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getIdUser()
-    {
-        return $this->idUser;
-    }
-
-    /**
-     * @param mixed $idUser
-     */
-    public function setIdUser($idUser)
-    {
-        $this->idUser = $idUser;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param mixed $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param mixed $updatedAt
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-
+    
 }

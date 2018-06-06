@@ -92,7 +92,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         height: 50px;
         margin: 5px 5px 10px 5px;
         padding: 0 0 10px 0;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
+        border-bottom: 1px solid rgba(0,0,0,0.15);
     }
 
         #sidebar ul li.logo img {
@@ -398,7 +398,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         margin: 5px;
         padding: 0 10px 0 0;
         border-bottom: none;
-        border-right: 1px solid rgba(0,0,0,0.1);
+        border-right: 1px solid rgba(0,0,0,0.15);
     }
 
     #sidebar ul li.last {

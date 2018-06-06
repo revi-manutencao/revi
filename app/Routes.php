@@ -22,4 +22,5 @@ Router::define('info', 'ProcessController/verDadoProcesso');
 
 
 // Rotas para a construção das parada
-Router::define('cc/tasksmgmt', 'ConstructorController/createTasksMgmt');
+//Router::define('cc/tasksmgmt', 'ConstructorController/createTasksMgmt');
+Router::define('cc/phases', 'ConstructorController/createPhases');

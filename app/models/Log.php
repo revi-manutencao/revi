@@ -1,13 +1,12 @@
 <?php
 
-class Process extends Model{
+class Log extends Model{
     private $id;
-    private $name;
+    private $title;
     private $description;
-    private $active;
+    private $datetime;
     private $idUser;
-    private $createdAt;
-    private $updatedAt;
+    private $idProcess;
 
     /**
      * @return mixed
@@ -28,17 +27,17 @@ class Process extends Model{
     /**
      * @return mixed
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $title
      */
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name = $name;
+        $this->title = $title;
     }
 
     /**
@@ -60,17 +59,17 @@ class Process extends Model{
     /**
      * @return mixed
      */
-    public function getActive()
+    public function getDatetime()
     {
-        return $this->active;
+        return $this->datetime;
     }
 
     /**
-     * @param mixed $active
+     * @param mixed $datetime
      */
-    public function setActive($active)
+    public function setDatetime($datetime)
     {
-        $this->active = $active;
+        $this->datetime = $datetime;
     }
 
     /**
@@ -92,34 +91,17 @@ class Process extends Model{
     /**
      * @return mixed
      */
-    public function getCreatedAt()
+    public function getIdProcess()
     {
-        return $this->createdAt;
+        return $this->idProcess;
     }
 
     /**
-     * @param mixed $createdAt
+     * @param mixed $idProcess
      */
-    public function setCreatedAt($createdAt)
+    public function setIdProcess($idProcess)
     {
-        $this->createdAt = $createdAt;
+        $this->idProcess = $idProcess;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param mixed $updatedAt
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
 
 }

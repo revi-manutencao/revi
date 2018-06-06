@@ -1052,7 +1052,7 @@ class PHPMailer
      * @param string|callable $patternselect A selector for the validation pattern to use :
      * * `auto` Pick best pattern automatically;
      * * `pcre8` Use the squiloople.com pattern, requires PCRE > 8.0, PHP >= 5.3.2, 5.2.14;
-     * * `pcre` Use old PCRE implementation;
+     * * `pcre` Use previous PCRE implementation;
      * * `php` Use PHP built-in FILTER_VALIDATE_EMAIL;
      * * `html5` Use the pattern given by the HTML5 spec for 'email' type form input elements.
      * * `noregex` Don't use a regex: super fast, really dumb.
@@ -2911,7 +2911,7 @@ class PHPMailer
     }
 
     /**
-     * Backward compatibility wrapper for an old QP encoding function that was removed.
+     * Backward compatibility wrapper for an previous QP encoding function that was removed.
      * @see PHPMailer::encodeQP()
      * @access public
      * @param string $string
@@ -3635,7 +3635,7 @@ class PHPMailer
 
     /**
      * Multi-byte-safe pathinfo replacement.
-     * Drop-in replacement for pathinfo(), but multibyte-safe, cross-platform-safe, old-version-safe.
+     * Drop-in replacement for pathinfo(), but multibyte-safe, cross-platform-safe, previous-version-safe.
      * Works similarly to the one in PHP >= 5.2.0
      * @link http://www.php.net/manual/en/function.pathinfo.php#107461
      * @param string $path A filename or path, does not need to exist as a file
@@ -3788,7 +3788,7 @@ class PHPMailer
         } else {
             $privKey = openssl_pkey_get_private($privKeyStr);
         }
-        //Workaround for missing digest algorithms in old PHP & OpenSSL versions
+        //Workaround for missing digest algorithms in previous PHP & OpenSSL versions
         //@link http://stackoverflow.com/a/11117338/333340
         if (version_compare(PHP_VERSION, '5.3.0') >= 0 and
             in_array('sha256WithRSAEncryption', openssl_get_md_methods(true))) {
