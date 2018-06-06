@@ -89,4 +89,48 @@ class UserController extends Controller {
 
         view('home-user', ['processos' => $processos]);
     }
+
+
+    public function meusDados () {
+        Auth::setRestricted('entrar');
+
+        switch($this->getRequest()) {
+            case 'get':
+                view('user-data');
+                break;
+            case 'post':
+//                $valid = Validation::check(filterPost(), array(
+//                    'nome' => 'required|alpha',
+//                    'nomeusuario' => 'required|min:6|alphanum',
+//                    'email' => 'required|email',
+//                    'senha' => 'required',
+//                    'confirmasenha' => 'required|equal:senha'
+//                ));
+//
+//                if(!$valid) {
+//                    back()->withValues();
+//                    return;
+//                }
+//
+//                $post = filterPost();
+//
+//                $result = User::make()->where('login = ? or email = ?', [$post['username'], $post['email']])->find();
+//
+//                if(count($result) > 0) {
+//                    back()->flash('error', 'Usuário já existente');
+//                    die;
+//                }
+//
+//                $user = User::make();
+//                $user->setLogin($post['nomeusuario']);
+//                $user->setName($post['nome']);
+//                $user->setEmail($post['email']);
+//                $user->setPassword(Auth::hashPassword($post['senha']));
+//                $user->save();
+//
+//                redirect('entrar')
+//                    ->flash('success', 'Usuário <b>'.$user->getLogin().'</b> criado com sucesso.');
+                break;
+        }
+    }
 }

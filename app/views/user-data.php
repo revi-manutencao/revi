@@ -2,13 +2,13 @@
 
 
 @section('pagetitle')
-    criar conta | revi
+    meus dados | revi
 @endsection
 
 @section('maincontent')
     <div class="container">
-        <form action="cadastro" method="post" id="regform" class="content block">
-            <h1>criar conta</h1>
+        <form action="meusdados" method="post" id="regform" class="content block">
+            <h1>meus dados</h1>
             <br>
 
             <input type="text" name="nomeusuario" placeholder="Nome de usuário"
@@ -37,7 +37,7 @@
                 .(checkInputErrors('confirmasenha') ? getInputErrors('confirmasenha'):'')
                 .flash('error')
                 .'</div><br>' : ''?>
-            <button>Cadastrar</button>
+            <button>Atualizar</button>
         </form>
     </div>
 @endsection

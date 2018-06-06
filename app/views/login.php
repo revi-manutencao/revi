@@ -8,7 +8,7 @@
 @section('maincontent')
     <div class="container">
         <form action="entrar" method="post" id="loginform" class="content block">
-            <h1>Entrar</h1>
+            <h1>entrar</h1>
 
             <br>
 
