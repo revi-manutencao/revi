@@ -64,4 +64,34 @@ class ConstructorController extends Controller {
         $ph6->setActive(true);
         dump($ph6->save());
     }
+
+
+    public function createFeatures() {
+        $ft1 = new Feature();
+        $ft1->setIdPhase(1);
+        $ft1->setName('Checklist');
+        $ft1->setDescription('Os checklists são mágicos! Com eles você vai ganhar tempo, errar menos e ser
+            muito mais produtivo. Checklists são utilizados na medicina, na engenharia e até na aeronáutica. Se você trabalha
+     `       com internet e ainda não usa checklists, está perdendo tempo!');
+        $ft1->setActive(true);
+        dump($ft1->save());
+
+        $ft2 = new Feature();
+        $ft2->setIdPhase(1);
+        $ft2->setName('Quadro dividido por colunas');
+        $ft2->setDescription('O kanban é uma simbologia visual utilizada para registrar ações. Você pode
+            seguir à risca a proposta do Kanban, separando em to do, doing e done, ou ampliar essas fases para fazer um
+            gerenciamento mais detalhado, e se surpreender com os resultados!');
+        $ft2->setActive(true);
+        dump($ft2->save());
+
+        $ft2 = new Feature();
+        $ft2->setIdPhase(1);
+        $ft2->setName('Quadro dividido por etiquetas');
+        $ft2->setDescription('Um quadro de tarefas pode ser dividido por etiquetas em que cada cor de 
+            etiqueta corresponde a uma prioridade ou classificação da tarefa. Assim, são definidos atributos das
+            tarefas, os quais devem ser seguidos à risca para a execução de cada uma!');
+        $ft2->setActive(true);
+        dump($ft2->save());
+    }
 }
