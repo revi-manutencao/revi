@@ -7,13 +7,15 @@
  */
 
 class Process extends BaseModel{
-        private $idTasksManagement;
-        private $idPeopleManagement;
-        private $idDeliveryMethod;
-        private $idUser;
-        private $idDevcycleStruture;
-        private $idMetricsMethod;
-        private $idDevcycleTime;
+    private $idTasksManagement;
+    private $idPeopleManagement;
+    private $idDeliveryMethod;
+    private $idUser;
+    private $idDevcycleStruture;
+    private $idMetricsMethod;
+    private $idDevcycleTime;
+    private $createdAt;
+    private $updatedAt;
 
     /**
      * @return mixed
@@ -125,6 +127,38 @@ class Process extends BaseModel{
     public function setIdDevcycleTime($idDevcycleTime)
     {
         $this->idDevcycleTime = $idDevcycleTime;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param mixed $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
     }
 
 
