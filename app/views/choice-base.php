@@ -64,7 +64,8 @@
                 method: 'get',
                 dataType: 'json',
                 success: function(data) {
-                    $('.maintext').html('<h4>'+ data.Feature.name + '</h4>'+data.Feature.description);
+                    $('.maintext').html('<h4>'+ data.Feature.name + '</h4>'+
+                        data.Feature.description.replace('\n', '<br />'));
                 },
                 error: function(data) {
                     console.error('Não foi possível obter os dados da opção selecionada.');

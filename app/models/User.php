@@ -6,6 +6,7 @@ class User extends Model{
     private $email;
     private $login;
     private $password;
+    private $active;
 
     /**
      * @return mixed
@@ -85,6 +86,22 @@ class User extends Model{
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param mixed $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
     }
 
 

@@ -34,6 +34,12 @@ class ConstructorController extends Controller {
         $ph1->setActive(true);
         dump($ph1->save());
 
+        $ph5 = new Phase();
+        $ph5->setName('Gerenciamento de pessoas');
+        $ph5->setDescription('Um texto comprido descrevendo o gerenciamento de pessoas.');
+        $ph5->setActive(true);
+        dump($ph5->save());
+
         $ph2 = new Phase();
         $ph2->setName('Estrutura do ciclo de desenvolvimento');
         $ph2->setDescription('Um texto comprido descrevendo a estrutura do ciclo de desenvolvimento.');
@@ -52,11 +58,6 @@ class ConstructorController extends Controller {
         $ph4->setActive(true);
         dump($ph4->save());
 
-        $ph5 = new Phase();
-        $ph5->setName('Gerenciamento de pessoas');
-        $ph5->setDescription('Um texto comprido descrevendo o gerenciamento de pessoas.');
-        $ph5->setActive(true);
-        dump($ph5->save());
 
         $ph6 = new Phase();
         $ph6->setName('Método de aplicação de métricas');
@@ -73,48 +74,47 @@ class ConstructorController extends Controller {
         $ft1->setName('Checklist');
         $ft1->setDescription('Os checklists são mágicos! Com eles você vai ganhar tempo, errar menos e ser 
             muito mais produtivo. Checklists são utilizados na medicina, na engenharia e até na aeronáutica. Se você 
-            trabalha com internet e ainda não usa checklists, está perdendo tempo!
+            trabalha com internet e ainda não usa checklists, está perdendo tempo!\n
 			O Checklist é uma lista de itens que foi previamente estabelecida para certificar as condições de um 
 			serviço, produto, processo ou qualquer outra tarefa. Seu intuito é atestar que todas as etapas ou 
 			itens da lista foram cumpridas de acordo com o programado. O Checklist, também conhecido como Folha de 
 			Verificação, está no hall das famosas e consagradas ferramentas da qualidade. Sua utilização é tão 
-			difundida que podemos encontrar em diferentes setores empresariais e círculos sociais.
+			difundida que podemos encontrar em diferentes setores empresariais e círculos sociais.\n\n
 
-			Como fazer um Checklist?
+			Como fazer um Checklist?\n\n
 
-			Vamos para a prática de como fazer!
-			#1º passo: Defina o que precisa ser verificado
+			Vamos para a prática de como fazer!\n\n
+			#1º passo: Defina o que precisa ser verificado\n\n
 
             Apesar de óbvio, muitos se enganam na hora de elaborar a lista de verificação. Por isso é importante 
             definir o que deve ser enxergado e os porquês de desenvolver o Checklist, ou seja tenha claro em mente 
-            o objetivo e importância da ferramenta.
+            o objetivo e importância da ferramenta.\n\n
 
-			#2º passo: Defina a frequência de utilização
+			#2º passo: Defina a frequência de utilização\n\n
 
             Nesta etapa é essencial definir quais são os momentos que a lista de verificação deverá ser utilizada. 
             Existem prestadores de serviço que após a realização do seu trabalho utilizam o checklist para demonstrar 
             ao cliente que todas atividades foram executadas. Além disso, colocam um campo de assinatura onde o 
-            cliente valida a lista para demonstrar que tudo que foi entregue conforme o combinado.
+            cliente valida a lista para demonstrar que tudo que foi entregue conforme o combinado.\n\n
 			
-			#3º passo: Defina quem irá utilizar
+			#3º passo: Defina quem irá utilizar\n\n
 
             Tenha bem definido quem são os responsáveis por utilizar o Checklist. Com a definição dos responsáveis 
             aplique um treinamento demonstrando como utilizar e a importância. Aplicar esta ferramenta pode exigir uma 
-            mudança de cultura, uma vez que no começo alguns colaboradores podem menosprezá-la.
+            mudança de cultura, uma vez que no começo alguns colaboradores podem menosprezá-la.\n\n
 
-			#4º passo: Defina os itens a serem verificados
+			#4º passo: Defina os itens a serem verificados\n\n
 
 				Este é o momento de definir quais os itens precisam ser checados para constatar se um serviço, 
 				produto, processo ou atividade foi plenamente cumprido de acordo com as especificações. Por isso, peça 
 				ajuda do colaborador que utilizará a ferramenta, pois eles já possuem o conhecimento e a experiência 
-				necessárias para auxiliar na definição do conteúdo da lista.
+				necessárias para auxiliar na definição do conteúdo da lista.\n\n
 			
-			#5º passo: Teste a lista
+			#5º passo: Teste a lista\n\n
 
 				Antes de utilizar a lista, peça para alguns colaboradores, que irão utilizar está ferramenta, 
 				realizem alguns testes para certificar que o instrumento está validado ou se é necessário alterar 
-				alguma coisa. Normalmente, durante o teste sempre surgem dúvidas e sugestões de melhoria.
-');
+				alguma coisa. Normalmente, durante o teste sempre surgem dúvidas e sugestões de melhoria.');
         $ft1->setActive(true);
         dump($ft1->save());
 
@@ -195,7 +195,7 @@ class ConstructorController extends Controller {
         //---------------- Gerenciamento de pessoas
 
         $ft2 = new Feature();
-        $ft2->setIdPhase(1);
+        $ft2->setIdPhase(2);
         $ft2->setName('Delegação de tarefas');
         $ft2->setDescription('Dentre tantas atividades desenvolvidas pelo gestor na sua rotina diária, talvez
             a delegação seja uma das que possibilite maior probabilidade em atingir melhores resultados, por 
@@ -263,7 +263,7 @@ class ConstructorController extends Controller {
         dump($ft2->save());
 
         $ft2 = new Feature();
-        $ft2->setIdPhase(1);
+        $ft2->setIdPhase(2);
         $ft2->setName('Escolha de tarefa por membro');
         $ft2->setDescription('Um bom exemplo de como organizar as tarefas de um modo que os desenvolvedores 
             não fiquem dependentes de uma delegação de tarefas por meio do gerente de projetos é o Trello. Com ele, você 
@@ -303,7 +303,7 @@ class ConstructorController extends Controller {
         //---------------- Gerenciamento de interação com o cliente
 
         $ft2 = new Feature();
-        $ft2->setIdPhase(1);
+        $ft2->setIdPhase(2);
         $ft2->setName('Entregas parciais');
         $ft2->setDescription('Entregas parciais são amplamente utilizadas para validação de um escopo 
             de desenvolvimento. Com um bom plamejamento de entregas, você garante o feedback do cliente em etapas cruciais 
@@ -344,7 +344,7 @@ class ConstructorController extends Controller {
         dump($ft2->save());
 
         $ft2 = new Feature();
-        $ft2->setIdPhase(1);
+        $ft2->setIdPhase(2);
         $ft2->setName('Interação continua');
         $ft2->setDescription('O cliente: trabalhar com ele e não para ele. A interação continua  é um ótimo 
             metodo de promover a comunicação Requisitos em Projetos de Software! 
@@ -352,26 +352,26 @@ class ConstructorController extends Controller {
 		    seu projeto. Esta técnica visa o feedback contínuo do cliente para com a aplicação desenvolvite. Atinja a 
 		    satistfação total do seu cliente trabalhando com ele em seu projeto!
 		    A interação contínua promove total foco na satisfação de requisitos, assim, é necessário adquirir um bom 
-		    metodo de levantamento e saber utiliza-lo com inteação continua dentro de too o projeto.
+		    metodo de levantamento e saber utiliza-lo com inteação continua dentro de too o projeto.\n\n
 
-			 A comunicação das necessidades pelo Cliente ao AN/ER
+			 A comunicação das necessidades pelo Cliente ao AN/ER\n\n
 
 			O Business Analysis Body of Knowledge (BABoK) [3], da IIBA®, um guia de referência para requisitos, 
 			categoriza requisitos em: negócio (Business Requirements); stakeholders (Stakeholders Requirements) e 
-			solução (Solution Requirements).
+			solução (Solution Requirements).\n\n
 
 			O BABoK, bem como o Guide to the Software Engineering Body of Knowledge (SWEBoK), apresentam as seguintes 
-			técnicas de levantamento de requisitos:
+			técnicas de levantamento de requisitos:\n\n
 
-			    Brainstorming
-			    Análise documental
-			    Grupos de foco
-			    Análise de interfaces
-			    Entrevistas
-			    Observação
-			    Prototipagem
-			    Workshops de requisitos
-			    Questionários
+			    Brainstorming\n
+			    Análise documental\n
+			    Grupos de foco\n
+			    Análise de interfaces\n
+			    Entrevistas\n
+			    Observação\n
+			    Prototipagem\n
+			    Workshops de requisitos\n
+			    Questionários\n\n
 
 			Todas estas técnicas têm vantagens e desvantagens, e são mais adequadas em determinadas circunstâncias do 
 			que outras (não serão aqui descritas, dado a extensão do número de técnicas, pelo que o BABoK descreve 
@@ -381,8 +381,8 @@ class ConstructorController extends Controller {
 			vantajosa no sentido do contacto direto, permitindo uma obtenção de respostas mais pessoais, bem como a 
 			observação de gestos ou o tom de voz. Por outro lado, se o número de participantes for elevado, então a 
 			opção mais vantajosa é a realização de questionários. Se a ideia se focar muito nos fluxos e em tarefas 
-			sequenciais, a observação dos processos é a mais adequada.
-			A comunicação dos requisitos recolhidos pelo AN/ER ao Cliente para validação
+			sequenciais, a observação dos processos é a mais adequada.\n
+			A comunicação dos requisitos recolhidos pelo AN/ER ao Cliente para validação\n\n
 
 			O passo seguinte na tarefa do AN/ER é de registar o que foi levantado na interação cliente–>AN/RE anterior. 
 			A este registo é dado o nome de documentação dos requisitos, e refere-se a um conjunto de informação 
@@ -390,11 +390,11 @@ class ConstructorController extends Controller {
 			dos requisitos serve dois propósitos. 1. A validação de requisitos com o cliente; 2. Passar a informação 
 			à equipa de desenvolvimento para a implementação da solução (as últimas duas “vias” que são referidas no 
 			inicio deste artigo). Este último propósito, não constituindo uma comunicação cliente-equipa, não é 
-			analisado a fundo neste artigo.
+			analisado a fundo neste artigo.\n\n
 
 			A documentação de requisitos mais direcionados para os clientes seguem formatos mais de alto-nível e sem 
 			informação mais técnica. Os exemplos mais significativos são: diagramas UML (casos de uso e atividades), 
-			user stories, prototipagem (através de wireframes ou mockups).
+			user stories, prototipagem (através de wireframes ou mockups).\n\n
 
 			É sobre o conjunto de requisitos documentados que se baseia a segunda “via” possível relatada neste 
 			artigo, a comunicação AN/RE –> cliente. Neste caso, a comunicação não está associada ao levantamento dos 
@@ -402,12 +402,12 @@ class ConstructorController extends Controller {
 			Este tipo de comunicação é de grande relevância no já referido envolvimento do cliente, pois a forma 
 			(bem como a frequência) como esta interação é realizada possui implicações diretas na gestão das 
 			expectativas do cliente. Aqui, também o BABoK e o SWEBoK propõe técnicas idênticas para a validação de 
-			requisitos, sendo que, ao contrário da interação anterior, o AN/ER pode utilizar complementarmente:
+			requisitos, sendo que, ao contrário da interação anterior, o AN/ER pode utilizar complementarmente:\n\n
 
-			    Revisão dos requisitos (Structured Walkthrough)
-			    Prototipagem
-			    Indicadores de desempenho
-			    Análise de riscos
+			    Revisão dos requisitos (Structured Walkthrough)\n
+			    Prototipagem\n
+			    Indicadores de desempenho\n
+			    Análise de riscos\n\n
 
 			Note-se que não existe grandes vantagens em comunicar requisitos demasiado técnicos ao cliente, uma vez que 
 			esta “linguagem” nem sempre é percetível pelo mesmo. A documentação mais técnica deve ser direcionada 
@@ -416,7 +416,7 @@ class ConstructorController extends Controller {
 			significativos são: diagramas UML (classes, componentes, deployment, sequência), user stories quando 
 			acompanhados de detalhes técnicos e testes de aceitação, user stories técnicas (technical user 
 			stories, i.e., histórias que derivam diretamente de questões de implementação ou da arquitetura da solução 
-			e não de funcionalidades). ');
+			e não de funcionalidades).');
         $ft2->setActive(true);
         dump($ft2->save());
 

@@ -36,6 +36,7 @@ class ProcessController extends Controller {
 
 
             case 'post':
+                $post = filterPost();
                 $cp = session('currentProcess');
                 dump($cp);
 
@@ -49,6 +50,11 @@ class ProcessController extends Controller {
                 $process->setActive(true);
                 $process->setIdUser(Auth::getLoggedUser()->getId());
                 $process->save();
+
+                $pf = new ProcessFeature();
+                $pf->setIdProcess($process->getId());
+                $pf->setIdFeature($post['choice']);
+                $pf->save();
 
                 $cp['idProcess'] = $process->getId();
                 $cp['phase']++;
