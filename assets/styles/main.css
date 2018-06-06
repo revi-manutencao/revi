@@ -26,8 +26,8 @@ p {
 
 /* --------- Campos de formulário --------- */
 input, select, textarea {
-    /*-webkit-appearance: none;
-    -moz-appearance: none;*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
     width: 80%;
     height: 40px;
     border: 1px solid rgb(200,200,200);
