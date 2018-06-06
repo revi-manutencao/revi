@@ -12,13 +12,13 @@
     <link rel="apple-touch-icon" href="<?=asset('images/logo.png')?>">
 </head>
 <body>
-    <div id="sidebar" class="linearcolor">
+    <div id="sidebar" class="basecolor">
         !!section('sidebar')!!
     </div>
     <div id="maincontent">
         !!section('maincontent')!!
     </div>
 
-    <div class="cover linearcolor"></div>
+    <div class="cover basecolor"></div>
 </body>
 </html>
