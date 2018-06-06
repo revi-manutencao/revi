@@ -7,10 +7,15 @@
 
 @section('maincontent')
     <div class="container">
+        <?php
+        $phase = $data['phase'];
+        $features = $data['features'];
+        $percentage = $data['percentage'];
+        ?>
         <h1 class="textcenter">criar processo</h1>
         <span class="progress">
             <div class="progressbar">
-                <span class="progressconut" style="width: 20%;"></span>
+                <span class="progressconut" style="width: <?=$percentage?>%;"></span>
             </div>
         </span>
 
@@ -18,78 +23,53 @@
 
             <div class="container side-side">
                 <div class="content block">
-                    <h2>Tasks management</h2>
+                    <h2><?=$phase->getName()?></h2>
 
-                    Abacaxi
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
-                    <br>
-                    Outra fruta
+                    <span class="maintext">
+                        <?=nl2br($phase->getDescription())?>
+                    </span>
                 </div>
             </div>
 
             <div class="container options side-side">
                 <ul class="blocklist">
-                    <label>
-                        <li class="transluscentblock">
-                            <input type="radio" name="something" value="a">
-                            Astolfo
-                        </li>
-                    </label>
-                    <label>
-                        <li class="transluscentblock">
-                            <input type="radio" name="something" value="b">
-                            Alberto
-                        </li>
-                    </label>
-                    <label>
-                        <li class="transluscentblock">
-                            <input type="radio" name="something" value="c">
-                            Ambúrgue
-                        </li>
-                    </label>
+                    <?php if(count($features) > 0)
+                        foreach($features as $i => $feature) { ?>
+                        <label>
+                            <li class="transluscentblock">
+                                <input type="radio" name="choice" value="<?=$feature->getId()?>"
+                                       onclick="checkContent(this)">
+                                <span class="blocktitle">
+                                    <?=$feature->getName()?>
+                                </span>
+                            </li>
+                        </label>
+                    <?php } ?>
                 </ul>
 
                 <div class="content fit textcenter comp-align">
-                    <button type="button" onclick="location.href='info'">Confirmar</button>
+                    <button>Confirmar</button>
                 </div>
             </div>
 
 
         </form>
     </div>
+    <script>
+        function checkContent(element) {
+            var id = element.value;
+
+            $.ajax({
+                url: '<?=SYSROOT?>/api/feature/'+id,
+                method: 'get',
+                dataType: 'json',
+                success: function(data) {
+                    $('.maintext').html('<h4>'+ data.Feature.name + '</h4>'+data.Feature.description);
+                },
+                error: function(data) {
+                    console.error('Não foi possível obter os dados da opção selecionada.');
+                }
+            });
+        }
+    </script>
 @endsection

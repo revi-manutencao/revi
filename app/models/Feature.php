@@ -1,4 +1,4 @@
-<?php
+<?php  defined('INITIALIZED') OR exit('You cannot access this file directly');
 
 class Feature extends Model{
     private $id;

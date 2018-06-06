@@ -1,10 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: renato
- * Date: 21/05/18
- * Time: 22:28
- */
+<?php  defined('INITIALIZED') OR exit('You cannot access this file directly');
 
 class User extends Model{
     private $id;

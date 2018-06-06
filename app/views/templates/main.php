@@ -10,6 +10,8 @@
 
     <link rel="shortcut icon" type="image/png" href="<?=asset('images/logo.png')?>">
     <link rel="apple-touch-icon" href="<?=asset('images/logo.png')?>">
+
+    <script src="<?=asset('scripts/jquery-3.3.1.min.js')?>"></script>
 </head>
 <body>
     <div id="sidebar" class="basecolor">

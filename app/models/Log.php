@@ -1,4 +1,4 @@
-<?php
+<?php  defined('INITIALIZED') OR exit('You cannot access this file directly');
 
 class Log extends Model{
     private $id;

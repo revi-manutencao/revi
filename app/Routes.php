@@ -16,7 +16,9 @@ Router::define('entrar', 'UserController/login');
 Router::define('cadastro', 'UserController/cadastro');
 Router::define('sair', 'UserController/logout');
 Router::define('meusdados', 'UserController/meusDados');
+
 Router::define('criar', 'ProcessController/novoProcesso');
+Router::define('api/feature/{id}', 'ProcessController/consultaFeature');
 
 Router::define('info', 'ProcessController/verDadoProcesso');
 
