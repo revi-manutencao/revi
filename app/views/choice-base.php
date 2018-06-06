@@ -51,8 +51,6 @@
                     <button>Confirmar</button>
                 </div>
             </div>
-
-
         </form>
     </div>
     <script>

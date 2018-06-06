@@ -9,6 +9,12 @@ class ProcessController extends Controller {
 
 	    switch (getRequest()){
             case 'get':
+
+                /**
+                 * VERIFICAR SE EXISTE PROCESSO NÃO FINALIZADO NO BD
+                 */
+
+
                 if(session('currentProcess') == null)
                     session('currentProcess', ['idProcess' => null, 'phase' => 1]);
 

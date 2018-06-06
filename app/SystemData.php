@@ -10,7 +10,7 @@ define('REDIR_HTTPS', false); // Define if HTTPS or not
 define('SESSION_NAME', 'LuviSession'); // Name of session cookie
 define('SESSION_HTTP_ONLY', 1); // HTTP_ONLY property of session cookies
 // Set the time of inactivity before the user is logged out:
-define('SESSION_ACTIVITY_TIME', 2);
+define('SESSION_ACTIVITY_TIME', 5);
 
 // Database settings - Uses PDO
 define('DB_DRIVER', 'mysql'); // Options: mysql, pgsql, sqlite

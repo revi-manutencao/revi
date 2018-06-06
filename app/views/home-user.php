@@ -8,21 +8,33 @@
 @section('maincontent')
     <div class="container">
         <h1 class="textcenter">meus processos</h1>
-        <?php
-            $processos = $data['processos'];
 
-            if(count($processos) > 0) {
-                foreach($processos as $processo) {
+        <div class="form-container">
 
-                    echo '<div class="content textcenter block">';
-                    echo '<b>'.(($processo->getName() != null) ? $processo->getName() : '<i>Processo não finalizado</i>').'</b>';
-                    echo ', atualizado em ' . date('d/m/Y, H:i', strtotime($processo->getUpdatedAt()));
-                    echo '</div>';
-                }
-            } else
-                echo '<div class="content textcenter">'
-                    .'<b>Está solitário por aqui</b>. Que tal criar um novo processo?'
-                    .'</div>';
-        ?>
+            <div class="container side-side">
+                <?php
+                $processos = $data['processos'];
+
+                if(count($processos) > 0) {
+                    foreach($processos as $processo) {
+
+                        echo '<div class="content textcenter block">';
+                        echo '<b>'.(($processo->getName() != null) ? $processo->getName() : '<i>Processo não finalizado</i>').'</b>';
+                        echo ', atualizado em ' . date('d/m/Y, H:i', strtotime($processo->getUpdatedAt()));
+                        echo '</div>';
+                    }
+                } else
+                    echo '<div class="content textcenter">'
+                        .'<b>Está solitário por aqui</b>. Que tal criar um novo processo?'
+                        .'</div>';
+                ?>
+            </div>
+
+            <div class="container options side-side">
+                <div class="content block">
+                    Alguma informação
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
