@@ -309,6 +309,18 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
             box-shadow: inset 0 0 0 4px rgb(255,255,255);
         }
 
+        .blocklist li .blocktitle {
+            font-size: 14pt;
+            font-weight: bold;
+            color: rgb(90,90,90);
+            display: table-cell;
+            vertical-align: bottom;
+            max-width: 100%;
+            height: 150px;
+            white-space: pre-line;
+            text-align: left;
+        }
+
 
 .transluscentblock {
     display: block;
@@ -316,8 +328,8 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     width: 80%;
     max-width: 90%;
     border-radius: 5px;
-    background: rgba(255,255,255,0.6);
-    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.3);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
     padding: 15px;
     transition: 0.3s;
 }
@@ -325,16 +337,6 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     .transluscentblock:hover {
         background: rgba(255,255,255,0.8);
         transition: 0.3s;
-    }
-
-    .transluscentblock .blocktitle {
-        font-size: 14pt;
-        font-weight: bold;
-        color: rgb(90,90,90);
-        display: block;
-        margin: 30px auto;
-        max-width: 100%;
-        white-space: pre-line;
     }
 
 
