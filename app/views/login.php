@@ -12,11 +12,11 @@
 
             <br>
 
-            <?=hasFlash('success') ? flash('success').'<br>' : ''?>
+            <?=hasFlash('success') ? '<div class="alert alert-success">'.flash('success').'</div><br>' : ''?>
 
             <input type="text" name="username" placeholder="Nome de usuário">
             <input type="password" name="password" placeholder="Senha">
-            <?=(hasFlash('passwordError'))? flash('passwordError'):''?>
+            <?=(hasFlash('error'))? '<div class="alert alert-error">'.flash('error').'</div>':''?>
             <br>
             <button>Entrar</button>
 

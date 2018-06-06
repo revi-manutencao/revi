@@ -16,14 +16,15 @@ class UserController extends Controller {
                 case 'post':
                     $post = filterPost();
 
-                    if(!Auth::bindAuth($post)){
+                    $user = User::make()->where('login = ? and password = ?',
+                        [$post['username'], Auth::hashPassword($post['password'])])->find();
+
+                    if(!count($user) > 0){
                         back()->flash('error', 'Nome de usuário ou senha incorretos');
                         die;
                     }
 
-                    $user = User::make()->where('login = ? and password = ?',
-                        [$post['username'], Auth::hashPassword($post['password'])])->find()[0];
-
+                    $user = $user[0];
                     $user->setPassword(null);
 
                     Auth::createAuthSession($user, '/');
@@ -40,13 +41,18 @@ class UserController extends Controller {
                     view('cadastro');
                     break;
                 case 'post':
-                    Validation::check(filterPost(), array(
-                        'name' => 'required|alpha',
-                        'username' => 'required|min:6|alphanum',
+                    $valid = Validation::check(filterPost(), array(
+                        'nome' => 'required|alpha',
+                        'nomeusuario' => 'required|min:6|alphanum',
                         'email' => 'required|email',
-                        'password' => 'required',
-                        'confirmpassword' => 'required|equal:password'
+                        'senha' => 'required',
+                        'confirmasenha' => 'required|equal:senha'
                     ));
+
+                    if(!$valid) {
+                        back()->withValues();
+                        return;
+                    }
 
                     $post = filterPost();
 

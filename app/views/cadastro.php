@@ -11,27 +11,32 @@
             <h1>Criar conta</h1>
             <br>
 
-            <input type="text" name="username" placeholder="Nome de usuário"
-               value="<?=oldVal('username')?>">
-            <?=(checkInputErrors('username'))? getInputErrors('username'):''?>
+            <input type="text" name="nomeusuario" placeholder="Nome de usuário"
+               value="<?=oldVal('nomeusuario')?>">
 
-            <input type="text" name="name" placeholder="Seu nome"
-                   value="<?=oldVal('name')?>">
-            <?=(checkInputErrors('name'))? getInputErrors('name'):''?>
+            <input type="text" name="nome" placeholder="Seu nome"
+                   value="<?=oldVal('nome')?>">
 
             <input type="email" name="email" placeholder="E-mail"
                 value="<?=oldVal('email')?>">
-            <?=(checkInputErrors('email'))? getInputErrors('email'):''?>
 
             <br><br>
 
-            <input type="password" name="password" placeholder="Senha">
-            <?=(checkInputErrors('password'))? getInputErrors('password'):''?>
+            <input type="password" name="senha" placeholder="Senha">
 
-            <input type="password" name="confirmpassword" placeholder="Repita a senha">
-            <?=(checkInputErrors('confirmpassword'))? getInputErrors('confirmpassword'):''?>
+            <input type="password" name="confirmasenha" placeholder="Repita a senha">
             <br>
-            <?=hasFlash('error')? flash('error').'<br><br>' : ''?>
+            <?=hasFlash('error') || checkInputErrors('nomeusuario') ||
+            checkInputErrors('nome') || checkInputErrors('email') ||
+            checkInputErrors('senha')|| checkInputErrors('confirmasenha') ?
+                '<div class="alert alert-error">'
+                .(checkInputErrors('nomeusuario') ? getInputErrors('nomeusuario'):'')
+                .(checkInputErrors('nome') ? getInputErrors('nome'):'')
+                .(checkInputErrors('email') ? getInputErrors('email'):'')
+                .(checkInputErrors('senha') ? getInputErrors('senha'):'')
+                .(checkInputErrors('confirmasenha') ? getInputErrors('confirmasenha'):'')
+                .flash('error')
+                .'</div><br>' : ''?>
             <button>Cadastrar</button>
         </form>
     </div>
