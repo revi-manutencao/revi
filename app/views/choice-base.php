@@ -2,7 +2,7 @@
 
 
 @section('pagetitle')
-    Processinho, é você?
+    info | revi
 @endsection
 
 @section('maincontent')

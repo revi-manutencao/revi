@@ -2,7 +2,7 @@
 
 
 @section('pagetitle')
-    Entrar no sistemão
+    entrar | revi
 @endsection
 
 @section('maincontent')

@@ -1,7 +1,7 @@
 @extends('templates/desconectado')
 
 @section('pagetitle')
-    Conheça nosso sistemão
+    revi
 @endsection
 
 

@@ -2,7 +2,7 @@
 
 
 @section('pagetitle')
-    Criar conta no sistemão
+    criar conta | revi
 @endsection
 
 @section('maincontent')
