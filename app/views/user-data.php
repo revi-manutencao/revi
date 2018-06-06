@@ -1,4 +1,4 @@
-@extends('templates/desconectado')
+@extends('templates/conectado')
 
 
 @section('pagetitle')
