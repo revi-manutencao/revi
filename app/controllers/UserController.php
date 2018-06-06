@@ -64,14 +64,14 @@ class UserController extends Controller {
                     }
 
                     $user = User::make();
-                    $user->setLogin($post['username']);
-                    $user->setName($post['name']);
+                    $user->setLogin($post['nomeusuario']);
+                    $user->setName($post['nome']);
                     $user->setEmail($post['email']);
-                    $user->setPassword(Auth::hashPassword($post['password']));
+                    $user->setPassword(Auth::hashPassword($post['senha']));
                     $user->save();
 
                     redirect('entrar')
-                        ->flash('success', 'Usuário '.$user->getLogin().' criado com sucesso.');
+                        ->flash('success', 'Usuário <b>'.$user->getLogin().'</b> criado com sucesso.');
                     break;
             }
     }
