@@ -40,17 +40,17 @@ class ConstructorController extends Controller {
         $ph5->setActive(true);
         dump($ph5->save());
 
-        $ph2 = new Phase();
-        $ph2->setName('Estrutura do ciclo de desenvolvimento');
-        $ph2->setDescription('Ciclos de desenvolvimento? ');
-        $ph2->setActive(true);
-        dump($ph2->save());
-
         $ph3 = new Phase();
         $ph3->setName('Método de entrega');
         $ph3->setDescription('Um texto comprido descrevendo o método de entrega.');
         $ph3->setActive(true);
         dump($ph3->save());
+
+        $ph2 = new Phase();
+        $ph2->setName('Estrutura do ciclo de desenvolvimento');
+        $ph2->setDescription('Ciclos de desenvolvimento? ');
+        $ph2->setActive(true);
+        dump($ph2->save());
 
         $ph4 = new Phase();
         $ph4->setName('Tempo do ciclo de desenvolvimento');
@@ -349,7 +349,7 @@ class ConstructorController extends Controller {
 
 
         $ft2 = new Feature();
-        $ft2->setIdPhase(2);
+        $ft2->setIdPhase(3);
         $ft2->setName('Interação contínua');
         $ft2->setShortdescription('O cliente: trabalhar com ele e não para ele. A interação continua  é um ótimo'
             .'metodo de promover a comunicação Requisitos em Projetos de Software!'
@@ -426,27 +426,9 @@ class ConstructorController extends Controller {
         $ft2->setActive(true);
         dump($ft2->save());
 
-        //---------------- Tempo de ciclo de desenvolvimento
-
-        $ft2 = new Feature();
-        $ft2->setIdPhase(2);
-        $ft2->setName('calculo do próprio tempo de ciclo');
-        $ft2->setShortdescription('');
-        $ft2->setLongdescription('');
-        $ft2->setActive(true);
-        dump($ft2->save());
-
-        $ft2 = new Feature();
-        $ft2->setIdPhase(2);
-        $ft2->setName('tempo pré definido');
-        $ft2->setShortdescription('');
-        $ft2->setLongdescription('');
-        $ft2->setActive(true);
-        dump($ft2->save());
-
         //---------------- Estrutura de ciclo de desenvolvimento
         $ft2 = new Feature();
-        $ft2->setIdPhase(2);
+        $ft2->setIdPhase(4);
         $ft2->setName('Estrutura pré definida');
         $ft2->setShortdescription('');
         $ft2->setLongdescription('');
@@ -454,8 +436,26 @@ class ConstructorController extends Controller {
         dump($ft2->save());
 
         $ft2 = new Feature();
-        $ft2->setIdPhase(2);
+        $ft2->setIdPhase(4);
         $ft2->setName('Adicionar uma estrutura (*não implementada ainda*)');
+        $ft2->setShortdescription('');
+        $ft2->setLongdescription('');
+        $ft2->setActive(true);
+        dump($ft2->save());
+
+        //---------------- Tempo de ciclo de desenvolvimento
+
+        $ft2 = new Feature();
+        $ft2->setIdPhase(5);
+        $ft2->setName('calculo do próprio tempo de ciclo');
+        $ft2->setShortdescription('');
+        $ft2->setLongdescription('');
+        $ft2->setActive(true);
+        dump($ft2->save());
+
+        $ft2 = new Feature();
+        $ft2->setIdPhase(5);
+        $ft2->setName('tempo pré definido');
         $ft2->setShortdescription('');
         $ft2->setLongdescription('');
         $ft2->setActive(true);
@@ -463,7 +463,7 @@ class ConstructorController extends Controller {
 
         //---------------- Métricas
         $ft2 = new Feature();
-        $ft2->setIdPhase(2);
+        $ft2->setIdPhase(6);
         $ft2->setName('Pontos por função');
         $ft2->setShortdescription('');
         $ft2->setLongdescription('');
