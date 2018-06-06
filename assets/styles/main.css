@@ -332,6 +332,25 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     }
 
 
+.progressbar {
+    display: block;
+    background: rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.15);
+    width: 90%;
+    max-width: 200px;
+    height: 5px;
+    margin: 5px auto;
+    border-radius: 5px;
+}
+
+    .progressconut {
+        display: block;
+        background: rgb(95,189,194);
+        height: 5px;
+        border-radius: 5px;
+    }
+
+
 
 /* ------- Formulário de login e registro ------- */
 #loginform, #regform {

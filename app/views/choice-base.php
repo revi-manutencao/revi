@@ -9,7 +9,9 @@
     <div class="container">
         <h1 class="textcenter">criar processo</h1>
         <span class="progress">
-            <progress max="100" value="20"></progress>
+            <div class="progressbar">
+                <span class="progressconut" style="width: 20%;"></span>
+            </div>
         </span>
 
         <form action="" method="post" class="form-container">
