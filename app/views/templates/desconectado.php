@@ -1,10 +1,10 @@
 @extends('sidebar')
 
 @section('sidebarcontent')
-    <a href="<?=route('/entrar')?>">
-        <li id="login" class="last tooltip">
+    <li id="login" class="last tooltip">
+        <a href="<?=route('/entrar')?>">
             <img src="<?=asset('images/icons/login.png')?>">
-            <span class="tooltiptext">entrar</span>
-        </li>
-    </a>
+        </a>
+        <span class="tooltiptext">entrar</span>
+    </li>
 @endsection
