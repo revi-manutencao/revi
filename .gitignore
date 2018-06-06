@@ -2,3 +2,5 @@
 .idea/*
 nbproject
 nbproject/*
+.DS_Store
+*.DS_Store
