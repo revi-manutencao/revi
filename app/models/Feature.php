@@ -3,7 +3,8 @@
 class Feature extends Model{
     private $id;
     private $name;
-    private $description;
+    private $shortdescription;
+    private $longdescription;
     private $active;
     private $idPhase;
 
@@ -42,17 +43,33 @@ class Feature extends Model{
     /**
      * @return mixed
      */
-    public function getDescription()
+    public function getShortdescription()
     {
-        return $this->description;
+        return $this->shortdescription;
     }
 
     /**
-     * @param mixed $description
+     * @param mixed $shortdescription
      */
-    public function setDescription($description)
+    public function setShortdescription($shortdescription)
     {
-        $this->description = $description;
+        $this->shortdescription = $shortdescription;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLongdescription()
+    {
+        return $this->longdescription;
+    }
+
+    /**
+     * @param mixed $longdescription
+     */
+    public function setLongdescription($longdescription)
+    {
+        $this->longdescription = $longdescription;
     }
 
     /**

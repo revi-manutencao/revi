@@ -43,7 +43,7 @@ class UserController extends Controller {
                 case 'post':
                     $valid = Validation::check(filterPost(), array(
                         'nome' => 'required|alpha',
-                        'nomeusuario' => 'required|min:6|alphanum',
+                        'nomeusuario' => 'required|alphanum',
                         'email' => 'required|email',
                         'senha' => 'required',
                         'confirmasenha' => 'required|equal:senha'
@@ -59,7 +59,7 @@ class UserController extends Controller {
                     $result = User::make()->where('login = ? or email = ?', [$post['username'], $post['email']])->find();
 
                     if(count($result) > 0) {
-                        back()->flash('error', 'Usuário já existente');
+                        back()->flash('error', 'Nome de usuário ou e-mail já cadastrado');
                         die;
                     }
 

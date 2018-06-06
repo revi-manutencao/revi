@@ -81,6 +81,15 @@ class ConstructorController extends Controller {
 			.'Verificação, está no hall das famosas e consagradas ferramentas da qualidade. Sua utilização é tão'
 			.'difundida que podemos encontrar em diferentes setores empresariais e círculos sociais.'
 			.'Como fazer um Checklist?'
+        $ft1->setShortdescription('Descrição curta do checklist');
+        $ft1->setLongdescription('Os checklists são mágicos! Com eles você vai ganhar tempo, errar menos e ser 
+            muito mais produtivo. Checklists são utilizados na medicina, na engenharia e até na aeronáutica. Se você 
+            trabalha com internet e ainda não usa checklists, está perdendo tempo!\n
+			O Checklist é uma lista de itens que foi previamente estabelecida para certificar as condições de um 
+			serviço, produto, processo ou qualquer outra tarefa. Seu intuito é atestar que todas as etapas ou 
+			itens da lista foram cumpridas de acordo com o programado. O Checklist, também conhecido como Folha de 
+			Verificação, está no hall das famosas e consagradas ferramentas da qualidade. Sua utilização é tão 
+			difundida que podemos encontrar em diferentes setores empresariais e círculos sociais.\n\n
 
 			.'Vamos para a prática de como fazer!'
 			.'#1º passo: Defina o que precisa ser verificado'
@@ -120,7 +129,8 @@ class ConstructorController extends Controller {
         $ft2 = new Feature();
         $ft2->setIdPhase(1);
         $ft2->setName('Quadro dividido por colunas');
-        $ft2->setDescription('Princípios do Kanban
+        $ft2->setShortdescription('Descrição curta do quadro/colunas');
+        $ft2->setLongdescription('Princípios do Kanban
 			O kanban procura identificar oportunidades de melhoria criando uma cultura Kaizen na equipe, na qual a 
 			melhoria contínua é responsabilidade de todos.
 
@@ -185,7 +195,8 @@ class ConstructorController extends Controller {
         $ft2 = new Feature();
         $ft2->setIdPhase(1);
         $ft2->setName('Quadro dividido por etiquetas');
-        $ft2->setDescription('Um quadro de tarefas pode ser dividido por etiquetas em que cada cor de 
+        $ft2->setShortdescription('Descrição curta do quadro/etiquetas');
+        $ft2->setLongdescription('Um quadro de tarefas pode ser dividido por etiquetas em que cada cor de 
             etiqueta corresponde a uma prioridade ou classificação da tarefa. Assim, são definidos atributos das
             tarefas, os quais devem ser seguidos à risca para a execução de cada uma!');
         $ft2->setActive(true);
@@ -196,7 +207,8 @@ class ConstructorController extends Controller {
         $ft2 = new Feature();
         $ft2->setIdPhase(2);
         $ft2->setName('Delegação de tarefas');
-        $ft2->setDescription('Dentre tantas atividades desenvolvidas pelo gestor na sua rotina diária, talvez
+        $ft2->setShortdescription('Descrição curta da delegação de tarefas');
+        $ft2->setLongdescription('Dentre tantas atividades desenvolvidas pelo gestor na sua rotina diária, talvez
             a delegação seja uma das que possibilite maior probabilidade em atingir melhores resultados, por 
             proporcionar ao gestor tempo para focar-se nos aspectos de maior importância e pontos estratégicos 
             de sua função, bem como, gerar maior comprometimento dos colaboradores com o trabalho, diante da percepção 
@@ -264,7 +276,8 @@ class ConstructorController extends Controller {
         $ft2 = new Feature();
         $ft2->setIdPhase(2);
         $ft2->setName('Escolha de tarefa por membro');
-        $ft2->setDescription('Um bom exemplo de como organizar as tarefas de um modo que os desenvolvedores 
+        $ft2->setShortdescription('Descrição curta da tarefa por membro');
+        $ft2->setLongdescription('Um bom exemplo de como organizar as tarefas de um modo que os desenvolvedores 
             não fiquem dependentes de uma delegação de tarefas por meio do gerente de projetos é o Trello. Com ele, você 
             pode criar cartões com as tarefas posicionadas estratégicamente em colunas. Assim, basta que o desenvolvedor 
             consulte a coluna "ToDo" e desenvolva alguma das tarefas, dando mais liberdade a sua equipe!
@@ -304,7 +317,8 @@ class ConstructorController extends Controller {
         $ft2 = new Feature();
         $ft2->setIdPhase(3);
         $ft2->setName('Entregas parciais');
-        $ft2->setDescription('Entregas parciais são amplamente utilizadas para validação de um escopo 
+        $ft2->setShortdescription('Descrição curta das entregas parciais');
+        $ft2->setLongdescription('Entregas parciais são amplamente utilizadas para validação de um escopo 
             de desenvolvimento. Com um bom plamejamento de entregas, você garante o feedback do cliente em etapas cruciais 
             do seu sistema, promove validação dos seus requisitos. Utilize desta estratégia para atingir o sucesso de seu 
             projeto!
@@ -343,9 +357,10 @@ class ConstructorController extends Controller {
         dump($ft2->save());
 
         $ft2 = new Feature();
-        $ft2->setIdPhase(3);
-        $ft2->setName('Interação continua');
-        $ft2->setDescription('O cliente: trabalhar com ele e não para ele. A interação continua  é um ótimo 
+        $ft2->setIdPhase(2);
+        $ft2->setName('Interação contínua');
+        $ft2->setShortdescription('Descrição curta da interação contínua');
+        $ft2->setLongdescription('O cliente: trabalhar com ele e não para ele. A interação continua  é um ótimo 
             metodo de promover a comunicação Requisitos em Projetos de Software! 
 		    Utilizar deste conceito da forma correta pode lhe auxiliar a obter a total satisfação do cliente para com o 
 		    seu projeto. Esta técnica visa o feedback contínuo do cliente para com a aplicação desenvolvite. Atinja a 
