@@ -78,6 +78,7 @@ class UserController extends Controller {
 
 
     public function logout () {
+	    Auth::setRestricted('entrar');
 	    Auth::doLogout();
 //	    unset($_SESSION['currentProcess']);
 	    redirect('/');
@@ -85,6 +86,7 @@ class UserController extends Controller {
 
 
     public static function listaProcessos () {
+        Auth::setRestricted('entrar');
 	    $user = Auth::getLoggedUser();
 	    $processos = Process::make()->where('id_user = ?', $user->getId())->find();
 

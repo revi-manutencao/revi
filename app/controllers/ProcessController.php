@@ -5,14 +5,23 @@ class ProcessController extends Controller {
 	public function index () { }
 
 	public function novoProcesso () {
-	    Auth::setRestricted('/login');
+	    Auth::setRestricted('entrar');
 
 	    switch (getRequest()){
             case 'get':
 
                 /**
-                 * VERIFICAR SE EXISTE PROCESSO NÃO FINALIZADO NO BD
+                 * VERIFICAR SE EXISTE PROCESSO NÃO FINALIZADO NO BD, REMOVER USO DE SESSÃO
                  */
+
+                // Obtém o(s) processo(s) ativos e não finalizado(s) do usuário (ideal que seja no máximo 1)
+                $unfinishedProcesses = Process::make()->where(
+                    'active = true and name is null and id_user = ?',
+                    Auth::getLoggedUser()->getId()
+                )->find();
+
+
+                dd($unfinishedProcesses);
 
 
                 if(session('currentProcess') == null)
