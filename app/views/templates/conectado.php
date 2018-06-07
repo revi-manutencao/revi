@@ -10,7 +10,7 @@
 
     <li id="novo" class="tooltip">
         <a href="<?=route('/criar')?>">
-            <img src="<?=asset('images/icons/plus.png')?>">
+            <img src="<?=asset('images/icons/gears.png')?>">
         </a>
         <span class="tooltiptext">criação</span>
     </li>
