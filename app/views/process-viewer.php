@@ -16,9 +16,23 @@
             <h1 class="textcenter"><?=$processo->getName()?></h1>
 
             <div class="content">
-                <?=$processo->getDescription() != '' ?
-                    nl2br($processo->getDescription()) :
-                    '<i class="textcenter" style="display:block;">Nenhuma descrição disponível</i>'?>
+                <span class="processdate textcenter processinfo">
+                    Criado em <?=date('d/m/Y, à\s H:i', strtotime($processo->getCreatedAt()))?>
+                    <br>
+                    Última alteração em <?=date('d/m/Y, à\s H:i', strtotime($processo->getUpdatedAt()))?>
+                </span>
+                <br>
+
+                <p>
+                    <?=$processo->getDescription() != '' ?
+                        nl2br($processo->getDescription()) :
+                        '<i class="textcenter" style="display:block;">Nenhuma descrição disponível</i>'?>
+                </p>
+
+                <div class="textcenter" style="margin-top: 30px;">
+                    <button class="btn-fit"
+                        onclick="location.href='<?=route('processo/'.$processo->getId().'/editar')?>'">Editar</button>
+                </div>
             </div>
 
             <div class="options">
@@ -50,6 +64,12 @@
 
                 <p id="featurecontent"></p>
                 <p id="longdesc"></p>
+            </div>
+
+
+            <div class="textcenter">
+                <button type="button" class="btn-danger btn-fit"
+                        onclick="confirmDelete(<?=$processo->getId()?>)">Apagar processo</button>
             </div>
         </div>
     </div>
@@ -97,6 +117,14 @@
                     console.error('Não foi possível obter os dados do objeto.');
                 }
             });
+        }
+
+
+        function confirmDelete(id) {
+            var url = '<?=route('processo/')?>' + id + '/apagar';
+
+            if(confirm("Tem certeza de que deseja apagar este processo?"))
+                location.href=url;
         }
     </script>
 @endsection

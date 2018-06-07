@@ -106,8 +106,9 @@ class ProcessController extends Controller {
 
 
                     // Salva os dados novos do processo
-                    $currentProcess->setName($post['nomeprocesso']);
-                    $currentProcess->setDescription($post['descricaoprocesso']);
+                    $currentProcess->setName(htmlspecialchars($post['nomeprocesso'], ENT_QUOTES));
+                    $currentProcess->setDescription(htmlspecialchars($post['descricaoprocesso'], ENT_QUOTES));
+                    $currentProcess->setUpdatedAt(date('Y-m-d H:i:s'));
                     $currentProcess->save();
 
                     redirect('/');
@@ -151,6 +152,96 @@ class ProcessController extends Controller {
         }
 
         view('process-viewer', ['processo' => $processo, 'arrEtapas' => $arrEtapasFeatures]);
+    }
+
+
+    public function editarProcesso ($data) {
+	    Auth::setRestricted('/');
+
+	    $id = $data['id'];
+
+	    $user = Auth::getLoggedUser();
+	    $processo = Process::make()->where('id_user = ? and active = true and id = ?', [$user->getId(), $id])->find();
+
+	    if(count($processo) == 0){
+	        redirect('/');
+	        return;
+        }
+
+        $processo = $processo[0];
+
+	    switch ($this->getRequest()){
+            case 'get':
+                view('process-editor', ['processo' => $processo]);
+                break;
+
+            case 'post':
+                $post = filterPost();
+
+
+                // Preenche o nome e descrição do processo
+                $valid = Validation::check($post, array(
+                    'nomeprocesso' => 'required|max:200'
+                ));
+
+                if(!$valid)
+                    back()->withValues();
+
+
+                // Salva os dados novos do processo
+                $processo->setName(htmlspecialchars($post['nomeprocesso'], ENT_QUOTES));
+                $processo->setDescription(htmlspecialchars($post['descricaoprocesso'], ENT_QUOTES));
+                $processo->setUpdatedAt(date('Y-m-d H:i:s'));
+                $processo->save();
+
+                redirect('/processo/'.$processo->getId());
+                break;
+        }
+    }
+
+
+    public function apagarProcesso ($data) {
+	    Auth::setRestricted('/');
+
+	    $id = $data['id'];
+
+	    $processo = Process::make()->get($id);
+	    $user = Auth::getLoggedUser();
+
+	    if($processo->getIdUser() != $user->getId()){
+	        redirect('/');
+	        return;
+        }
+
+        $processo->setActive(false);
+        $processo->save();
+
+        redirect('/');
+    }
+
+
+    public function cancelarCriacao () {
+        Auth::setRestricted('/');
+
+        $user = Auth::getLoggedUser();
+        $processo = Process::make()->where('id_user = ? and active = true and name = ""', $user->getId())->find();
+
+        if(count($processo) == 0){
+            redirect('/');
+            return;
+        }
+
+
+        $processo = $processo[0];
+        $featProc = ProcessFeature::make()->where('id_process = ?', $processo->getId())->find();
+
+        foreach($featProc as $fp) {
+            $fp->delete();
+        }
+
+        $processo->delete();
+
+        redirect('/');
     }
 
 
