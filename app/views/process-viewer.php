@@ -28,6 +28,11 @@
                         nl2br($processo->getDescription()) :
                         '<i class="textcenter" style="display:block;">Nenhuma descrição disponível</i>'?>
                 </p>
+
+                <div class="textcenter" style="margin-top: 30px;">
+                    <button class="btn-fit"
+                        onclick="location.href='<?=route('processo/'.$processo->getId().'/editar')?>'">Editar</button>
+                </div>
             </div>
 
             <div class="options">
@@ -47,11 +52,6 @@
                     <?php } ?>
                 </ul>
             </div>
-
-            <div class="textcenter">
-                <button type="button" class="btn-danger btn-fit"
-                    onclick="confirmDelete(<?=$processo->getId()?>)">Apagar processo</button>
-            </div>
         </div>
 
         <div class="container options side-side" id="info">
@@ -64,6 +64,12 @@
 
                 <p id="featurecontent"></p>
                 <p id="longdesc"></p>
+            </div>
+
+
+            <div class="textcenter">
+                <button type="button" class="btn-danger btn-fit"
+                        onclick="confirmDelete(<?=$processo->getId()?>)">Apagar processo</button>
             </div>
         </div>
     </div>

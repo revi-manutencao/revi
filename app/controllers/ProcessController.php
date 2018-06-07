@@ -155,6 +155,51 @@ class ProcessController extends Controller {
     }
 
 
+    public function editarProcesso ($data) {
+	    Auth::setRestricted('/');
+
+	    $id = $data['id'];
+
+	    $user = Auth::getLoggedUser();
+	    $processo = Process::make()->where('id_user = ? and active = true and id = ?', [$user->getId(), $id])->find();
+
+	    if(count($processo) == 0){
+	        redirect('/');
+	        return;
+        }
+
+        $processo = $processo[0];
+
+	    switch ($this->getRequest()){
+            case 'get':
+                view('process-editor', ['processo' => $processo]);
+                break;
+
+            case 'post':
+                $post = filterPost();
+
+
+                // Preenche o nome e descrição do processo
+                $valid = Validation::check($post, array(
+                    'nomeprocesso' => 'required|max:200'
+                ));
+
+                if(!$valid)
+                    back()->withValues();
+
+
+                // Salva os dados novos do processo
+                $processo->setName($post['nomeprocesso']);
+                $processo->setDescription($post['descricaoprocesso']);
+                $processo->setUpdatedAt(date('Y-m-d H:i:s'));
+                $processo->save();
+
+                redirect('/processo/'.$processo->getId());
+                break;
+        }
+    }
+
+
     public function apagarProcesso ($data) {
 	    Auth::setRestricted('/');
 

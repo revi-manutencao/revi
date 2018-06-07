@@ -22,6 +22,8 @@ Router::define('criar', 'ProcessController/novoProcesso');
 Router::define('processo/cancelar', 'ProcessController/cancelarCriacao');
 Router::define('processo/{id}', 'ProcessController/verProcesso');
 Router::define('processo/{id}/apagar', 'ProcessController/apagarProcesso');
+Router::define('processo/{id}/editar', 'ProcessController/editarProcesso');
+
 Router::define('api/feature/{id}', 'ProcessController/consultaFeature');
 
 
