@@ -60,7 +60,7 @@
             // Realiza um scroll para a seção de informações (útil na versão mobile)
             $('html, body').animate({
                 scrollTop: $("#info").offset().top
-            }, 500);
+            }, 300);
 
 
             $.ajax({
