@@ -3,11 +3,10 @@
 
 @section('sidebar')
     <ul>
-        <li id="home" class="logo">
-            <a href="<?=route('/')?>">
-                <img src="<?=asset('images/logo.png')?>" title="Página inicial">
-            </a>
-        </li>
+        <a href="<?=route('/')?>" title="Página inicial">
+            <li id="home" class="logo">
+            </li>
+        </a>
 
         !!section('sidebarcontent')!!
     </ul>
