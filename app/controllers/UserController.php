@@ -112,6 +112,7 @@ class UserController extends Controller {
 	    redirect('/');
     }
 
+
     public function meusDados () {
         Auth::setRestricted('entrar');
 
@@ -121,7 +122,7 @@ class UserController extends Controller {
 
                 // Obtém os dados do usuário e dos processos
                 $user = User::make()->get($userLogged->getId());
-                $processos = Process::make()->where('id_user = ?', $user->getId());
+                $processos = Process::make()->where('id_user = ? and nome != ""', $user->getId());
 
                 view('user-data', ['user' => $user, 'quantProcesses' => count($processos)]);
                 break;
