@@ -30,25 +30,33 @@ class ConstructorController extends Controller {
     public function createPhases() {
         $ph1 = new Phase();
         $ph1->setName('Gerenciamento de tarefas');
-        $ph1->setDescription('Por que gerenciamento de tarefas é tão importante?');
+        $ph1->setDescription('A <b>produtividade</b> está totalmente ligada a forma como lidamos com a quantidade de tarefas e o tempo disponível. Realizar projetos por pequenas etapas vai deixar tudo mais fluído, ajudando a colocar em ordem tudo o que sua equipe produzirá, por isso, precisamos de uma boa estratégia de <b>gerenciamento de tarefas!</b>
+<br>
+<b>Escolha uma das sugestões que temos para você!</b>');
         $ph1->setActive(true);
         dump($ph1->save());
 
         $ph5 = new Phase();
         $ph5->setName('Gerenciamento de pessoas');
-        $ph5->setDescription('Um Por que devo me preocupar em como vou gerenciar minha equipe?');
+        $ph5->setDescription('O termo <b>gestão de pessoas</b> é um conceito empregado às estratégias que objetivam <b>atrair</b>, <b>reter</b>, <b>potencializar</b> e <b>administrar o capital humano</b> de uma corporação. As empresas que possuem essa expertise entre suas políticas internas são aquelas que formam profissionais mais bem qualificados e motivados para desempenhar suas funções. Por isso, é importante pensar bem no modo como as funções que serão definidas pelo método anterior serão distribuidas!
+            <br>    
+            <b>Escolha alguma das opções ao lado para continuar!</b>');
         $ph5->setActive(true);
         dump($ph5->save());
 
         $ph3 = new Phase();
         $ph3->setName('Método de entrega');
-        $ph3->setDescription('Um texto comprido descrevendo o método de entrega.');
+        $ph3->setDescription('Satisfazer um <b>cliente</b> é o principal objetivo quando se produz algo. O resultado final de tudo aquilo que foi criado tem sempre que atingir as principais expectativas de quem paga pelo serviço ou produto. Dessa maneira, pensar, analisar e propor melhorias devem ser tarefas rotineiras para todas as pessoas envolvidas naquele projeto. Mas, quem pode ser a melhor opção para <b>sugerir mudanças</b> que vão agregar mais valor ao produto? Se você pensou no próprio <b>cliente</b>, está absolutamente certo.
+            <br>
+            <b>E para atingirmos este objetivo, vamos planejar também nosso método de interação com o cliente!</b>');
         $ph3->setActive(true);
         dump($ph3->save());
 
         $ph2 = new Phase();
         $ph2->setName('Estrutura do ciclo de desenvolvimento');
-        $ph2->setDescription('Ciclos de desenvolvimento? ');
+        $ph2->setDescription('O <b>ciclo de vida</b> é a <b>estrutura</b> contendo <b>processos</b>, <b>atividades e tarefas</b> envolvidas no desenvolvimento, <b>operação</b> e <b>manutenção</b> de um produto de software, abrangendo a vida do sistema, desde a definição de seus requisitos até o término de seu uso.
+            <br>
+            <b>Para isso, temos alguns modelos para lhe auxiliar!</b>');
         $ph2->setActive(true);
         dump($ph2->save());
 
@@ -61,7 +69,13 @@ class ConstructorController extends Controller {
 
         $ph6 = new Phase();
         $ph6->setName('Método de aplicação de métricas');
-        $ph6->setDescription('Métricas? É de passar no pão?');
+        $ph6->setDescription('<b>Métricas? É de passar no pão?</b>
+            <br>
+            Existem diversas medidas de garantia de qualidade fundamentais para o sucesso de qualquer tipo de aplicação de software, dentre elas, uma das <b>mais simples</b> e <b>menos custosa</b>, é a <b>medição de software</b>, e é ai que entram nossas <b>métricas!</b>
+            <br>
+            Com as métricas, conseguimos não só gerir a qualidade de nossos produtos como também utilizar o desenvolvimento deste como base para o próximo! Como? Basta aplicarmos os conceitos corretamente e utilizarmos os dados extraidos para estruturar uma <b>Base Histórica</b>.
+            <br>
+            <b>Veja agora alguns exemplos de métricas e como aplicá-las!</b>');
         $ph6->setActive(true);
         dump($ph6->save());
     }
@@ -72,48 +86,30 @@ class ConstructorController extends Controller {
         $ft1 = new Feature();
         $ft1->setIdPhase(1);
         $ft1->setName('Checklist');
-        $ft1->setShortdescription('Os checklists são mágicos! Com eles você vai ganhar tempo, errar menos e ser'
-            .'muito mais produtivo. Checklists são utilizados na medicina, na engenharia e até na aeronáutica. Se você'
-            .'trabalha com internet e ainda não usa checklists, está perdendo tempo!');
-        $ft1->setLongdescription('O Checklist é uma lista de itens que foi previamente'
-            .'estabelecida para certificar as condições de um'
-			.'serviço, produto, processo ou qualquer outra tarefa. Seu intuito é atestar que todas as etapas ou'
-			.'itens da lista foram cumpridas de acordo com o programado. O Checklist, também conhecido como Folha de'
-			.'Verificação, está no hall das famosas e consagradas ferramentas da qualidade. Sua utilização é tão'
-			.'difundida que podemos encontrar em diferentes setores empresariais e círculos sociais.'
-
-			.'Vamos para a prática de como fazer!'
-			.'#1º passo: Defina o que precisa ser verificado'
-
-            .'definir o que deve ser enxergado e os porquês de desenvolver o Checklist, ou seja tenha claro em mente'
-            .'Apesar de óbvio, muitos se enganam na hora de elaborar a lista de verificação. Por isso é importante'
-            .'o objetivo e importância da ferramenta.'
-
-			.'#2º passo: Defina a frequência de utilização'
-
-            .'Nesta etapa é essencial definir quais são os momentos que a lista de verificação deverá ser utilizada.'
-            .'Existem prestadores de serviço que após a realização do seu trabalho utilizam o checklist para demonstrar'
-            .'ao cliente que todas atividades foram executadas. Além disso, colocam um campo de assinatura onde o '
-            .'cliente valida a lista para demonstrar que tudo que foi entregue conforme o combinado.'
-			
-			.'#3º passo: Defina quem irá utilizar'
-
-            .'Tenha bem definido quem são os responsáveis por utilizar o Checklist. Com a definição dos responsáveis'
-            .'aplique um treinamento demonstrando como utilizar e a importância. Aplicar esta ferramenta pode exigir uma'
-            .'mudança de cultura, uma vez que no começo alguns colaboradores podem menosprezá-la.'
-
-			.'#4º passo: Defina os itens a serem verificados'
-
-            .'Este é o momento de definir quais os itens precisam ser checados para constatar se um serviço,'
-            .'produto, processo ou atividade foi plenamente cumprido de acordo com as especificações. Por isso, peça'
-            .'ajuda do colaborador que utilizará a ferramenta, pois eles já possuem o conhecimento e a experiência '
-            .'necessárias para auxiliar na definição do conteúdo da lista.'
-
-			.'#5º passo: Teste a lista'
-
-            .'Antes de utilizar a lista, peça para alguns colaboradores, que irão utilizar está ferramenta,'
-            .'realizem alguns testes para certificar que o instrumento está validado ou se é necessário alterar'
-            .'alguma coisa. Normalmente, durante o teste sempre surgem dúvidas e sugestões de melhoria.');
+        $ft1->setShortdescription('Os <b>checklists</b> são <b>mágicos!</b> Com eles você vai ganhar tempo, errar menos e ser muito mais produtivo. Checklists são utilizados na <b>medicina</b>, na <b>engenharia</b> e até na <b>aeronáutica</b>. Se você trabalha com internet e ainda não usa checklists, está <b>perdendo tempo!</b>');
+        $ft1->setLongdescription('O Checklist é uma lista de itens que foi previamente estabelecida para certificar as condições de um serviço, produto, processo ou qualquer outra tarefa. Seu intuito é atestar que todas as etapas ou itens da lista foram cumpridas de acordo com o programado. O Checklist, também conhecido como Folha de Verificação, está no hall das famosas e consagradas ferramentas da qualidade. Sua utilização é tão difundida que podemos encontrar em diferentes setores empresariais e círculos sociais.
+			<br>
+			<b>Como fazer um Checklist?</b>
+			<br>
+			<b>#1º passo: Defina o que precisa ser verificado</b>
+			<br>
+				Apesar de óbvio, muitos se enganam na hora de elaborar a lista de verificação. Por isso é importante definir o que deve ser enxergado e os porquês de desenvolver o Checklist, ou seja tenha claro em mente o objetivo e importância da ferramenta.
+			<br>
+			<b>#2º passo: Defina a frequência de utilização</b>
+			<br>
+				Nesta etapa é essencial definir quais são os momentos que a lista de verificação deverá ser utilizada. Existem prestadores de serviço que após a realização do seu trabalho utilizam o checklist para demonstrar ao cliente que todas atividades foram executadas. Além disso, colocam um campo de assinatura onde o cliente valida a lista para demonstrar que tudo que foi entregue conforme o combinado.
+			<br>
+			<b>#3º passo: Defina quem irá utilizar</b>
+			<br>
+				Tenha bem definido quem são os responsáveis por utilizar o Checklist. Com a definição dos responsáveis aplique um treinamento demonstrando como utilizar e a importância. Aplicar esta ferramenta pode exigir uma mudança de cultura, uma vez que no começo alguns colaboradores podem menosprezá-la.
+			<br>
+			<b>#4º passo: Defina os itens a serem verificados</b>
+			<br>
+				Este é o momento de definir quais os itens precisam ser checados para constatar se um serviço, produto, processo ou atividade foi plenamente cumprido de acordo com as especificações. Por isso, peça ajuda do colaborador que utilizará a ferramenta, pois eles já possuem o conhecimento e a experiência necessárias para auxiliar na definição do conteúdo da lista.
+			<br>
+			<b>#5º passo: Teste a lista</b>
+			<br>
+				Antes de utilizar a lista, peça para alguns colaboradores, que irão utilizar está ferramenta, realizem alguns testes para certificar que o instrumento está validado ou se é necessário alterar alguma coisa. Normalmente, durante o teste sempre surgem dúvidas e sugestões de melhoria.');
         $ft1->setActive(true);
         dump($ft1->save());
 
