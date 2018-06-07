@@ -96,40 +96,84 @@ class UserController extends Controller {
 
         switch($this->getRequest()) {
             case 'get':
-                view('user-data');
+                $userLogged = Auth::getLoggedUser();
+
+                $user = User::make()->get($userLogged->getId());
+                $processos = Process::make()->where('id_user = ?', $user->getId());
+                view('user-data', ['user' => $user, 'quantProcesses' => count($processos)]);
                 break;
             case 'post':
-//                $valid = Validation::check(filterPost(), array(
-//                    'nome' => 'required|alpha',
-//                    'nomeusuario' => 'required|min:6|alphanum',
-//                    'email' => 'required|email',
-//                    'senha' => 'required',
-//                    'confirmasenha' => 'required|equal:senha'
-//                ));
-//
-//                if(!$valid) {
-//                    back()->withValues();
-//                    return;
-//                }
-//
-//                $post = filterPost();
-//
-//                $result = User::make()->where('login = ? or email = ?', [$post['username'], $post['email']])->find();
-//
-//                if(count($result) > 0) {
-//                    back()->flash('error', 'Usuário já existente');
-//                    die;
-//                }
-//
-//                $user = User::make();
-//                $user->setLogin($post['nomeusuario']);
-//                $user->setName($post['nome']);
-//                $user->setEmail($post['email']);
-//                $user->setPassword(Auth::hashPassword($post['senha']));
-//                $user->save();
-//
-//                redirect('entrar')
-//                    ->flash('success', 'Usuário <b>'.$user->getLogin().'</b> criado com sucesso.');
+                dump(filterPost());
+                $valid = Validation::check(filterPost(), array(
+                    'nome' => 'required|alpha',
+                    'email' => 'required|email',
+                ));
+
+                if(!$valid) {
+                    back();
+                    return;
+                }
+
+                $post = filterPost();
+
+                $userLogged = Auth::getLoggedUser();
+
+                $user = User::make()->get($userLogged->getId());
+                $user->setName($post['nome']);
+                $user->setEmail($post['email']);
+                $user->save();
+
+                redirect('meusdados')->flash('success', "Dados alterados");
+                break;
+        }
+    }
+
+
+    public function alterarSenha () {
+        switch($this->getRequest()) {
+            case 'post':
+                $post = filterPost();
+
+                $userLogged = Auth::getLoggedUser();
+
+                // Obtém os dados do usuário e faz o hash da senha digitada
+                $user = User::make()->get($userLogged->getId());
+                $prevHash = Auth::hashPassword($post['senhaatual']);
+
+                // Verifica se a senha digitada está correta
+                if($prevHash !== $user->getPassword()) {
+                    back()->flash('erroSenha', 'A senha atual está incorreta');
+                    return;
+                }
+
+
+                // Valida os dados inseridos
+                $valid = Validation::check(filterPost(), array(
+                    'senhaatual' => 'required',
+                    'novasenha' => 'required',
+                    'confirmarnovasenha' => 'required|equal:novasenha',
+                ));
+
+                if(!$valid) {
+                    back();
+                    return;
+                }
+
+
+                // Salva a nova senha
+                $user->setPassword(Auth::hashPassword($post['novasenha']));
+                $user->save();
+
+                // Faz o logout e dá mensagem de sucesso
+                Auth::doLogout();
+                redirect('entrar')
+                    ->flash('success', "Sua senha foi alterada.<br>Faça o login com os novos dados");
+
+                break;
+
+            default:
+                // Redireciona caso tente acessar por qulaquer método que não o post
+                redirect('meusdados');
                 break;
         }
     }

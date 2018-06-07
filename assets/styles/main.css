@@ -41,6 +41,11 @@ input, select, textarea {
         border-color: rgb(150,150,150);
     }
 
+    input[readonly] {
+        color: rgb(120,120,120);
+        background: rgb(253,253,253);
+    }
+
     textarea {
         display: block;
         margin: 0 auto;
@@ -197,6 +202,12 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     height: 100%;
 }
 
+.numberprocesses {
+    font-size: 24pt;
+    margin: 10px;
+    display: block;
+}
+
 
 .basecolor {
     /*background: linear-gradient(180deg, aquamarine 0%, #2cb5e8 130%);*/
@@ -333,7 +344,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 
 .transluscentblock {
     display: block;
-    height: 150px;
+    min-height: 150px;
     width: 80%;
     max-width: 90%;
     border-radius: 5px;

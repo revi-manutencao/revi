@@ -7,37 +7,68 @@
 
 @section('maincontent')
     <div class="container">
-        <form action="meusdados" method="post" id="regform" class="content block">
-            <h1>meus dados</h1>
-            <br>
+        <?php
+            $user = $data['user'];
+            $numProc = $data['quantProcesses'];
+        ?>
 
-            <input type="text" name="nomeusuario" placeholder="Nome de usuário"
-               value="<?=oldVal('nomeusuario')?>">
+        <h1 class="textcenter">meus dados</h1>
 
-            <input type="text" name="nome" placeholder="Seu nome"
-                   value="<?=oldVal('nome')?>">
+        <div class="form-container">
 
-            <input type="email" name="email" placeholder="E-mail"
-                value="<?=oldVal('email')?>">
+            <div class="container options side-side">
+                <div class="content transluscentblock textcenter">
+                    <h3 class="textcenter">meu usuário</h3>
+                    <input type="text" class="textcenter" readonly value="<?=$user->getLogin()?>">
+                    <br><br>
+                    Número de processos criados:
+                    <br>
+                    <b class="numberprocesses"><?=$numProc?></b>
+                </div>
+            </div>
 
-            <br><br>
 
-            <input type="password" name="senha" placeholder="Senha">
+            <div class="container side-side">
+                <div class="content block textcenter">
+                    <h3>minhas informações</h3>
 
-            <input type="password" name="confirmasenha" placeholder="Repita a senha">
-            <br>
-            <?=hasFlash('error') || checkInputErrors('nomeusuario') ||
-            checkInputErrors('nome') || checkInputErrors('email') ||
-            checkInputErrors('senha')|| checkInputErrors('confirmasenha') ?
-                '<div class="alert alert-error">'
-                .(checkInputErrors('nomeusuario') ? getInputErrors('nomeusuario'):'')
-                .(checkInputErrors('nome') ? getInputErrors('nome'):'')
-                .(checkInputErrors('email') ? getInputErrors('email'):'')
-                .(checkInputErrors('senha') ? getInputErrors('senha'):'')
-                .(checkInputErrors('confirmasenha') ? getInputErrors('confirmasenha'):'')
-                .flash('error')
-                .'</div><br>' : ''?>
-            <button>Atualizar</button>
-        </form>
+                    <?=hasFlash('success') ?
+                        '<div class="alert alert-success">'.flash('success').'</div><br>' : ''?>
+
+                    <form action="meusdados" method="post">
+                        <input type="text" name="nome" placeholder="Seu nome" value="<?=$user->getName()?>">
+                        <input type="email" name="email" placeholder="E-mail" value="<?=$user->getEmail()?>">
+                        <br>
+                        <?=checkInputErrors('nome') || checkInputErrors('email') ?
+                            '<div class="alert alert-error">'
+                            .(checkInputErrors('nome') ? getInputErrors('nome'):'')
+                            .(checkInputErrors('email') ? getInputErrors('email'):'')
+                            .'</div><br>' : ''?>
+                        <button>Alterar</button>
+                    </form>
+                </div>
+
+                <div class="content block textcenter">
+                    <h3>alterar minha senha</h3>
+
+                    <form action="meusdados/alterarsenha" method="post">
+                        <input type="password" name="senhaatual" placeholder="Senha atual">
+                        <input type="password" name="novasenha" placeholder="Nova senha">
+                        <input type="password" name="confirmarnovasenha" placeholder="Confirmar nova senha">
+                        <br>
+                        <?=checkInputErrors('senhaatual') || checkInputErrors('novasenha') ||
+                            checkInputErrors('confirmarnovasenha') || hasFlash('erroSenha')?
+                            '<div class="alert alert-error">'
+                            .(checkInputErrors('senhaatual') ? getInputErrors('senhaatual'):'')
+                            .(checkInputErrors('novasenha') ? getInputErrors('novasenha'):'')
+                            .(checkInputErrors('confirmarnovasenha') ?
+                                getInputErrors('confirmarnovasenha'):'')
+                            .(hasFlash('erroSenha') ? flash('erroSenha'):'')
+                            .'</div><br>' : ''?>
+                        <button>Alterar senha</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
