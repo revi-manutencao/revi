@@ -38,8 +38,12 @@
                     <?php
                     $unfinished = $data['processoNaoTerminado'];
 
-                    if(count($unfinished) == 0)
+                    if(count($unfinished) == 0) {
                         echo '<p class="textcenter">Você não possui nenhum processo com a criação em andamento!</p>';
+                        echo '<br>';
+                        echo '<p class="textcenter">'
+                            .'<button type="button" onclick="location.href=\'criar\'">Criar processo</button></p>';
+                    }
                     else {
                         $obj = $unfinished['obj'][0];
                         $phase = $unfinished['phaseNo'];
