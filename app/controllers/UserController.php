@@ -7,7 +7,10 @@ class UserController extends Controller {
 
         // Obtém os dados do usuário logado e seus processos
         $user = Auth::getLoggedUser();
-        $processos = Process::make()->where('id_user = ? and name != "" and active = true', $user->getId())->find();
+        $processos = Process::make()
+            ->where('id_user = ? and name != "" and active = true', $user->getId())
+            ->orderBy('updated_at', 'desc')
+            ->find();
 
         $unfinishedProcess = Process::make()
             ->where('active = true and name = "" and id_user = ?', $user->getId())->find();

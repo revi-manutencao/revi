@@ -16,9 +16,18 @@
             <h1 class="textcenter"><?=$processo->getName()?></h1>
 
             <div class="content">
-                <?=$processo->getDescription() != '' ?
-                    nl2br($processo->getDescription()) :
-                    '<i class="textcenter" style="display:block;">Nenhuma descrição disponível</i>'?>
+                <span class="processdate textcenter processinfo">
+                    Criado em <?=date('d/m/Y, à\s H:i', strtotime($processo->getCreatedAt()))?>
+                    <br>
+                    Última atualização em <?=date('d/m/Y, à\s H:i', strtotime($processo->getUpdatedAt()))?>
+                </span>
+                <br>
+
+                <p>
+                    <?=$processo->getDescription() != '' ?
+                        nl2br($processo->getDescription()) :
+                        '<i class="textcenter" style="display:block;">Nenhuma descrição disponível</i>'?>
+                </p>
             </div>
 
             <div class="options">

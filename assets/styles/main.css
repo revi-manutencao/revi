@@ -224,16 +224,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 
 
 .basecolor {
-    /*background: linear-gradient(180deg, aquamarine 0%, #2cb5e8 130%);*/
-    /*background: linear-gradient(180deg, #65FFDD 0%, #41D4EC 130%);*/
-
     background: rgb(245,245,245);
-
-    /*background: rgb(220,255,240);*/
-
-    /*background: rgb(60,60,60);*/
-    /*background: rgb(0,35,50);*/
-    /*background: rgb(200,240,230);*/
 }
 
 .tooltiptext {
@@ -362,17 +353,17 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
             vertical-align: bottom;
             max-width: 100%;
             height: 150px;
-            white-space: pre-line;
+            white-space: normal;
             text-align: left;
         }
 
             .blocklist li .blocktitle .phasename {
                 color: #000;
                 display: block;
-                margin-bottom: -20px;
+                margin-bottom: 10px;
                 height: auto;
                 max-width: 100%;
-                white-space: pre-line;
+                white-space: normal;
                 text-align: left;
                 font-size: 10pt;
                 line-height: 140%;
@@ -447,7 +438,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         margin: 0;
         padding: 0;
         display: inline-block;
-        width: calc(100% - 42px);
+        width: calc(100% - 45px);
     }
     
     .process .viewicon {
@@ -466,11 +457,16 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         font-weight: bold;
     }
 
-    .process .processdate {
+    .processdate {
         color: rgb(140,140,140);
         display: block;
         padding: 10px 0 0;
     }
+
+        .processdate.processinfo {
+            padding: 0;
+            margin-top: -25px;
+        }
 
 
 
@@ -491,7 +487,12 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 
 
 
-@media screen and (orientation: portrait) {
+@media screen and (max-width: 800px) {
+
+    h1 {
+        margin-bottom: 40px;
+    }
+
     /* -------- IDs -------- */
     #sidebar {
         top: auto;
@@ -549,27 +550,14 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
             padding-bottom: 65px;
         }
 
-    .basecolor {
-        /*background: linear-gradient(90deg, aquamarine 0%, #2cb5e8 130%);*/
-    }
-        
-    .textright.comp-align {
-        /*text-align: center;*/
-    }
+        .container.side-side {
+            width: 100%;
+            margin: 0;
+        }
 
-
-    /* ------- Formulário de login e registro ------- */
-    #loginform, #regform {
-        width: calc(100% - 70px);
-    }
-}
-
-
-@media screen and (max-width: 800px), screen and (orientation: portrait) {
-
-    h1 {
-        margin-bottom: 40px;
-    }
+        .container.side-side#info {
+            padding-top: 5px;
+        }
 
     .progressbar {
         margin-bottom: 40px;
@@ -582,14 +570,6 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     .side-side {
         display: block;
     }
-        .container.side-side {
-            width: 100%;
-            margin: 0;
-        }
-
-        .container.side-side#info {
-            padding-top: 5px;
-        }
 
     .tooltip:hover .tooltiptext {
         visibility: hidden;
@@ -603,9 +583,15 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         padding: 0 15px;
     }
 
-    .blocklist label {
-        display: inline-block;
-        margin: 15px 10px;
-        width: calc(100% - 20px);
+        .blocklist label {
+            display: inline-block;
+            margin: 15px 10px;
+            width: calc(100% - 20px);
+        }
+
+
+    /* ------- Formulário de login e registro ------- */
+    #loginform, #regform {
+        width: calc(100% - 70px);
     }
 }

@@ -17,10 +17,8 @@
     <div id="sidebar" class="basecolor">
         !!section('sidebar')!!
     </div>
-    <div id="maincontent">
+    <div id="maincontent" class="basecolor">
         !!section('maincontent')!!
     </div>
-
-    <div class="cover basecolor"></div>
 </body>
 </html>
