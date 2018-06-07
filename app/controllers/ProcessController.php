@@ -106,8 +106,8 @@ class ProcessController extends Controller {
 
 
                     // Salva os dados novos do processo
-                    $currentProcess->setName($post['nomeprocesso']);
-                    $currentProcess->setDescription($post['descricaoprocesso']);
+                    $currentProcess->setName(htmlspecialchars($post['nomeprocesso'], ENT_QUOTES));
+                    $currentProcess->setDescription(htmlspecialchars($post['descricaoprocesso'], ENT_QUOTES));
                     $currentProcess->setUpdatedAt(date('Y-m-d H:i:s'));
                     $currentProcess->save();
 
@@ -189,8 +189,8 @@ class ProcessController extends Controller {
 
 
                 // Salva os dados novos do processo
-                $processo->setName($post['nomeprocesso']);
-                $processo->setDescription($post['descricaoprocesso']);
+                $processo->setName(htmlspecialchars($post['nomeprocesso'], ENT_QUOTES));
+                $processo->setDescription(htmlspecialchars($post['descricaoprocesso'], ENT_QUOTES));
                 $processo->setUpdatedAt(date('Y-m-d H:i:s'));
                 $processo->save();
 
