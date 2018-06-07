@@ -301,10 +301,21 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         border-radius: 5px;
     }
 
+    .blocklist.inline {
+        max-width: 800px;
+    }
+
+    .blocklist.inline label {
+        display: inline-block;
+        margin: 20px 15px;
+    }
+
     .blocklist li {
         vertical-align: top;
         width: 100%;
         max-width: 190px;
+        max-height: 150px;
+        user-select: none;
     }
 
     .blocklist li input[type="radio"] {
@@ -341,6 +352,18 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
             text-align: left;
         }
 
+            .blocklist li .blocktitle .phasename {
+                color: #000;
+                display: block;
+                margin-bottom: -20px;
+                height: auto;
+                max-width: 100%;
+                white-space: pre-line;
+                text-align: left;
+                font-size: 10pt;
+                line-height: 140%;
+            }
+
 
 .transluscentblock {
     display: block;
@@ -357,6 +380,11 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     .transluscentblock:hover {
         background: rgba(255,255,255,0.8);
         transition: 0.3s;
+    }
+
+    .inline .transluscentblock {
+        background: rgba(255,255,255,0.8);
+        cursor: pointer;
     }
 
 
@@ -389,6 +417,45 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         background: rgb(95,189,194);
         height: 5px;
         border-radius: 5px;
+    }
+
+.process {
+    font-weight: normal;
+    color: #000;
+}
+    .process *{
+        text-align: left;
+        user-select: none;
+    }
+
+    .process .content {
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        width: calc(100% - 42px);
+    }
+    
+    .process .viewicon {
+        vertical-align: middle;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: url('../images/icons/forward.png') no-repeat center center;
+        background-size: cover;
+    }
+
+    .process .processtitle {
+        display: block;
+        text-align: left;
+        font-size: 18pt;
+        font-weight: bold;
+    }
+
+    .process .processdate {
+        color: rgb(140,140,140);
+        display: block;
+        padding: 10px 0 0;
     }
 
 
@@ -503,6 +570,10 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         .container.side-side {
             width: 100%;
             margin: 0;
+        }
+
+        .container.side-side#info {
+            padding-top: 5px;
         }
 
     .tooltip:hover .tooltiptext {

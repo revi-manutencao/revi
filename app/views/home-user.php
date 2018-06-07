@@ -18,11 +18,16 @@
                 if(count($processos) > 0) {
                     foreach($processos as $processo) {
 
-                        echo '<div class="content textcenter block">';
-                        echo '<b>'.(($processo->getName() != null) ?
-                                $processo->getName() : '<i>Processo não finalizado</i>').'</b>';
-                        echo ', atualizado em ' . date('d/m/Y, H:i', strtotime($processo->getUpdatedAt()));
+                        echo '<a href="processo/'.$processo->getId().'">';
+                        echo '<div class="content textcenter block process">';
+                        echo '  <div class="content">';
+                        echo '    <span class="processtitle">'.$processo->getName().'</span>';
+                        echo '    <span class="processdate"> Última alteração em '
+                            .date('d/m/Y, à\s H:i', strtotime($processo->getUpdatedAt())).'</span>';
+                        echo '  </div>';
+                        echo '  <div class="viewicon" title="Visualizar processo"></div>';
                         echo '</div>';
+                        echo '</a>';
                     }
                 } else
                     echo '<div class="content textcenter">'

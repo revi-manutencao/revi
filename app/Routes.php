@@ -19,6 +19,7 @@ Router::define('meusdados', 'UserController/meusDados');
 Router::define('meusdados/alterarsenha', 'UserController/alterarSenha');
 
 Router::define('criar', 'ProcessController/novoProcesso');
+Router::define('processo/{id}', 'ProcessController/verProcesso');
 Router::define('api/feature/{id}', 'ProcessController/consultaFeature');
 
 

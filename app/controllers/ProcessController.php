@@ -117,7 +117,44 @@ class ProcessController extends Controller {
     }
 
 
-    public function consultaFeature($data) {
+    public function verProcesso ($data) {
+	    Auth::setRestricted('entrar');
+
+	    // Obtém os dados do processo e do usuário
+	    $processo = Process::make()->get($data['id']);
+	    $user = Auth::getLoggedUser();
+
+
+	    // Redireciona se o processo não for do usuário logado ou estiver inativo
+	    if($processo->getIdUser() !== $user->getId() || $processo->getActive() == false){
+	        redirect('/');
+	        return;
+        }
+
+
+        // Define um vetor para armazenar os dados das etapas e da feature escolhida para cada uma
+        $arrEtapasFeatures = array();
+
+	    // Obtém todas as features do processo
+        $pf = ProcessFeature::make()->where('id_process = ?', $processo->getId())->find();
+
+        // Organiza os dados das etapas e das features no vetor
+        foreach($pf as $pfeature) {
+            $feature = Feature::make()->get($pfeature->getIdFeature());
+            $phase = Phase::make()->get($feature->getIdPhase());
+
+            $arrEtapasFeatures[] = [
+                'phase' => $phase->getName(),
+                'idFeature' => $feature->getId(),
+                'nameFeature' => $feature->getName()
+            ];
+        }
+
+        view('process-viewer', ['processo' => $processo, 'arrEtapas' => $arrEtapasFeatures]);
+    }
+
+
+    public function consultaFeature ($data) {
 	    $id = $data['id'];
 
 	    $feature = Feature::make()->where('active = true and id = ?', $id)->find();
