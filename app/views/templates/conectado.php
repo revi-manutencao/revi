@@ -17,7 +17,7 @@
 
     <li id="logout" class="last tooltip">
         <a href="<?=route('/sair')?>">
-            <img src="<?=asset('images/icons/signout.png')?>">
+            <img src="<?=asset('images/icons/logout.png')?>">
         </a>
         <span class="tooltiptext">sair</span>
     </li>
