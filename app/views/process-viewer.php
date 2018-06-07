@@ -17,7 +17,8 @@
 
             <div class="content">
                 <?=$processo->getDescription() != '' ?
-                    nl2br($processo->getDescription()) : '<i>Nenhuma descrição disponível</i>'?>
+                    nl2br($processo->getDescription()) :
+                    '<i class="textcenter" style="display:block;">Nenhuma descrição disponível</i>'?>
             </div>
 
             <div class="options">
