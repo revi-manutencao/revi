@@ -19,7 +19,7 @@
                 <span class="processdate textcenter processinfo">
                     Criado em <?=date('d/m/Y, à\s H:i', strtotime($processo->getCreatedAt()))?>
                     <br>
-                    Última atualização em <?=date('d/m/Y, à\s H:i', strtotime($processo->getUpdatedAt()))?>
+                    Última alteração em <?=date('d/m/Y, à\s H:i', strtotime($processo->getUpdatedAt()))?>
                 </span>
                 <br>
 

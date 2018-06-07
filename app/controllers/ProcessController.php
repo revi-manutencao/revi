@@ -108,6 +108,7 @@ class ProcessController extends Controller {
                     // Salva os dados novos do processo
                     $currentProcess->setName($post['nomeprocesso']);
                     $currentProcess->setDescription($post['descricaoprocesso']);
+                    $currentProcess->setUpdatedAt(date('Y-m-d H:i:s'));
                     $currentProcess->save();
 
                     redirect('/');
