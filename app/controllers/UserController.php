@@ -2,6 +2,16 @@
 
 class UserController extends Controller {
 
+    public static function listaProcessos () {
+        Auth::setRestricted('entrar');
+
+        // Obtém os dados do usuário logado e seus processos
+        $user = Auth::getLoggedUser();
+        $processos = Process::make()->where('id_user = ?', $user->getId())->find();
+
+        view('home-user', ['processos' => $processos]);
+    }
+
     public function login () {
 	    if(Auth::isLogged())
 	        redirect('/');
@@ -60,6 +70,7 @@ class UserController extends Controller {
                         die;
                     }
 
+                    // Cria o objeto e preenche com os dados
                     $user = User::make();
                     $user->setLogin($post['nomeusuario']);
                     $user->setName($post['nome']);
@@ -76,20 +87,11 @@ class UserController extends Controller {
 
     public function logout () {
 	    Auth::setRestricted('entrar');
+
+	    // Realiza o logout do sistema
 	    Auth::doLogout();
-	    unset($_SESSION['currentProcess']);
 	    redirect('/');
     }
-
-
-    public static function listaProcessos () {
-        Auth::setRestricted('entrar');
-	    $user = Auth::getLoggedUser();
-	    $processos = Process::make()->where('id_user = ?', $user->getId())->find();
-
-        view('home-user', ['processos' => $processos]);
-    }
-
 
     public function meusDados () {
         Auth::setRestricted('entrar');
@@ -98,12 +100,16 @@ class UserController extends Controller {
             case 'get':
                 $userLogged = Auth::getLoggedUser();
 
+                // Obtém os dados do usuário e dos processos
                 $user = User::make()->get($userLogged->getId());
                 $processos = Process::make()->where('id_user = ?', $user->getId());
+
                 view('user-data', ['user' => $user, 'quantProcesses' => count($processos)]);
                 break;
+
+
             case 'post':
-                dump(filterPost());
+                // Valida os dados de entrada
                 $valid = Validation::check(filterPost(), array(
                     'nome' => 'required|alpha',
                     'email' => 'required|email',
@@ -118,6 +124,7 @@ class UserController extends Controller {
 
                 $userLogged = Auth::getLoggedUser();
 
+                // Obtém os dados completos do usuário
                 $user = User::make()->get($userLogged->getId());
                 $user->setName($post['nome']);
                 $user->setEmail($post['email']);

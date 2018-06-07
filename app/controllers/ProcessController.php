@@ -116,10 +116,6 @@ class ProcessController extends Controller {
         }
     }
 
-	public function verDadoProcesso () {
-	    view('info-base');
-    }
-
 
     public function consultaFeature($data) {
 	    $id = $data['id'];

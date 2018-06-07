@@ -21,8 +21,6 @@ Router::define('meusdados/alterarsenha', 'UserController/alterarSenha');
 Router::define('criar', 'ProcessController/novoProcesso');
 Router::define('api/feature/{id}', 'ProcessController/consultaFeature');
 
-Router::define('info', 'ProcessController/verDadoProcesso');
-
 
 // Rotas para a construção das parada
 //Router::define('cc/tasksmgmt', 'ConstructorController/createTasksMgmt');
