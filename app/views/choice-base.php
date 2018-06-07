@@ -68,7 +68,7 @@
                 dataType: 'json',
                 success: function(data) {
                     $('#shortdesc').html('<br><h4>'+ data.Feature.name + '</h4>'+
-                        data.Feature.shortdescription.replace('\n', '<br/>')+
+                        data.Feature.shortdescription+
                         '<span id="vermais"><br><br>'+
                         '<button type="button" onclick="showMore('+id+')">Ver mais</button></span>');
 
@@ -88,7 +88,7 @@
                 method: 'get',
                 dataType: 'json',
                 success: function(data) {
-                    $('#longdesc').html('<br>'+data.Feature.longdescription.replace('\n', '<br/>'));
+                    $('#longdesc').html('<br>'+data.Feature.longdescription);
                 },
                 error: function(data) {
                     console.error('Não foi possível obter os dados do objeto.');
