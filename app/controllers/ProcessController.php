@@ -185,8 +185,15 @@ class ProcessController extends Controller {
             return;
         }
 
-        $processo[0]->setActive(false);
-        $processo[0]->save();
+
+        $processo = $processo[0];
+        $featProc = ProcessFeature::make()->where('id_process = ?', $processo->getId())->find();
+
+        foreach($featProc as $fp) {
+            $fp->delete();
+        }
+
+        $processo->delete();
 
         redirect('/');
     }
