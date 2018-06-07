@@ -485,6 +485,18 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 
 @media screen and (max-width: 800px), screen and (orientation: portrait) {
 
+    h1 {
+        margin-bottom: 40px;
+    }
+
+    .progressbar {
+        margin-bottom: 40px;
+    }
+
+    .block#unfinished {
+        margin-top: 60px;
+    }
+
     .side-side {
         display: block;
     }

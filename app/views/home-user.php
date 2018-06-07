@@ -32,7 +32,7 @@
             </div>
 
             <div class="container options side-side">
-                <div class="content block">
+                <div class="content block" id="unfinished">
                     <h3 class="textcenter">processo não finalizado</h3>
                     <br>
                     <?php

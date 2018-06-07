@@ -41,7 +41,7 @@
                         <label>
                             <li class="transluscentblock">
                                 <input type="radio" name="choice" value="<?=$feature->getId()?>"
-                                       onclick="checkContent(this)">
+                                       onchange="checkContent(this)">
                                 <span class="blocktitle">
                                     <?=$feature->getName()?>
                                 </span>
