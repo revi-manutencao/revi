@@ -12,7 +12,7 @@
         $features = $data['features'];
         $percentage = $data['percentage'];
         ?>
-        <h1 class="textcenter">criar processo</h1>
+        <h1 class="textcenter">criação</h1>
         <span class="progress">
             <div class="progressbar">
                 <span class="progressconut" style="width: <?=$percentage?>%;"></span>

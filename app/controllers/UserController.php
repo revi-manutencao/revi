@@ -7,9 +7,28 @@ class UserController extends Controller {
 
         // Obtém os dados do usuário logado e seus processos
         $user = Auth::getLoggedUser();
-        $processos = Process::make()->where('id_user = ?', $user->getId())->find();
+        $processos = Process::make()->where('id_user = ? and name != ""', $user->getId())->find();
 
-        view('home-user', ['processos' => $processos]);
+        $unfinishedProcess = Process::make()
+            ->where('active = true and name = "" and id_user = ?', $user->getId())->find();
+
+        if(count($unfinishedProcess) > 0) {
+            $processFeatures = ProcessFeature::make()->where('id_process = ?', $unfinishedProcess[0]->getId())->find();
+            $phaseNumber = count($processFeatures) + 1;
+
+            // Conta o total de etapas de processo a serem preenchidas
+            $countPhases = count(Phase::make()->all());
+
+
+            // Armazena o valor de completude do processo atualmente
+            $percentage = number_format((($phaseNumber/$countPhases) - (1/$countPhases)) * 100, 2);
+
+            $unfinished = ['obj' => $unfinishedProcess, 'phaseNo' => $phaseNumber, 'percentage' => $percentage];
+        } else {
+            $unfinished = array();
+        }
+
+        view('home-user', ['processos' => $processos, 'processoNaoTerminado' => $unfinished]);
     }
 
     public function login () {

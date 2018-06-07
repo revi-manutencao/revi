@@ -12,7 +12,7 @@
         <a href="<?=route('/criar')?>">
             <img src="<?=asset('images/icons/plus.png')?>">
         </a>
-        <span class="tooltiptext">criar processo</span>
+        <span class="tooltiptext">criação</span>
     </li>
 
     <li id="logout" class="last tooltip">
