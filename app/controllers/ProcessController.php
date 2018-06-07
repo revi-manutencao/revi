@@ -154,6 +154,44 @@ class ProcessController extends Controller {
     }
 
 
+    public function apagarProcesso ($data) {
+	    Auth::setRestricted('/');
+
+	    $id = $data['id'];
+
+	    $processo = Process::make()->get($id);
+	    $user = Auth::getLoggedUser();
+
+	    if($processo->getIdUser() != $user->getId()){
+	        redirect('/');
+	        return;
+        }
+
+        $processo->setActive(false);
+        $processo->save();
+
+        redirect('/');
+    }
+
+
+    public function cancelarCriacao () {
+        Auth::setRestricted('/');
+
+        $user = Auth::getLoggedUser();
+        $processo = Process::make()->where('id_user = ? and active = true and name = ""', $user->getId())->find();
+
+        if(count($processo) == 0){
+            redirect('/');
+            return;
+        }
+
+        $processo[0]->setActive(false);
+        $processo[0]->save();
+
+        redirect('/');
+    }
+
+
     public function consultaFeature ($data) {
 	    $id = $data['id'];
 

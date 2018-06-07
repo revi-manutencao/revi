@@ -13,11 +13,11 @@
 
     <script src="<?=asset('scripts/jquery-3.3.1.min.js')?>"></script>
 </head>
-<body>
+<body class="basecolor">
     <div id="sidebar" class="basecolor">
         !!section('sidebar')!!
     </div>
-    <div id="maincontent" class="basecolor">
+    <div id="maincontent">
         !!section('maincontent')!!
     </div>
 </body>

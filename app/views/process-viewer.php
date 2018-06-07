@@ -47,6 +47,11 @@
                     <?php } ?>
                 </ul>
             </div>
+
+            <div class="textcenter">
+                <button type="button" class="btn-danger btn-fit"
+                    onclick="confirmDelete(<?=$processo->getId()?>)">Apagar processo</button>
+            </div>
         </div>
 
         <div class="container options side-side" id="info">
@@ -106,6 +111,14 @@
                     console.error('Não foi possível obter os dados do objeto.');
                 }
             });
+        }
+
+
+        function confirmDelete(id) {
+            var url = '<?=route('processo/')?>' + id + '/apagar';
+
+            if(confirm("Tem certeza de que deseja apagar este processo?"))
+                location.href=url;
         }
     </script>
 @endsection

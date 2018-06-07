@@ -75,6 +75,22 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         transition: 0.3s;
     }
 
+    .btn-danger {
+        background: rgb(250,220,220);
+        color: rgb(170,30,30);
+    }
+
+    .btn-danger:hover {
+        background: rgb(230,160,160);
+        color: rgb(255,255,255);
+    }
+
+
+    .btn-fit {
+        padding: 10px 15px;
+        font-size: 8pt;
+    }
+
 
 
 
@@ -195,6 +211,10 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 
         .container.side-side .block {
             margin: 20px auto;
+        }
+
+        .container.side-side .block.process {
+            margin-bottom: 35px;
         }
 
     .options.side-side {
@@ -556,6 +576,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
 
         .container.side-side#info {
             padding-top: 5px;
+            margin-top: 20px;
         }
 
     .progressbar {

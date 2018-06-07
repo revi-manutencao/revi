@@ -68,10 +68,24 @@
                         echo '<br>';
                         echo '<p>Para continuar sua construção, acesse a página de '
                             .'<a href="criar">criação</a> e prossiga de onde parou!</p>';
+
+                        echo '<br>'
+                            .'<p>Ou, se preferir, você também pode:<br>'
+                            .'<div class="textcenter">'
+                            .'<button class="btn-danger btn-fit" onclick="confirmCancel()">'
+                            .'Cancelar criação</button></div></p>';
                     }
                     ?>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function confirmCancel() {
+            var url = '<?=route('processo/cancelar')?>';
+
+            if(confirm("Tem certeza de que deseja apagar este processo?"))
+                location.href=url;
+        }
+    </script>
 @endsection
