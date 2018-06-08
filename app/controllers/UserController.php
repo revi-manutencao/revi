@@ -125,7 +125,10 @@ class UserController extends Controller {
 
                 // Obtém os dados do usuário e dos processos
                 $user = User::make()->get($userLogged->getId());
-                $processos = Process::make()->where('id_user = ? and nome != ""', $user->getId());
+                $processos = Process::make()
+                    ->where('id_user = ? and name != "" and active = true', $user->getId())
+                    ->orderBy('updated_at', 'desc')
+                    ->find();
 
                 view('user-data', ['user' => $user, 'quantProcesses' => count($processos)]);
                 break;
