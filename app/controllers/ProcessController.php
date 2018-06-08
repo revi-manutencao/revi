@@ -101,8 +101,10 @@ class ProcessController extends Controller {
                         'nomeprocesso' => 'required|max:200'
                     ));
 
-                    if(!$valid)
+                    if(!$valid) {
                         back()->withValues();
+                        return;
+                    }
 
 
                     // Salva os dados novos do processo
@@ -184,8 +186,10 @@ class ProcessController extends Controller {
                     'nomeprocesso' => 'required|max:200'
                 ));
 
-                if(!$valid)
+                if(!$valid) {
                     back()->withValues();
+                    return;
+                }
 
 
                 // Salva os dados novos do processo
