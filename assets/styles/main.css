@@ -523,6 +523,10 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
         margin-bottom: 40px;
     }
 
+    p {
+        margin: 15px 5px;
+    }
+
     /* -------- IDs -------- */
     #sidebar {
         top: auto;
@@ -588,6 +592,11 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
             padding-top: 5px;
             margin-top: 20px;
         }
+
+    .content {
+        width: auto;
+        margin: 40px auto 0;
+    }
 
     .progressbar {
         margin-bottom: 40px;
