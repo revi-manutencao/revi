@@ -56,6 +56,14 @@ class UserController extends Controller {
                     $user = $user[0];
                     $user->setPassword(null);
 
+                    //Registra log
+                    $log = Log::make();
+                    $log->setTitle("Login realizado");
+                    $log->setDescription("O usuário #".$user->getID().' ('.$user->getLogin().') realizou o login');
+                    $log->setDatetime(date('Y-m-d H:i:s'));
+                    $log->setIdUser($user->getId());
+                    $log->save();
+
                     Auth::createAuthSession($user, '/');
                     break;
             }
@@ -100,6 +108,16 @@ class UserController extends Controller {
                     $user->setPassword(Auth::hashPassword($post['senha']));
                     $user->save();
 
+
+                    //Registra log
+                    $log = Log::make();
+                    $log->setTitle("Usuário cadastrado");
+                    $log->setDescription("O usuário #".$user->getID()
+                        .' ('.$user->getLogin().') foi cadastrado no sistema');
+                    $log->setDatetime(date('Y-m-d H:i:s'));
+                    $log->setIdUser($user->getId());
+                    $log->save();
+
                     redirect('entrar')
                         ->flash('success', 'Usuário <b>'.$user->getLogin().'</b> criado com sucesso.');
                     break;
@@ -109,6 +127,11 @@ class UserController extends Controller {
 
     public function logout () {
 	    Auth::setRestricted('entrar');
+
+	    $user = Auth::getLoggedUser();
+
+        //Registra log
+        $this->logLogout($user);
 
 	    // Realiza o logout do sistema
 	    Auth::doLogout();
@@ -150,11 +173,26 @@ class UserController extends Controller {
 
                 $userLogged = Auth::getLoggedUser();
 
+                $oldValues['nome'] = $userLogged->getName();
+                $oldValues['email'] = $userLogged->getEmail();
+
                 // Obtém os dados completos do usuário
                 $user = User::make()->get($userLogged->getId());
                 $user->setName($post['nome']);
                 $user->setEmail($post['email']);
                 $user->save();
+
+
+                //Registra log
+                $log = Log::make();
+                $log->setTitle("Dados pessoais atualizados");
+                $log->setDescription("O usuário #".$user->getID()
+                    .' ('.$user->getLogin().') alterou seu nome de "'.$oldValues['nome'].'" para"'
+                    .$user->getName().'" e email de "'.$oldValues['email'].'" para "'.$user->getEmail().'"');
+                $log->setDatetime(date('Y-m-d H:i:s'));
+                $log->setIdUser($user->getId());
+                $log->save();
+
 
                 redirect('meusdados')->flash('success', "Dados alterados");
                 break;
@@ -197,6 +235,20 @@ class UserController extends Controller {
                 $user->setPassword(Auth::hashPassword($post['novasenha']));
                 $user->save();
 
+
+                //Registra log
+                $log = Log::make();
+                $log->setTitle("Senha alterada");
+                $log->setDescription("O usuário #".$user->getID()
+                    .' ('.$user->getLogin().') alterou sua senha');
+                $log->setDatetime(date('Y-m-d H:i:s'));
+                $log->setIdUser($user->getId());
+                $log->save();
+
+
+                //Registra log do logout do sistema
+                $this->logLogout($user);
+
                 // Faz o logout e dá mensagem de sucesso
                 Auth::doLogout();
                 redirect('entrar')
@@ -209,5 +261,17 @@ class UserController extends Controller {
                 redirect('meusdados');
                 break;
         }
+    }
+
+
+    // Realiza o Log do processo de logout
+    private function logLogout ($user){
+        //Registra log
+        $log = Log::make();
+        $log->setTitle("Logout realizado");
+        $log->setDescription("O usuário #".$user->getID().' ('.$user->getLogin().') saiu do sistema');
+        $log->setDatetime(date('Y-m-d H:i:s'));
+        $log->setIdUser($user->getId());
+        $log->save();
     }
 }

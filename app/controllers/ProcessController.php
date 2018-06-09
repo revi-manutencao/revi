@@ -31,6 +31,9 @@ class ProcessController extends Controller {
         // Conta o total de etapas de processo a serem preenchidas
         $countPhases = count(Phase::make()->all());
 
+        // Obtém o usuário logado
+        $user = Auth::getLoggedUser();
+
 
         // Verifica o método da requisição
 	    switch (getRequest()){
@@ -74,16 +77,44 @@ class ProcessController extends Controller {
                 // Obtém os dados do POST
                 $post = filterPost();
 
+                $novoProcesso = false;
+
                 if($phaseNumber <= $countPhases) {
                     // Preenche os dados do processo
                     if ($currentProcess->getCreatedAt() == null) {
                         $currentProcess->setCreatedAt(date('Y-m-d H:i:s'));
                         $currentProcess->setActive(true);
                         $currentProcess->setIdUser(Auth::getLoggedUser()->getId());
+                        $novoProcesso = true;
                     }
 
                     $currentProcess->setUpdatedAt(date('Y-m-d H:i:s'));
                     $currentProcess->save();
+
+                    if($novoProcesso) {
+                        //Registra log da criação inicial
+                        $log = Log::make();
+                        $log->setTitle('Processo criado');
+                        $log->setDescription("O usuário #".$user->getID().' ('.$user->getLogin()
+                            .') criou um novo processo (#'.$currentProcess->getId().')');
+                        $log->setDatetime(date('Y-m-d H:i:s'));
+                        $log->setIdUser($user->getId());
+                        $log->setIdProcess($currentProcess->getId());
+                        $log->save();
+
+                    }
+
+
+                    //Registra log do registro de nova etapa do processo
+                    $log = Log::make();
+                    $log->setTitle('Selecionada opção para etapa de novo processo');
+                    $log->setDescription("O usuário #".$user->getID().' ('.$user->getLogin()
+                        .') registrou a escolha da etapa #'.$phaseNumber
+                        .' para o processo #'.$currentProcess->getId().' com a feature #'.$post['choice']);
+                    $log->setDatetime(date('Y-m-d H:i:s'));
+                    $log->setIdUser($user->getId());
+                    $log->setIdProcess($currentProcess->getId());
+                    $log->save();
 
 
                     // Salva o objeto ProcessFeature relacionando à opção realizada pelo usuário
@@ -112,6 +143,18 @@ class ProcessController extends Controller {
                     $currentProcess->setDescription(htmlspecialchars($post['descricaoprocesso'], ENT_QUOTES));
                     $currentProcess->setUpdatedAt(date('Y-m-d H:i:s'));
                     $currentProcess->save();
+
+
+                    //Registra log do registro de nova etapa do processo
+                    $log = Log::make();
+                    $log->setTitle('Adicionados nome e descrição ao novo processo');
+                    $log->setDescription("O usuário #".$user->getID().' ('.$user->getLogin()
+                        .') adicionou ao processo #'.$currentProcess->getId().' o nome "'.$currentProcess->getName()
+                        .'" e a descrição "'.$currentProcess->getDescription().'"');
+                    $log->setDatetime(date('Y-m-d H:i:s'));
+                    $log->setIdUser($user->getId());
+                    $log->setIdProcess($currentProcess->getId());
+                    $log->save();
 
                     redirect('/');
                 }
@@ -191,12 +234,26 @@ class ProcessController extends Controller {
                     return;
                 }
 
+                $oldValues['nomeprocesso'] = $processo->getName();
+                $oldValues['descricaoprocesso'] = $processo->getDescription();
+
 
                 // Salva os dados novos do processo
                 $processo->setName(htmlspecialchars($post['nomeprocesso'], ENT_QUOTES));
                 $processo->setDescription(htmlspecialchars($post['descricaoprocesso'], ENT_QUOTES));
                 $processo->setUpdatedAt(date('Y-m-d H:i:s'));
                 $processo->save();
+
+                //Registra log
+                $log = Log::make();
+                $log->setTitle('Dados do processo alterados');
+                $log->setDescription("O usuário #".$user->getID().' ('.$user->getLogin()
+                    .') alterou os dados processo #'.$processo->getId().', com o nome de "'.$oldValues['nomeprocesso']
+                    .'" para "'. $processo->getName().'" e a descrição de "'.$oldValues['descricaoprocesso'].'" para "'
+                    .$processo->getDescription().'"');
+                $log->setDatetime(date('Y-m-d H:i:s'));
+                $log->setIdUser($user->getId());
+                $log->save();
 
                 redirect('/processo/'.$processo->getId());
                 break;
@@ -219,6 +276,16 @@ class ProcessController extends Controller {
 
         $processo->setActive(false);
         $processo->save();
+
+
+        //Registra log
+        $log = Log::make();
+        $log->setTitle('Processo apagado');
+        $log->setDescription("O usuário #".$user->getID().' ('.$user->getLogin()
+            .') apagou o processo #'.$processo->getId());
+        $log->setDatetime(date('Y-m-d H:i:s'));
+        $log->setIdUser($user->getId());
+        $log->save();
 
         redirect('/');
     }
@@ -244,6 +311,17 @@ class ProcessController extends Controller {
         }
 
         $processo->delete();
+
+
+        //Registra log
+        $log = Log::make();
+        $log->setTitle("Criação de processo cancelada");
+        $log->setDescription("O usuário #".$user->getID().' ('.$user->getLogin()
+            .') cancelou a criação do processo #'.$processo->getId());
+        $log->setDatetime(date('Y-m-d H:i:s'));
+        $log->setIdUser($user->getId());
+        $log->setIdProcess($processo->getId());
+        $log->save();
 
         redirect('/');
     }
