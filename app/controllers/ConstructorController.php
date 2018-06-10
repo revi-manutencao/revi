@@ -513,26 +513,21 @@ class ConstructorController extends Controller {
 
         $ft2 = new Feature();
         $ft2->setIdPhase(6);
-        $ft2->setName('Pontos por função');
+        $ft2->setName('Pontos por caso de uso');
         $ft2->setShortdescription('<b>Análise de pontos por caso de uso</b>
             <br>
-            O <b>processo de medição do PCU</b>(Pontos por Caso de Uso) consiste resumidamente em: 
+            O <b>processo de medição do PCU </b>(Pontos por Caso de Uso) consiste resumidamente em: 
             <br>
             <br>
             1 - Contar os <b>atores</b> e identificar sua complexidade;
             <br>
-            <br>
             2 - Contar os <b>casos de uso</b> e identificar sua complexidade;
-            <br>
             <br>
             3 - Calcular os PCUs não ajustados;
             <br>
-            <br>
             4 - Determinar o fator de <b>complexidade técnica</b>;
             <br>
-            <br>
             5 - Determinar o fator de <b>complexidade ambiental</b>;
-            <br>
             <br>
             6 - Calcular os PCUs ajustados; 
             <br>
