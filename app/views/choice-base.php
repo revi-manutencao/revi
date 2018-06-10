@@ -69,8 +69,9 @@
                 success: function(data) {
                     $('#shortdesc').html('<br><h4>'+ data.Feature.name + '</h4>'+
                         data.Feature.shortdescription+
+                        ((data.Feature.longdescription !== '') ?
                         '<span id="vermais"><br><br>'+
-                        '<button type="button" onclick="showMore('+id+')">Ver mais</button></span>');
+                        '<button type="button" onclick="showMore('+id+')">Ver mais</button></span>' : ''));
 
                     $('#longdesc').html('');
                 },
