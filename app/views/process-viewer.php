@@ -92,8 +92,9 @@
                     $('#instruction').css('display', 'none');
                     $('#featurecontent').html('<h4>'+ data.Feature.name + '</h4>'+
                         data.Feature.shortdescription+
+                        ((data.Feature.longdescription !== '') ?
                         '<span id="vermais"><br><br>'+
-                        '<button type="button" onclick="showMore('+idFeature+')">Ver mais</button></span>');
+                        '<button type="button" onclick="showMore('+idFeature+')">Ver mais</button></span>' : ''));
 
                     $('#longdesc').html('');
                 },
