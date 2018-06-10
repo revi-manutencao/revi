@@ -30,9 +30,10 @@ class ConstructorController extends Controller {
         $ph2 = new Phase();
         $ph2->setName('Estrutura do ciclo de desenvolvimento');
         $ph2->setDescription('O <b>ciclo de vida</b> é a <b>estrutura</b> contendo <b>processos</b>, 
-            <b>atividades e tarefas</b> envolvidas no desenvolvimento, <b>operação</b> e <b>manutenção</b> de um 
+            <b>atividades e tarefas envolvidas no desenvolvimento</b>, <b>operação</b> e <b>manutenção</b> de um 
             produto de software, abrangendo a vida do sistema, desde a definição de seus requisitos até o término de 
-            seu uso.
+            seu uso. Neste âmbito, nosso foco são os ciclos de desenvolvimento, contidos no ciclo de vida do projeto. A
+            importância deste se dá na organização de um desenvolvimento adaptável a seu tipo de projeto. 
             <br>
             <b>Para isso, temos alguns modelos para lhe auxiliar!</b>');
         $ph2->setActive(true);
@@ -113,15 +114,19 @@ class ConstructorController extends Controller {
             .'<br>'
             .'Os princípios básicos em torno dessa ferramenta são:'
             .'<br>'
+            .'<br>'
             .'<b>Visualização da Cadeia de Valor:</b> enxergando as fases do produto (por exemplo, um software, algo material '
             .'ou até mesmo um serviço);'
+            .'<br>'
             .'<br>'
             .'<b>Desenvolvimento Evolucionário (Adaptativo):</b> através de gestão de mudanças simples, adaptando-se de forma '
             .'ágil, entregando o que tem mais valor antes. Perceba que a palavra “ágil”, muitas vezes confundida com '
             .'rapidez, aqui significa capacidade de se adaptar às mudanças com mais facilidade, mais agilidade;'
             .'<br>'
+            .'<br>'
             .'<b>Restrição do trabalho e seu progresso em torno de seus estágios:</b> permitindo medição, controle e melhoria '
             .'contínua.'
+            .'<br>'
             .'<br>'
             .'Para saber mais sobre o kanban, clique <a href="https://www.devmedia.com.br/kanban-4-passos-para-implementar-em-uma
                 -equipe/30218">aqui</a>
