@@ -5,10 +5,7 @@ class ConstructorController extends Controller {
     public function createPhases() {
         $ph1 = new Phase();
         $ph1->setName('Gerenciamento de tarefas');
-        $ph1->setDescription('A <b>produtividade</b> está totalmente ligada a forma como lidamos com a 
-            quantidade de tarefas e o tempo disponível. Realizar projetos por pequenas etapas vai deixar tudo mais 
-            fluído, ajudando a colocar em ordem tudo o que sua equipe produzirá, por isso, precisamos de uma boa 
-            estratégia de <b>gerenciamento de tarefas!</b>
+        $ph1->setDescription('A <b>produtividade</b> está totalmente ligada a forma como lidamos com a quantidade de tarefas e o tempo disponível. Realizar projetos por pequenas etapas vai deixar tudo mais fluído, ajudando a colocar em ordem tudo o que sua equipe produzirá, por isso, precisamos de uma boa estratégia de <b>gerenciamento de tarefas!</b>
             <br>
             <b>Escolha uma das sugestões que temos para você!</b>');
         $ph1->setActive(true);
