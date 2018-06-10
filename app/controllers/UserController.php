@@ -106,6 +106,7 @@ class UserController extends Controller {
                     $user->setName($post['nome']);
                     $user->setEmail($post['email']);
                     $user->setPassword(Auth::hashPassword($post['senha']));
+                    $user->setActive(true);
                     $user->save();
 
 
