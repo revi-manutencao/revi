@@ -26,7 +26,7 @@
                     <h2><?=$phase->getName()?></h2>
 
                     <p>
-                        <?=nl2br($phase->getDescription())?>
+                        <?=$phase->getDescription()?>
                     </p>
 
                     <p id="shortdesc"></p>

@@ -56,6 +56,7 @@ class ConstructorController extends Controller {
             <br>
             Com as métricas, conseguimos não só gerir a qualidade de nossos produtos como também utilizar o desenvolvimento deste como base para o próximo! Como? Basta aplicarmos os conceitos corretamente e utilizarmos os dados extraidos para estruturar uma <b>Base Histórica</b>.
             <br>
+            <br>
             <b>Veja agora alguns exemplos de métricas e como aplicá-las!</b>');
         $ph6->setActive(true);
         dump($ph6->save());
@@ -172,6 +173,7 @@ class ConstructorController extends Controller {
             .'precisa fazer tudo achando que só assim o trabalho será bem-feito: dê a oportunidade de outras pessoas '
             .'executarem o trabalho e até melhorarem resultados, enquanto você poderá focar em áreas e tarefas mais '
             .'importantes.'
+            .'importantes.'
             .'<br>'
             .'<b>Entenda que delegar não é transferir responsabilidades</b>'
             .'<br>'
@@ -188,6 +190,7 @@ class ConstructorController extends Controller {
             .'Perceba que você não transferiu a tarefa, apenas a delegou para que alguém pudesse executá-la sob '
             .'a sua gestão.'
             .'<br>'
+            .'<br>'
             .'<b>Saiba que conhecer o time é fundamental na delegação de tarefas</b>'
             .'<br>'
             .'Você precisa conhecer os pontos fortes e fracos dos seus funcionários antes de distribuir tarefas. '
@@ -196,6 +199,7 @@ class ConstructorController extends Controller {
             .'<br>'
             .'A ideia não é só entregar resultados, mas também dar a chance das pessoas aprenderem e ensinarem durante '
             .'a execução da atividade. Você só conseguirá isso se conhecer e respeitar as características individuais.'
+            .'<br>'
             .'<br>'
             .'<b>Nunca se esqueça do feedback</b>'
             .'<br>'
@@ -206,6 +210,7 @@ class ConstructorController extends Controller {
             .'<br>'
             .'Por isso a comunicação interpessoal é tão importante. Existem até aplicativos que facilitam essa '
             .'interação, de forma que a troca de informações seja constante.'
+            .'<br>'
             .'<br>'
             .'<b>Aumente a produtividade</b>'
             .'<br>'
@@ -398,7 +403,7 @@ class ConstructorController extends Controller {
             .'Note-se que não existe grandes vantagens em comunicar requisitos demasiado técnicos ao cliente, uma vez que '
             .'esta “linguagem” nem sempre é percetível pelo mesmo. A documentação mais técnica deve ser direcionada '
             .'para a equipa de desenvolvimento, em que a comunicação dos requisitos é efetuada numa ótica de '
-            .'“passagem de conhecimento” adquirida na interações anteriores (cliente–>AN/RE–>cliente). Os exemplos mais '
+            .'“passagem de conhecimento” adquirida na interações anteriores (cliente–><wbr>AN/RE–><wbr>cliente). Os exemplos mais '
             .'significativos são: diagramas UML (classes, componentes, deployment, sequência), user stories quando '
             .'acompanhados de detalhes técnicos e testes de aceitação, user stories técnicas (technical user '
             .'stories, i.e., histórias que derivam diretamente de questões de implementação ou da arquitetura da solução '
@@ -411,7 +416,7 @@ class ConstructorController extends Controller {
         $ft2->setIdPhase(4);
         $ft2->setName('Ciclo de desenvolvimento com teste integrados');
         $ft2->setShortdescription('Neste <b>ciclo de desenvolvimento</b> são realizados os processos de 
-            produção do software e também é <b>incluído,</b> o <b>processo de testes</b> de software abrangendo os mais 
+            produção do software e também é <b>incluído</b> o <b>processo de testes</b> de software abrangendo os mais 
             diversos tipos de testes.');
         $ft2->setLongdescription('Neste tipo de ciclo, são incluídos testes como:
         <br>
@@ -429,7 +434,7 @@ class ConstructorController extends Controller {
         $ft2->setIdPhase(4);
         $ft2->setName('Ciclo de desenvolvimento sem testes');
         $ft2->setShortdescription('Neste <b>ciclo de desenvolvimento</b> são realizados os processos de 
-            produção do software <b>separados</b> do <b>processo de teste</b> e software abrangendo os mais diversos tipos 
+            produção do software <b>separados</b> do <b>ciclo de testes</b> de software, o qual abrange os mais diversos tipos 
             de testes.');
         $ft2->setLongdescription('No ciclo de <b>testes</b>, são incluídos testes como:
         <br>
@@ -447,7 +452,7 @@ class ConstructorController extends Controller {
 
         $ft2 = new Feature();
         $ft2->setIdPhase(5);
-        $ft2->setName('calculo do próprio tempo de ciclo');
+        $ft2->setName('Cálculo do próprio tempo de ciclo');
         $ft2->setShortdescription('Analisa-se a equipe disponível para desenvolvimento considerando suas
             bases históricas e o contexto em que o projeto está inserido, procurando definir um tempo de ciclo adequado 
             para este conjunto de fatores.
@@ -466,7 +471,7 @@ class ConstructorController extends Controller {
         $ft2->setIdPhase(5);
         $ft2->setName('Ciclo de 7 a 14 dias');
         $ft2->setShortdescription('Ciclo comumente utilizado nas <b>metodologias ágeis</b>, sendo 
-            frequentemente aplicado nas sprints do <a href="https://www.desenvolvimentoagil.com.br/scrum/">Scrum</a>por
+            frequentemente aplicado nas sprints do <a href="https://www.desenvolvimentoagil.com.br/scrum/">Scrum</a>, por
             exemplo.');
         $ft2->setLongdescription('');
         $ft2->setActive(true);
@@ -480,6 +485,7 @@ class ConstructorController extends Controller {
             <br>
             A análise por ponto de função tem como principal objetivo medir a funcionalidade do sistema tendo como 
             base a visão do usuário, de acordo com as seguintes características:
+            <br>            
             É independente da tecnologia utilizada;
             <br>            
             Auxilia a produção de resultados consistentes;
@@ -495,12 +501,12 @@ class ConstructorController extends Controller {
             Dificuldade por possuir relativa subjetividade por refletir a visão do usuário.');
         $ft2->setLongdescription('A análise por ponto de função (APF) é uma das técnicas mais usadas 
             para se medir projetos de desenvolvimento de software. Seu principal objetivo é estabelecer um tamanho 
-            considerando a(s) funcionalidade(s) implementada(s), sempre sob o ponto de vista do usuário. A medida 
-            independe da tecnologia utilizada e/ou da linguagem de programação em que a(s) funcionalidade(s) foi 
+            considerando a funcionalidade implementada, sempre sob o ponto de vista do usuário. A medida 
+            independe da tecnologia utilizada e/ou da linguagem de programação em que a funcionalidade foi 
             implementada.
             <br>
             Ainda precisa de ajuda? Acesse 
-            <a href="https://www.devmedia.com.br/contagem-de-pontos-de-funcao/34390">aqui</a>>!');
+            <a href="https://www.devmedia.com.br/contagem-de-pontos-de-funcao/34390">aqui</a>!');
         $ft2->setActive(true);
         dump($ft2->save());
 
