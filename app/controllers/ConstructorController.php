@@ -510,5 +510,39 @@ class ConstructorController extends Controller {
         $ft2->setActive(true);
         dump($ft2->save());
 
-    }
+
+        $ft2 = new Feature();
+        $ft2->setIdPhase(6);
+        $ft2->setName('Pontos por função');
+        $ft2->setShortdescription('<b>Análise de pontos por caso de uso</b>
+            <br>
+            O <b>processo de medição do PCU</b>(Pontos por Caso de Uso) consiste resumidamente em: 
+            <br>
+            <br>
+            1 - Contar os <b>atores</b> e identificar sua complexidade;
+            <br>
+            <br>
+            2 - Contar os <b>casos de uso</b> e identificar sua complexidade;
+            <br>
+            <br>
+            3 - Calcular os PCUs não ajustados;
+            <br>
+            <br>
+            4 - Determinar o fator de <b>complexidade técnica</b>;
+            <br>
+            <br>
+            5 - Determinar o fator de <b>complexidade ambiental</b>;
+            <br>
+            <br>
+            6 - Calcular os PCUs ajustados; 
+            <br>
+            <br>            
+            Com o resultado desta medição e sabendo-se a produtividade média da organização para produzir um PCU, pode-se então estimar o esforço total para o projeto.
+');
+        $ft2->setLongdescription('Saiba mais <a href="http://www.cs.cmu.edu/~jhm/DMS%202011/Presentations/Cohn%20-%20Estimating%20with%20Use%20Case%20Points_v2.pdf">aqui</a>');
+        $ft2->setActive(true);
+        dump($ft2->save());
+
+
+     }
 }
