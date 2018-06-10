@@ -5,9 +5,12 @@ class ConstructorController extends Controller {
     public function createPhases() {
         $ph1 = new Phase();
         $ph1->setName('Gerenciamento de tarefas');
-        $ph1->setDescription('A <b>produtividade</b> está totalmente ligada a forma como lidamos com a quantidade de tarefas e o tempo disponível. Realizar projetos por pequenas etapas vai deixar tudo mais fluído, ajudando a colocar em ordem tudo o que sua equipe produzirá, por isso, precisamos de uma boa estratégia de <b>gerenciamento de tarefas!</b>
-<br>
-<b>Escolha uma das sugestões que temos para você!</b>');
+        $ph1->setDescription('A <b>produtividade</b> está totalmente ligada a forma como lidamos com a 
+            quantidade de tarefas e o tempo disponível. Realizar projetos por pequenas etapas vai deixar tudo mais 
+            fluído, ajudando a colocar em ordem tudo o que sua equipe produzirá, por isso, precisamos de uma boa 
+            estratégia de <b>gerenciamento de tarefas!</b>
+            <br>
+            <b>Escolha uma das sugestões que temos para você!</b>');
         $ph1->setActive(true);
         dump($ph1->save());
 
@@ -29,7 +32,10 @@ class ConstructorController extends Controller {
 
         $ph2 = new Phase();
         $ph2->setName('Estrutura do ciclo de desenvolvimento');
-        $ph2->setDescription('O <b>ciclo de vida</b> é a <b>estrutura</b> contendo <b>processos</b>, <b>atividades e tarefas</b> envolvidas no desenvolvimento, <b>operação</b> e <b>manutenção</b> de um produto de software, abrangendo a vida do sistema, desde a definição de seus requisitos até o término de seu uso.
+        $ph2->setDescription('O <b>ciclo de vida</b> é a <b>estrutura</b> contendo <b>processos</b>, 
+            <b>atividades e tarefas</b> envolvidas no desenvolvimento, <b>operação</b> e <b>manutenção</b> de um 
+            produto de software, abrangendo a vida do sistema, desde a definição de seus requisitos até o término de 
+            seu uso.
             <br>
             <b>Para isso, temos alguns modelos para lhe auxiliar!</b>');
         $ph2->setActive(true);
@@ -37,7 +43,9 @@ class ConstructorController extends Controller {
 
         $ph4 = new Phase();
         $ph4->setName('Tempo do ciclo de desenvolvimento');
-        $ph4->setDescription('Um texto comprido descrevendo o tempo do ciclo de desenvolvimento.');
+        $ph4->setDescription('O <b>tempo do ciclo de desenvolvimento</b> refere-se ao tempo de repetição do 
+            mesmo, em que suas etapas são <b>reexecutadas</b>, garantindo a frequente iteração e promovendo um 
+            desenvolvimento cíclico e incremental!');
         $ph4->setActive(true);
         dump($ph4->save());
 
@@ -400,8 +408,9 @@ class ConstructorController extends Controller {
         $ft2 = new Feature();
         $ft2->setIdPhase(4);
         $ft2->setName('Ciclo de desenvolvimento com teste integrados');
-        $ft2->setShortdescription('Neste ciclo de desenvolvimento são realizados os processos de produção
-            do software e também é incluído o processo de teste e software abrangendo os mais diversos tipos de testes.');
+        $ft2->setShortdescription('Neste <b>ciclo de desenvolvimento</b> são realizados os processos de 
+            produção do software e também é <b>incluído,</b> o <b>processo de testes</b> de software abrangendo os mais 
+            diversos tipos de testes.');
         $ft2->setLongdescription('Neste tipo de ciclo, são incluídos testes como:
         <br>
         · <b>Teste de Usabilidade:</b> O software é fácil de usar?
@@ -417,8 +426,18 @@ class ConstructorController extends Controller {
         $ft2 = new Feature();
         $ft2->setIdPhase(4);
         $ft2->setName('Ciclo de desenvolvimento sem testes');
-        $ft2->setShortdescription('');
-        $ft2->setLongdescription('');
+        $ft2->setShortdescription('Neste <b>ciclo de desenvolvimento</b> são realizados os processos de 
+            produção do software <b>separados</b> do <b>processo de teste</b> e software abrangendo os mais diversos tipos 
+            de testes.');
+        $ft2->setLongdescription('No ciclo de <b>testes</b>, são incluídos testes como:
+        <br>
+        · <b>Teste de Usabilidade:</b> O software é fácil de usar?
+        <br>
+        · <b>Teste de Confiabilidade:</b> O quanto podemos contar com o correto funcionamento do software? Ele é tolerante a falhas?
+        <br>
+        · <b>Teste de Portabilidade:</b> É possível utilizar o software em diversas plataformas com pequeno esforço de adaptação?
+        <br>
+        · <b>Teste de Acessibilidade:</b> Qualquer usuário, deficiente ou não, consegue utilizar a aplicação?');
         $ft2->setActive(true);
         dump($ft2->save());
 
@@ -444,8 +463,9 @@ class ConstructorController extends Controller {
         $ft2 = new Feature();
         $ft2->setIdPhase(5);
         $ft2->setName('Ciclo de 7 a 14 dias');
-        $ft2->setShortdescription('ciclo comumente utilizado nas <b>metodologias ágeis</b>, como é
-            comumente adotado nas sprints do <a href="https://www.desenvolvimentoagil.com.br/scrum/">Scrum</a>, ');
+        $ft2->setShortdescription('Ciclo comumente utilizado nas <b>metodologias ágeis</b>, sendo 
+            frequentemente aplicado nas sprints do <a href="https://www.desenvolvimentoagil.com.br/scrum/">Scrum</a>por
+            exemplo.');
         $ft2->setLongdescription('');
         $ft2->setActive(true);
         dump($ft2->save());
