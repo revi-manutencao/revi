@@ -7,6 +7,7 @@ class ConstructorController extends Controller {
         $ph1->setName('Gerenciamento de tarefas');
         $ph1->setDescription('A <b>produtividade</b> está totalmente ligada a forma como lidamos com a quantidade de tarefas e o tempo disponível. Realizar projetos por pequenas etapas vai deixar tudo mais fluído, ajudando a colocar em ordem tudo o que sua equipe produzirá, por isso, precisamos de uma boa estratégia de <b>gerenciamento de tarefas!</b>
             <br>
+            <br>
             <b>Escolha uma das sugestões que temos para você!</b>');
         $ph1->setActive(true);
         dump($ph1->save());
@@ -15,6 +16,7 @@ class ConstructorController extends Controller {
         $ph5->setName('Gerenciamento de pessoas');
         $ph5->setDescription('O termo <b>gestão de pessoas</b> é um conceito empregado às estratégias que objetivam <b>atrair</b>, <b>reter</b>, <b>potencializar</b> e <b>administrar o capital humano</b> de uma corporação. As empresas que possuem essa expertise entre suas políticas internas são aquelas que formam profissionais mais bem qualificados e motivados para desempenhar suas funções. Por isso, é importante pensar bem no modo como as funções que serão definidas pelo método anterior serão distribuidas!
             <br>    
+            <br>    
             <b>Escolha alguma das opções ao lado para continuar!</b>');
         $ph5->setActive(true);
         dump($ph5->save());
@@ -22,6 +24,7 @@ class ConstructorController extends Controller {
         $ph3 = new Phase();
         $ph3->setName('Método de entrega');
         $ph3->setDescription('Satisfazer um <b>cliente</b> é o principal objetivo quando se produz algo. O resultado final de tudo aquilo que foi criado tem sempre que atingir as principais expectativas de quem paga pelo serviço ou produto. Dessa maneira, pensar, analisar e propor melhorias devem ser tarefas rotineiras para todas as pessoas envolvidas naquele projeto. Mas, quem pode ser a melhor opção para <b>sugerir mudanças</b> que vão agregar mais valor ao produto? Se você pensou no próprio <b>cliente</b>, está absolutamente certo.
+            <br>
             <br>
             <b>E para atingirmos este objetivo, vamos planejar também nosso método de interação com o cliente!</b>');
         $ph3->setActive(true);
@@ -34,6 +37,7 @@ class ConstructorController extends Controller {
             produto de software, abrangendo a vida do sistema, desde a definição de seus requisitos até o término de 
             seu uso. Neste âmbito, nosso foco são os ciclos de desenvolvimento, contidos no ciclo de vida do projeto. A
             importância deste se dá na organização de um desenvolvimento adaptável a seu tipo de projeto. 
+            <br>
             <br>
             <b>Para isso, temos alguns modelos para lhe auxiliar!</b>');
         $ph2->setActive(true);
@@ -110,6 +114,7 @@ class ConstructorController extends Controller {
             .'gerenciamento mais detalhado, e se surpreender com os resultados!');
         $ft2->setLongdescription('<b>Princípios do Kanban</b>'
             .'<br>'
+            .'<br>'
             .'O kanban procura identificar oportunidades de melhoria criando uma cultura Kaizen na equipe, na qual a '
             .'melhoria contínua é responsabilidade de todos.'
             .'<br>'
@@ -129,8 +134,7 @@ class ConstructorController extends Controller {
             .'contínua.'
             .'<br>'
             .'<br>'
-            .'Para saber mais sobre o kanban, clique <a href="https://www.devmedia.com.br/kanban-4-passos-para-implementar-em-uma
-                -equipe/30218">aqui</a>
+            .'Para saber mais sobre o kanban, clique <a href="https://www.devmedia.com.br/kanban-4-passos-para-implementar-em-uma-equipe/30218" target="_blank>aqui</a>
 ');
         $ft2->setActive(true);
         dump($ft2->save());
@@ -144,6 +148,7 @@ class ConstructorController extends Controller {
         $ft2->setLongdescription('Uma ferramenta que oferece suporte a este tipo de organização é o Trello, 
             com a possibilidade de marcar tarefas por meio de etiquetas coloridas, às quais você pode atribuir um 
             significado interno, simplificando sua organização.
+            <br>
             <br>
             Ficou interessado na ferramenta? Saiba mais <a href="https://trello.com/">aqui</a>, ou na sessão de escolha 
             de tarefas por meio dos membros da equipe.');
@@ -161,9 +166,11 @@ class ConstructorController extends Controller {
             .'de sua função, bem como, gerar maior comprometimento dos colaboradores com o trabalho, diante da percepção '
             .'do desenvolvimento suas habilidades.'
             .'<br>'
+            .'<br>'
             .'Delegar, além de permitir maior disponibilidade ao gestor faz com que esse possa avaliar a potencialidade '
             .'dos seus colaboradores.');
         $ft2->setLongdescription('<b>Não insista em fazer tudo sozinho</b>'
+            .'<br>'
             .'<br>'
             .'Não é raro o líder acreditar que é a pessoa mais capacitada da empresa — principalmente se for o '
             .'proprietário dela. Ele imagina isso por causa da experiência, da visão de negócio ou de outras qualidades '
@@ -174,6 +181,7 @@ class ConstructorController extends Controller {
             .'executarem o trabalho e até melhorarem resultados, enquanto você poderá focar em áreas e tarefas mais '
             .'importantes.'
             .'importantes.'
+            .'<br>'
             .'<br>'
             .'<b>Entenda que delegar não é transferir responsabilidades</b>'
             .'<br>'
@@ -235,8 +243,9 @@ class ConstructorController extends Controller {
             .'consulte a coluna "ToDo" e desenvolva alguma das tarefas, dando mais liberdade a sua equipe!');
         $ft2->setLongdescription('Este metodo de gerenciamento de tarefas pode ser melhor vizualizado '
             .'com a aplicação de um sistema chamado '
-            .'<a href="https://trello.com/">Trello</a>, que é amplamente utilizado em aplicações com metodos como o 
-                <a href="https://www.desenvolvimentoagil.com.br/scrum/">Scrum</a>. '
+            .'<a href="https://trello.com/" target="_blank>Trello</a>, que é amplamente utilizado em aplicações com metodos como o 
+                <a href="https://www.desenvolvimentoagil.com.br/scrum/" target="_blank">Scrum</a>. '
+            .'<br>'
             .'<br>'
             .'O Trello é um sistema de quadro virtual para gerenciamento de tarefas que segue o método "kanban", '
             .'muito usado no desenvolvimento com Scrum. Ele permite a criação de diversos quadros, nos quais podemos '
@@ -277,6 +286,7 @@ class ConstructorController extends Controller {
             .'projeto!');
         $ft2->setLongdescription('<b>Definindo as entregas em seus projetos</b> '
             .'<br>'
+            .'<br>'
             .'Vamos definir de forma prática e muito simples (mas muito poderosa) o que são as entregas do seu projeto. '
             .'Sempre que você tem um novo projeto (criado / identificado por você ou que lhe for atribuído), uma das '
             .'primeiras coisas que você deve fazer é definir as entregas para o projeto.  As entregas em um projeto '
@@ -285,18 +295,20 @@ class ConstructorController extends Controller {
             .'<br>'
             .'Por exemplo, se o projeto é criar uma nova política de trabalho, as entregas podem ser:'
             .'<br>'
-            .'Uma pesquisa de dados coletados de várias outras políticas e, em seguida, '
             .'<br>'
-            .'Um documento de política completo.'
+            .'- Uma pesquisa de dados coletados de várias outras políticas;'
+            .'<br>'
+            .'- Um documento de política completo.'
             .'<br>'
             .'<br>'
             .'Se o projeto é a criação de uma nova sala na sua casa, as entregas podem ser:'
             .'<br>'
-            .'Móveis e ornamentos;'
             .'<br>'
-            .'Quadros para as paredes; e'
+            .'- Móveis e ornamentos;'
             .'<br>'
-            .'Uma sala onde estes itens são organizados (a sala propriamente descrita).'
+            .'- Quadros para as paredes;'
+            .'<br>'
+            .'- Uma sala onde estes itens são organizados (a sala propriamente descrita).'
             .'<br>'
             .'<br>'
             .'Para definir os resultados basta perguntar “Qual que é o resultado pretendido?” Isso ajuda a esclarecer '
@@ -420,6 +432,7 @@ class ConstructorController extends Controller {
             diversos tipos de testes.');
         $ft2->setLongdescription('Neste tipo de ciclo, são incluídos testes como:
         <br>
+        <br>
         · <b>Teste de Usabilidade:</b> O software é fácil de usar?
         <br>
         · <b>Teste de Confiabilidade:</b> O quanto podemos contar com o correto funcionamento do software? Ele é tolerante a falhas?
@@ -437,6 +450,7 @@ class ConstructorController extends Controller {
             produção do software <b>separados</b> do <b>ciclo de testes</b> de software, o qual abrange os mais diversos tipos 
             de testes.');
         $ft2->setLongdescription('No ciclo de <b>testes</b>, são incluídos testes como:
+        <br>
         <br>
         · <b>Teste de Usabilidade:</b> O software é fácil de usar?
         <br>
@@ -457,8 +471,10 @@ class ConstructorController extends Controller {
             bases históricas e o contexto em que o projeto está inserido, procurando definir um tempo de ciclo adequado 
             para este conjunto de fatores.
             <br>
+            <br>
             Ficou confuso? Veja mais para entender sobre bases históricas!');
         $ft2->setLongdescription('<b>Bases Históricas</b>
+            <br>
             <br>
             Uma base histórica tem como objetivo colecionar informações sobre os aspectos produtivos dentro de um 
             projeto. Em empresas focadas na produção de software a base pode conter, entre outras informações, o 
@@ -471,7 +487,7 @@ class ConstructorController extends Controller {
         $ft2->setIdPhase(5);
         $ft2->setName('Ciclo de 7 a 14 dias');
         $ft2->setShortdescription('Ciclo comumente utilizado nas <b>metodologias ágeis</b>, sendo 
-            frequentemente aplicado nas sprints do <a href="https://www.desenvolvimentoagil.com.br/scrum/">Scrum</a>, por
+            frequentemente aplicado nas sprints do <a href="https://www.desenvolvimentoagil.com.br/scrum/" target="_blank>Scrum</a>, por
             exemplo.');
         $ft2->setLongdescription('');
         $ft2->setActive(true);
@@ -482,6 +498,7 @@ class ConstructorController extends Controller {
         $ft2->setIdPhase(6);
         $ft2->setName('Pontos por função');
         $ft2->setShortdescription('<b>Análise de pontos por função</b>
+            <br>
             <br>
             A análise por ponto de função tem como principal objetivo medir a funcionalidade do sistema tendo como 
             base a visão do usuário, de acordo com as seguintes características:
@@ -505,8 +522,9 @@ class ConstructorController extends Controller {
             independe da tecnologia utilizada e/ou da linguagem de programação em que a funcionalidade foi 
             implementada.
             <br>
+            <br>
             Ainda precisa de ajuda? Acesse 
-            <a href="https://www.devmedia.com.br/contagem-de-pontos-de-funcao/34390">aqui</a>!');
+            <a href="https://www.devmedia.com.br/contagem-de-pontos-de-funcao/34390" target="_blank>este link</a>!');
         $ft2->setActive(true);
         dump($ft2->save());
 
@@ -515,6 +533,7 @@ class ConstructorController extends Controller {
         $ft2->setIdPhase(6);
         $ft2->setName('Pontos por caso de uso');
         $ft2->setShortdescription('<b>Análise de pontos por caso de uso</b>
+            <br>
             <br>
             O <b>processo de medição do PCU </b>(Pontos por Caso de Uso) consiste resumidamente em: 
             <br>
@@ -534,7 +553,7 @@ class ConstructorController extends Controller {
             <br>            
             Com o resultado desta medição e sabendo-se a produtividade média da organização para produzir um PCU, pode-se então estimar o esforço total para o projeto.
 ');
-        $ft2->setLongdescription('Saiba mais <a href="http://www.cs.cmu.edu/~jhm/DMS%202011/Presentations/Cohn%20-%20Estimating%20with%20Use%20Case%20Points_v2.pdf">aqui</a>');
+        $ft2->setLongdescription('Saiba mais <a href="http://www.cs.cmu.edu/~jhm/DMS%202011/Presentations/Cohn%20-%20Estimating%20with%20Use%20Case%20Points_v2.pdf" target="_blank>aqui</a>');
         $ft2->setActive(true);
         dump($ft2->save());
 
