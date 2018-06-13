@@ -56,6 +56,7 @@ class ConstructorController extends Controller {
         $ph6->setName('Método de aplicação de métricas');
         $ph6->setDescription('<b>Métricas? É de passar no pão?</b>
             <br>
+            <br>
             Existem diversas medidas de garantia de qualidade fundamentais para o sucesso de qualquer tipo de aplicação de software, dentre elas, uma das <b>mais simples</b> e <b>menos custosa</b>, é a <b>medição de software</b>, e é ai que entram nossas <b>métricas!</b>
             <br>
             Com as métricas, conseguimos não só gerir a qualidade de nossos produtos como também utilizar o desenvolvimento deste como base para o próximo! Como? Basta aplicarmos os conceitos corretamente e utilizarmos os dados extraidos para estruturar uma <b>Base Histórica</b>.
@@ -134,7 +135,7 @@ class ConstructorController extends Controller {
             .'contínua.'
             .'<br>'
             .'<br>'
-            .'Para saber mais sobre o kanban, clique <a href="https://www.devmedia.com.br/kanban-4-passos-para-implementar-em-uma-equipe/30218" target="_blank>aqui</a>
+            .'Para saber mais sobre o kanban, clique <a href="https://www.devmedia.com.br/kanban-4-passos-para-implementar-em-uma-equipe/30218" target="_blank">aqui</a>
 ');
         $ft2->setActive(true);
         dump($ft2->save());
@@ -243,7 +244,7 @@ class ConstructorController extends Controller {
             .'consulte a coluna "ToDo" e desenvolva alguma das tarefas, dando mais liberdade a sua equipe!');
         $ft2->setLongdescription('Este metodo de gerenciamento de tarefas pode ser melhor vizualizado '
             .'com a aplicação de um sistema chamado '
-            .'<a href="https://trello.com/" target="_blank>Trello</a>, que é amplamente utilizado em aplicações com metodos como o 
+            .'<a href="https://trello.com/" target="_blank">Trello</a>, que é amplamente utilizado em aplicações com metodos como o 
                 <a href="https://www.desenvolvimentoagil.com.br/scrum/" target="_blank">Scrum</a>. '
             .'<br>'
             .'<br>'
@@ -433,13 +434,13 @@ class ConstructorController extends Controller {
         $ft2->setLongdescription('Neste tipo de ciclo, são incluídos testes como:
         <br>
         <br>
-        · <b>Teste de Usabilidade:</b> O software é fácil de usar?
+        ·&nbsp;<b>Teste de Usabilidade:</b> O software é fácil de usar?
         <br>
-        · <b>Teste de Confiabilidade:</b> O quanto podemos contar com o correto funcionamento do software? Ele é tolerante a falhas?
+        ·&nbsp;<b>Teste de Confiabilidade:</b> O quanto podemos contar com o correto funcionamento do software? Ele é tolerante a falhas?
         <br>
-        · <b>Teste de Portabilidade:</b> É possível utilizar o software em diversas plataformas com pequeno esforço de adaptação?
+        ·&nbsp;<b>Teste de Portabilidade:</b> É possível utilizar o software em diversas plataformas com pequeno esforço de adaptação?
         <br>
-        · <b>Teste de Acessibilidade:</b> Qualquer usuário, deficiente ou não, consegue utilizar a aplicação?');
+        ·&nbsp;<b>Teste de Acessibilidade:</b> Qualquer usuário, deficiente ou não, consegue utilizar a aplicação?');
         $ft2->setActive(true);
         dump($ft2->save());
 
@@ -452,13 +453,13 @@ class ConstructorController extends Controller {
         $ft2->setLongdescription('No ciclo de <b>testes</b>, são incluídos testes como:
         <br>
         <br>
-        · <b>Teste de Usabilidade:</b> O software é fácil de usar?
+        ·&nbsp;<b>Teste de Usabilidade:</b> O software é fácil de usar?
         <br>
-        · <b>Teste de Confiabilidade:</b> O quanto podemos contar com o correto funcionamento do software? Ele é tolerante a falhas?
+        ·&nbsp;<b>Teste de Confiabilidade:</b> O quanto podemos contar com o correto funcionamento do software? Ele é tolerante a falhas?
         <br>
-        · <b>Teste de Portabilidade:</b> É possível utilizar o software em diversas plataformas com pequeno esforço de adaptação?
+        ·&nbsp;<b>Teste de Portabilidade:</b> É possível utilizar o software em diversas plataformas com pequeno esforço de adaptação?
         <br>
-        · <b>Teste de Acessibilidade:</b> Qualquer usuário, deficiente ou não, consegue utilizar a aplicação?');
+        ·&nbsp;<b>Teste de Acessibilidade:</b> Qualquer usuário, deficiente ou não, consegue utilizar a aplicação?');
         $ft2->setActive(true);
         dump($ft2->save());
 
@@ -487,7 +488,7 @@ class ConstructorController extends Controller {
         $ft2->setIdPhase(5);
         $ft2->setName('Ciclo de 7 a 14 dias');
         $ft2->setShortdescription('Ciclo comumente utilizado nas <b>metodologias ágeis</b>, sendo 
-            frequentemente aplicado nas sprints do <a href="https://www.desenvolvimentoagil.com.br/scrum/" target="_blank>Scrum</a>, por
+            frequentemente aplicado nas sprints do <a href="https://www.desenvolvimentoagil.com.br/scrum/" target="_blank">Scrum</a>, por
             exemplo.');
         $ft2->setLongdescription('');
         $ft2->setActive(true);
@@ -524,7 +525,7 @@ class ConstructorController extends Controller {
             <br>
             <br>
             Ainda precisa de ajuda? Acesse 
-            <a href="https://www.devmedia.com.br/contagem-de-pontos-de-funcao/34390" target="_blank>este link</a>!');
+            <a href="https://www.devmedia.com.br/contagem-de-pontos-de-funcao/34390" target="_blank">este link</a>!');
         $ft2->setActive(true);
         dump($ft2->save());
 
@@ -553,7 +554,7 @@ class ConstructorController extends Controller {
             <br>            
             Com o resultado desta medição e sabendo-se a produtividade média da organização para produzir um PCU, pode-se então estimar o esforço total para o projeto.
 ');
-        $ft2->setLongdescription('Saiba mais <a href="http://www.cs.cmu.edu/~jhm/DMS%202011/Presentations/Cohn%20-%20Estimating%20with%20Use%20Case%20Points_v2.pdf" target="_blank>aqui</a>');
+        $ft2->setLongdescription('Saiba mais <a href="http://www.cs.cmu.edu/~jhm/DMS%202011/Presentations/Cohn%20-%20Estimating%20with%20Use%20Case%20Points_v2.pdf" target="_blank">aqui</a>');
         $ft2->setActive(true);
         dump($ft2->save());
 

@@ -29,5 +29,5 @@ Router::define('api/feature/{id}', 'ProcessController/consultaFeature');
 
 // Rotas para a construção das parada
 //Router::define('cc/tasksmgmt', 'ConstructorController/createTasksMgmt');
-Router::define('cc/phases', 'ConstructorController/createPhases');
-Router::define('cc/features', 'ConstructorController/createFeatures');
+//Router::define('cc/phases', 'ConstructorController/createPhases');
+//Router::define('cc/features', 'ConstructorController/createFeatures');
