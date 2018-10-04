@@ -31,8 +31,9 @@
 
                 <div class="textcenter" style="margin-top: 30px;">
                     <button class="btn-fit"
-                        onclick="location.href='<?=route('processo/'.$processo->getId().'/editar')?>'">Editar</button>
+                            onclick="location.href='<?=route('processo/'.$processo->getId().'/editar')?>'">Editar dados</button>
                 </div>
+
             </div>
 
             <div class="options">
@@ -51,6 +52,12 @@
                         </label>
                     <?php } ?>
                 </ul>
+            </div>
+
+
+            <div class="textcenter" style="margin-top: 30px;">
+                <button class="btn-fit"
+                        onclick="location.href='<?=route('processo/'.$processo->getId().'/editar-etapa/1')?>'">Editar etapas</button>
             </div>
         </div>
 
