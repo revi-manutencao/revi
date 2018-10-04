@@ -30,7 +30,7 @@
                     <input type="text" name="nomeprocesso" placeholder="Nome do processo"
                         value="<?=oldVal('nomeprocesso')?>">
                     <br>
-                    <textarea name="descricaoprocesso"
+                    <textarea name="descricaoprocesso" maxlength="2000"
                           placeholder="Descrição do processo"><?=oldVal('descricaoprocesso')?></textarea>
                     <br>
 

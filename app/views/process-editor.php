@@ -21,7 +21,7 @@
                     <input type="text" name="nomeprocesso" placeholder="Nome do processo"
                         value="<?=$processo->getName()?>">
                     <br>
-                    <textarea name="descricaoprocesso"
+                    <textarea name="descricaoprocesso" maxlength="2000"
                           placeholder="Descrição do processo"><?=$processo->getDescription()?></textarea>
                     <br>
 
