@@ -2,137 +2,141 @@
 
 
 @section('pagetitle')
-    ver processo | revi
+ver processo | revi
 @endsection
 
 @section('maincontent')
-    <div class="container">
-        <?php
-            $processo = $data['processo'];
-            $arrEtapas = $data['arrEtapas'];
-        ?>
+<div class="container">
+    <?php
+    $processo = $data['processo'];
+    $arrEtapas = $data['arrEtapas'];
+    ?>
 
-        <div class="container side-side">
-            <h1 class="textcenter"><?=$processo->getName()?></h1>
+    <div class="container side-side">
+        <h1 class="textcenter"><?= $processo->getName() ?></h1>
 
-            <div class="content">
+        <div class="content">
                 <span class="processdate textcenter processinfo">
-                    Criado em <?=date('d/m/Y, à\s H:i', strtotime($processo->getCreatedAt()))?>
+                    Criado em <?= date('d/m/Y, à\s H:i', strtotime($processo->getCreatedAt())) ?>
                     <br>
-                    Última alteração em <?=date('d/m/Y, à\s H:i', strtotime($processo->getUpdatedAt()))?>
+                    Última alteração em <?= date('d/m/Y, à\s H:i', strtotime($processo->getUpdatedAt())) ?>
                 </span>
-                <br>
+            <br>
 
-                <p>
-                    <?=$processo->getDescription() != '' ?
-                        nl2br($processo->getDescription()) :
-                        '<i class="textcenter" style="display:block;">Nenhuma descrição disponível</i>'?>
-                </p>
+            <p>
+                <?= $processo->getDescription() != '' ?
+                    nl2br($processo->getDescription()) :
+                    '<i class="textcenter" style="display:block;">Nenhuma descrição disponível</i>' ?>
+            </p>
 
-                <div class="textcenter" style="margin-top: 30px;">
-                    <button class="btn-fit"
-                            onclick="location.href='<?=route('processo/'.$processo->getId().'/editar')?>'">Editar dados</button>
-                </div>
-
+            <div class="textcenter" style="margin-top: 30px;">
+                <button class="btn-fit"
+                        onclick="location.href='<?= route('processo/' . $processo->getId() . '/editar') ?>'">Editar
+                    dados
+                </button>
             </div>
 
-            <div class="options">
-                <ul class="blocklist inline">
-                    <?php if(count($arrEtapas) > 0)
-                        foreach($arrEtapas as $i => $dados) { ?>
-                        <label onclick="checkData(<?=$dados['idFeature']?>)">
+        </div>
+
+        <div class="options">
+            <ul class="blocklist inline">
+                <?php if (count($arrEtapas) > 0)
+                    foreach ($arrEtapas as $i => $dados) { ?>
+                        <label onclick="checkData(<?= $dados['idFeature'] ?>)">
                             <li class="transluscentblock">
+                                <div class="container-floating-right-button">
+                                    <button class="btn-fit" style="margin-top: -10px; margin-right: -10px;"
+                                            onclick="location.href='<?= route('processo/' . $processo->getId() . '/editar-etapa/1') ?>'">
+                                        Editar
+                                    </button>
+                                </div>
                                 <span class="blocktitle">
                                     <span class="phasename">
-                                        <?=$dados['phase']?>
+                                        <?= $dados['phase'] ?>
                                     </span>
-                                    <?=$dados['nameFeature']?>
+                                    <?= $dados['nameFeature'] ?>
                                 </span>
                             </li>
                         </label>
                     <?php } ?>
-                </ul>
-            </div>
-
-
-            <div class="textcenter" style="margin-top: 30px;">
-                <button class="btn-fit"
-                        onclick="location.href='<?=route('processo/'.$processo->getId().'/editar-etapa/1')?>'">Editar etapas</button>
-            </div>
+            </ul>
         </div>
 
-        <div class="container options side-side" id="info">
-            <div class="content block">
-                <h3 class="textcenter">informações</h3>
+    </div>
 
-                <p id="instruction" class="textcenter">
-                    Selecione uma etapa para consultar as informações da escolha
-                </p>
+    <div class="container options side-side" id="info">
+        <div class="content block">
+            <h3 class="textcenter">informações</h3>
 
-                <p id="featurecontent"></p>
-                <p id="longdesc"></p>
-            </div>
+            <p id="instruction" class="textcenter">
+                Selecione uma etapa para consultar as informações da escolha
+            </p>
+
+            <p id="featurecontent"></p>
+            <p id="longdesc"></p>
+        </div>
 
 
-            <div class="textcenter">
-                <button type="button" class="btn-danger btn-fit"
-                        onclick="confirmDelete(<?=$processo->getId()?>)">Apagar processo</button>
-            </div>
+        <div class="textcenter">
+            <button type="button" class="btn-danger btn-fit"
+                    onclick="confirmDelete(<?= $processo->getId() ?>)">Apagar processo
+            </button>
         </div>
     </div>
-    <script>
-        var baseurl = '<?=SYSROOT?>/api/feature/';
+</div>
+<script>
+    var baseurl = '<?=SYSROOT?>/api/feature/';
 
-        function checkData(idFeature) {
+    function checkData(idFeature) {
 
-            // Realiza um scroll para a seção de informações (útil na versão mobile)
-            $('html, body').animate({
-                scrollTop: $("#info").offset().top
-            }, 300);
-
-
-            $.ajax({
-                url: baseurl + idFeature,
-                method: 'get',
-                dataType: 'json',
-                success: function(data) {
-                    $('#instruction').css('display', 'none');
-                    $('#featurecontent').html('<h4>'+ data.Feature.name + '</h4>'+
-                        data.Feature.shortdescription+
-                        ((data.Feature.longdescription !== '') ?
-                        '<span id="vermais"><br><br>'+
-                        '<button type="button" onclick="showMore('+idFeature+')">Ver mais</button></span>' : ''));
-
-                    $('#longdesc').html('');
-                },
-                error: function(data) {
-                    console.error('Não foi possível obter os dados da opção selecionada.');
-                }
-            });
-        }
-
-        function showMore(idFeature) {
-            $('#vermais').remove();
-
-            $.ajax({
-                url: baseurl + idFeature,
-                method: 'get',
-                dataType: 'json',
-                success: function(data) {
-                    $('#longdesc').html('<br>'+data.Feature.longdescription);
-                },
-                error: function(data) {
-                    console.error('Não foi possível obter os dados do objeto.');
-                }
-            });
-        }
+        // Realiza um scroll para a seção de informações (útil na versão mobile)
+        $('html, body').animate({
+            scrollTop: $("#info").offset().top
+        }, 300);
 
 
-        function confirmDelete(id) {
-            var url = '<?=route('processo/')?>' + id + '/apagar';
+        $.ajax({
+            url: baseurl + idFeature,
+            method: 'get',
+            dataType: 'json',
+            success: function (data) {
+                $('#instruction').css('display', 'none');
+                $('#featurecontent').html('<h4>' + data.Feature.name + '</h4>' +
+                    data.Feature.shortdescription +
+                    ((data.Feature.longdescription !== '') ?
+                        '<span id="vermais"><br><br>' +
+                        '<button type="button" onclick="showMore(' + idFeature + ')">Ver mais</button></span>' : ''));
 
-            if(confirm("Tem certeza de que deseja apagar este processo?"))
-                location.href=url;
-        }
-    </script>
+                $('#longdesc').html('');
+            },
+            error: function (data) {
+                console.error('Não foi possível obter os dados da opção selecionada.');
+            }
+        });
+    }
+
+    function showMore(idFeature) {
+        $('#vermais').remove();
+
+        $.ajax({
+            url: baseurl + idFeature,
+            method: 'get',
+            dataType: 'json',
+            success: function (data) {
+                $('#longdesc').html('<br>' + data.Feature.longdescription);
+            },
+            error: function (data) {
+                console.error('Não foi possível obter os dados do objeto.');
+            }
+        });
+    }
+
+
+    function confirmDelete(id) {
+        var url = '<?=route('processo/')?>' + id + '/apagar';
+
+        if (confirm("Tem certeza de que deseja apagar este processo?"))
+            location.href = url;
+    }
+</script>
 @endsection

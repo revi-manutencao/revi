@@ -413,6 +413,12 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     padding: 15px;
     transition: 0.3s;
 }
+    .container-floating-right-button {
+        width: 100%;
+        max-width: 190px;
+        position: absolute;
+        text-align: right;
+    }
 
     .transluscentblock:hover {
         background: rgba(255,255,255,0.8);
