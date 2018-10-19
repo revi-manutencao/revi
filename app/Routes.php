@@ -23,11 +23,12 @@ Router::define('processo/cancelar', 'ProcessController/cancelarCriacao');
 Router::define('processo/{id}', 'ProcessController/verProcesso');
 Router::define('processo/{id}/apagar', 'ProcessController/apagarProcesso');
 Router::define('processo/{id}/editar', 'ProcessController/editarProcesso');
+Router::define('processo/{id}/editar-etapa/{phase}', 'ProcessController/editarEtapas');
 
 Router::define('api/feature/{id}', 'ProcessController/consultaFeature');
 
 
 // Rotas para a construção das parada
 //Router::define('cc/tasksmgmt', 'ConstructorController/createTasksMgmt');
-//Router::define('cc/phases', 'ConstructorController/createPhases');
-//Router::define('cc/features', 'ConstructorController/createFeatures');
+Router::define('cc/phases', 'ConstructorController/createPhases');
+Router::define('cc/features', 'ConstructorController/createFeatures');
