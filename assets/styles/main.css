@@ -416,8 +416,8 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     .container-floating-right-button {
         width: 100%;
         max-width: 190px;
-        position: absolute;
         text-align: right;
+        margin-bottom: -32px;
     }
 
     .transluscentblock:hover {
