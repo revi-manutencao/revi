@@ -507,7 +507,10 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
             margin-top: -25px;
         }
 
-
+        #full-process-name {
+            word-break: break-all;
+            line-height: 135%;
+        }
 
 /* ------- Formulário de login e registro ------- */
 #loginform, #regform {

@@ -17,11 +17,14 @@
 
                 if(count($processos) > 0) {
                     foreach($processos as $processo) {
-
+                        $nome_processo = substr($processo->getName(), 0, 35);
+                        if(strlen($processo->getName()) > 35){
+                            $nome_processo .= "...";
+                        }
                         echo '<a href="processo/'.$processo->getId().'">';
                         echo '<div class="content textcenter block process">';
                         echo '  <div class="content">';
-                        echo '    <span class="processtitle">'.$processo->getName().'</span>';
+                        echo '    <span class="processtitle">'.$nome_processo.'</span>';
                         echo '    <span class="processdate"> Última alteração em '
                             .date('d/m/Y, à\s H:i', strtotime($processo->getUpdatedAt())).'</span>';
                         echo '  </div>';

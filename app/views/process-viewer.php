@@ -13,7 +13,7 @@ ver processo | revi
     ?>
 
     <div class="container side-side">
-        <h1 class="textcenter"><?= $processo->getName() ?></h1>
+        <h1 id="full-process-name" class="textcenter"><?= $processo->getName() ?></h1>
 
         <div class="content">
                 <span class="processdate textcenter processinfo">

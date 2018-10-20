@@ -11,7 +11,7 @@
             <h1>criar conta</h1>
             <br>
 
-            <input type="text" name="nomeusuario" placeholder="Nome de usuário"
+            <input type="text" name="nomeusuario" placeholder="Nome de usuário" maxlength="40"
                value="<?=oldVal('nomeusuario')?>">
 
             <input type="text" name="nome" placeholder="Seu nome"
