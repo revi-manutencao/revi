@@ -1,6 +1,6 @@
 <?php defined('INITIALIZED') OR exit('You cannot access this file directly');
 
-define('SYSROOT', '/oficinabase'); // Default: ''
+define('SYSROOT', '/revimanutencao'); // Default: ''
 // Complete path to application root:
 define('BASEPATH', realpath($_SERVER["DOCUMENT_ROOT"]).SYSROOT);
 define('ENVIRONMENT', 'dev'); // 'dev' or 'production'

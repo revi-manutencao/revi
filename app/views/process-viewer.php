@@ -42,14 +42,15 @@ ver processo | revi
             <ul class="blocklist inline">
                 <?php if (count($arrEtapas) > 0)
                     foreach ($arrEtapas as $i => $dados) { ?>
-                        <label onclick="checkData(<?= $dados['idFeature'] ?>)">
-                            <li class="transluscentblock">
-                                <div class="container-floating-right-button">
-                                    <button class="btn-fit" style="margin-top: -10px; margin-right: -10px;"
-                                            onclick="location.href='<?= route('processo/' . $processo->getId() . '/editar-etapa/1') ?>'">
-                                        Editar
-                                    </button>
-                                </div>
+                        <label>
+                            <div class="container-floating-right-button">
+                                <a class="btn btn-fit" style="margin-right: 10px;"
+                                        href='<?= route('processo/' . $processo->getId() . '/editar-etapa/' . $dados['id']) ?>'">
+                                    Editar
+                                </a>
+                            </div>
+                            <input type="checkbox" class="radio" onchange="checkDone(<?= $dados['id'] ?>)" style="margin: 0 -20px 0 10px;">
+                            <li class="transluscentblock" onclick="checkData(<?= $dados['idFeature'] ?>, event)">
                                 <span class="blocktitle">
                                     <span class="phasename">
                                         <?= $dados['phase'] ?>
@@ -87,7 +88,13 @@ ver processo | revi
 <script>
     var baseurl = '<?=SYSROOT?>/api/feature/';
 
-    function checkData(idFeature) {
+    function checkDone(idPhase) {
+        
+        //console.log(idPhase);
+    }
+
+    function checkData(idFeature, e) {
+        e.preventDefault();
 
         // Realiza um scroll para a seção de informações (útil na versão mobile)
         $('html, body').animate({

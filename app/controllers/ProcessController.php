@@ -188,6 +188,7 @@ class ProcessController extends Controller
             $phase = Phase::make()->get($feature->getIdPhase());
 
             $arrEtapasFeatures[] = [
+                'id' => $phase->getId(),
                 'phase' => $phase->getName(),
                 'idFeature' => $feature->getId(),
                 'nameFeature' => $feature->getName()
