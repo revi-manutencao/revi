@@ -182,20 +182,44 @@ class ProcessController extends Controller
         // Obtém todas as features do processo
         $pf = ProcessFeature::make()->where('id_process = ?', $processo->getId())->find();
 
-        // Organiza os dados das etapas e das features no vetor
-        foreach ($pf as $pfeature) {
-            $feature = Feature::make()->get($pfeature->getIdFeature());
-            $phase = Phase::make()->get($feature->getIdPhase());
+        switch ($this->getRequest()) {
+            case 'get':
+                // Organiza os dados das etapas e das features no vetor
+                foreach ($pf as $pfeature) {
+                    $feature = Feature::make()->get($pfeature->getIdFeature());
+                    $phase = Phase::make()->get($feature->getIdPhase());
+                    $executedPhases = ExecutedPhase::make()->where('process_id = ?', [$processo->getId()])->find();
 
-            $arrEtapasFeatures[] = [
-                'id' => $phase->getId(),
-                'phase' => $phase->getName(),
-                'idFeature' => $feature->getId(),
-                'nameFeature' => $feature->getName()
-            ];
+                    $arrEtapasFeatures[] = [
+                        'id' => $phase->getId(),
+                        'phase' => $phase->getName(),
+                        'idFeature' => $feature->getId(),
+                        'nameFeature' => $feature->getName()
+                    ];
+                }
+                view('process-viewer', ['processo' => $processo, 'arrEtapas' => $arrEtapasFeatures, 'executedPhases' => $executedPhases]);
+                break;
+            case 'post':
+                $post = filterPost();
+                $phase = $post['idPhase'];
+                $state = $post['state'] == "true" ? 1 : 0;
+
+                $wasExecuted = ExecutedPhase::make()->where('process_id = ? and phase_id = ?', [$processo->getId(), $phase])->find();
+                if (count($wasExecuted) == 0) {
+                    $wasExecuted = new ExecutedPhase();
+                    $wasExecuted->setExecuted($state);
+                    $wasExecuted->setUpdatedAt(date('Y-m-d H:i:s'));
+                    $wasExecuted->setPhaseId($phase);
+                    $wasExecuted->setProcessId($processo->getId());
+                    $wasExecuted->save();
+                } else {
+                    $wasExecuted[0]->setExecuted($state);
+                    $wasExecuted[0]->save();
+                }
+                echo toJson($wasExecuted);
+                break;
         }
 
-        view('process-viewer', ['processo' => $processo, 'arrEtapas' => $arrEtapasFeatures]);
     }
 
 

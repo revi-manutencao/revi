@@ -10,6 +10,7 @@ ver processo | revi
     <?php
     $processo = $data['processo'];
     $arrEtapas = $data['arrEtapas'];
+    $executedPhases = $data['executedPhases'];
     ?>
 
     <div class="container side-side">
@@ -45,11 +46,21 @@ ver processo | revi
                         <label>
                             <div class="container-floating-right-button">
                                 <a class="btn btn-fit" style="margin-right: 10px;"
-                                        href='<?= route('processo/' . $processo->getId() . '/editar-etapa/' . $dados['id']) ?>'">
-                                    Editar
+                                   href='<?= route('processo/' . $processo->getId() . '/editar-etapa/' . $dados['id']) ?>'">
+                                Editar
                                 </a>
                             </div>
-                            <input type="checkbox" class="radio" onchange="checkDone(<?= $dados['id'] ?>)" style="margin: 0 -20px 0 10px;">
+                            <?php
+                            $currentRadio = "";
+                            foreach ($executedPhases as $executedPhase) {
+                                if($executedPhase->getPhaseId() == $dados['id'] && $executedPhase->getExecuted() == 1){
+                                    $currentRadio = "checked";
+                                    break;
+                                }
+                            }
+                            ?>
+                            <input type="checkbox" <?= $currentRadio ?> class="radio" onclick="checkDone(<?= $dados['id'] ?>)"
+                                   style="margin: 0 -20px 0 10px;">
                             <li class="transluscentblock" onclick="checkData(<?= $dados['idFeature'] ?>, event)">
                                 <span class="blocktitle">
                                     <span class="phasename">
@@ -89,8 +100,27 @@ ver processo | revi
     var baseurl = '<?=SYSROOT?>/api/feature/';
 
     function checkDone(idPhase) {
-        
-        //console.log(idPhase);
+        var state = $(event.target).prop('checked');
+        $.ajax({
+            method: 'post',
+            data: { idPhase, state },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data)
+                return;
+                $('#instruction').css('display', 'none');
+                $('#featurecontent').html('<h4>' + data.Feature.name + '</h4>' +
+                    data.Feature.shortdescription +
+                    ((data.Feature.longdescription !== '') ?
+                        '<span id="vermais"><br><br>' +
+                        '<button type="button" onclick="showMore(' + idFeature + ')">Ver mais</button></span>' : ''));
+
+                $('#longdesc').html('');
+            },
+            error: function (data) {
+                console.error('Não foi possível obter os dados da opção selecionada.');
+            }
+        });
     }
 
     function checkData(idFeature, e) {
