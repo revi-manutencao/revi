@@ -197,7 +197,21 @@ class ProcessController extends Controller
                         'nameFeature' => $feature->getName()
                     ];
                 }
-                view('process-viewer', ['processo' => $processo, 'arrEtapas' => $arrEtapasFeatures, 'executedPhases' => $executedPhases]);
+
+                $fullUser = User::make()->get($user->getId());
+
+                $data = [
+                    'processo' => $processo,
+                    'arrEtapas' => $arrEtapasFeatures,
+                    'executedPhases' => $executedPhases
+                ];
+
+                if($fullUser->getSerialView()){
+                    view('process-viewer-serial', $data);
+                } else {
+                    view('process-viewer', $data);
+                }
+
                 break;
             case 'post':
                 $post = filterPost();

@@ -1,8 +1,10 @@
 <?php defined('INITIALIZED') OR exit('You cannot access this file directly');
 
-class UserController extends Controller {
+class UserController extends Controller
+{
 
-    public static function listaProcessos () {
+    public static function listaProcessos()
+    {
         Auth::setRestricted('entrar');
 
         // Obtém os dados do usuário logado e seus processos
@@ -15,7 +17,7 @@ class UserController extends Controller {
         $unfinishedProcess = Process::make()
             ->where('active = true and name = "" and id_user = ?', $user->getId())->find();
 
-        if(count($unfinishedProcess) > 0) {
+        if (count($unfinishedProcess) > 0) {
             $processFeatures = ProcessFeature::make()->where('id_process = ?', $unfinishedProcess[0]->getId())->find();
             $phaseNumber = count($processFeatures) + 1;
 
@@ -24,7 +26,7 @@ class UserController extends Controller {
 
 
             // Armazena o valor de completude do processo atualmente
-            $percentage = number_format((($phaseNumber/$countPhases) - (1/$countPhases)) * 100, 2);
+            $percentage = number_format((($phaseNumber / $countPhases) - (1 / $countPhases)) * 100, 2);
 
             $unfinished = ['obj' => $unfinishedProcess, 'phaseNo' => $phaseNumber, 'percentage' => $percentage];
         } else {
@@ -34,11 +36,12 @@ class UserController extends Controller {
         view('home-user', ['processos' => $processos, 'processoNaoTerminado' => $unfinished]);
     }
 
-    public function login () {
-	    if(Auth::isLogged())
-	        redirect('/');
-	    else
-            switch($this->getRequest()) {
+    public function login()
+    {
+        if (Auth::isLogged())
+            redirect('/');
+        else
+            switch ($this->getRequest()) {
                 case 'get':
                     view('login');
                     break;
@@ -48,7 +51,7 @@ class UserController extends Controller {
                     $user = User::make()->where('login = ? and password = ?',
                         [$post['username'], Auth::hashPassword($post['password'])])->find();
 
-                    if(!count($user) > 0){
+                    if (!count($user) > 0) {
                         back()->flash('error', 'Nome de usuário ou senha incorretos');
                         die;
                     }
@@ -59,7 +62,7 @@ class UserController extends Controller {
                     //Registra log
                     $log = Log::make();
                     $log->setTitle("Login realizado");
-                    $log->setDescription("O usuário #".$user->getID().' ('.$user->getLogin().') realizou o login');
+                    $log->setDescription("O usuário #" . $user->getID() . ' (' . $user->getLogin() . ') realizou o login');
                     $log->setDatetime(date('Y-m-d H:i:s'));
                     $log->setIdUser($user->getId());
                     $log->save();
@@ -69,11 +72,12 @@ class UserController extends Controller {
             }
     }
 
-    public function cadastro () {
-        if(Auth::isLogged())
+    public function cadastro()
+    {
+        if (Auth::isLogged())
             redirect('/');
         else
-            switch($this->getRequest()) {
+            switch ($this->getRequest()) {
                 case 'get':
                     view('cadastro');
                     break;
@@ -86,7 +90,7 @@ class UserController extends Controller {
                         'confirmasenha' => 'required|equal:senha'
                     ));
 
-                    if(!$valid) {
+                    if (!$valid) {
                         back()->withValues();
                         return;
                     }
@@ -95,7 +99,7 @@ class UserController extends Controller {
 
                     $result = User::make()->where('login = ? or email = ?', [$post['username'], $post['email']])->find();
 
-                    if(count($result) > 0) {
+                    if (count($result) > 0) {
                         back()->flash('error', 'Nome de usuário ou e-mail já cadastrado');
                         die;
                     }
@@ -113,37 +117,39 @@ class UserController extends Controller {
                     //Registra log
                     $log = Log::make();
                     $log->setTitle("Usuário cadastrado");
-                    $log->setDescription("O usuário #".$user->getID()
-                        .' ('.$user->getLogin().') foi cadastrado no sistema');
+                    $log->setDescription("O usuário #" . $user->getID()
+                        . ' (' . $user->getLogin() . ') foi cadastrado no sistema');
                     $log->setDatetime(date('Y-m-d H:i:s'));
                     $log->setIdUser($user->getId());
                     $log->save();
 
                     redirect('entrar')
-                        ->flash('success', 'Usuário <b>'.$user->getLogin().'</b> criado com sucesso.');
+                        ->flash('success', 'Usuário <b>' . $user->getLogin() . '</b> criado com sucesso.');
                     break;
             }
     }
 
 
-    public function logout () {
-	    Auth::setRestricted('entrar');
+    public function logout()
+    {
+        Auth::setRestricted('entrar');
 
-	    $user = Auth::getLoggedUser();
+        $user = Auth::getLoggedUser();
 
         //Registra log
         $this->logLogout($user);
 
-	    // Realiza o logout do sistema
-	    Auth::doLogout();
-	    redirect('/');
+        // Realiza o logout do sistema
+        Auth::doLogout();
+        redirect('/');
     }
 
 
-    public function meusDados () {
+    public function meusDados()
+    {
         Auth::setRestricted('entrar');
 
-        switch($this->getRequest()) {
+        switch ($this->getRequest()) {
             case 'get':
                 $userLogged = Auth::getLoggedUser();
 
@@ -165,7 +171,7 @@ class UserController extends Controller {
                     'email' => 'required|email',
                 ));
 
-                if(!$valid) {
+                if (!$valid) {
                     back();
                     return;
                 }
@@ -181,15 +187,21 @@ class UserController extends Controller {
                 $user = User::make()->get($userLogged->getId());
                 $user->setName($post['nome']);
                 $user->setEmail($post['email']);
+
+                if (isset($post['serialView'])) {
+                    $user->setSerialView(1);
+                } else {
+                    $user->setSerialView(0);
+                }
                 $user->save();
 
 
                 //Registra log
                 $log = Log::make();
                 $log->setTitle("Dados pessoais atualizados");
-                $log->setDescription("O usuário #".$user->getID()
-                    .' ('.$user->getLogin().') alterou seu nome de "'.$oldValues['nome'].'" para"'
-                    .$user->getName().'" e email de "'.$oldValues['email'].'" para "'.$user->getEmail().'"');
+                $log->setDescription("O usuário #" . $user->getID()
+                    . ' (' . $user->getLogin() . ') alterou seu nome de "' . $oldValues['nome'] . '" para"'
+                    . $user->getName() . '" e email de "' . $oldValues['email'] . '" para "' . $user->getEmail() . '"');
                 $log->setDatetime(date('Y-m-d H:i:s'));
                 $log->setIdUser($user->getId());
                 $log->save();
@@ -201,8 +213,9 @@ class UserController extends Controller {
     }
 
 
-    public function alterarSenha () {
-        switch($this->getRequest()) {
+    public function alterarSenha()
+    {
+        switch ($this->getRequest()) {
             case 'post':
                 $post = filterPost();
 
@@ -213,7 +226,7 @@ class UserController extends Controller {
                 $prevHash = Auth::hashPassword($post['senhaatual']);
 
                 // Verifica se a senha digitada está correta
-                if($prevHash !== $user->getPassword()) {
+                if ($prevHash !== $user->getPassword()) {
                     back()->flash('erroSenha', 'A senha atual está incorreta');
                     return;
                 }
@@ -226,7 +239,7 @@ class UserController extends Controller {
                     'confirmarnovasenha' => 'required|equal:novasenha',
                 ));
 
-                if(!$valid) {
+                if (!$valid) {
                     back();
                     return;
                 }
@@ -240,8 +253,8 @@ class UserController extends Controller {
                 //Registra log
                 $log = Log::make();
                 $log->setTitle("Senha alterada");
-                $log->setDescription("O usuário #".$user->getID()
-                    .' ('.$user->getLogin().') alterou sua senha');
+                $log->setDescription("O usuário #" . $user->getID()
+                    . ' (' . $user->getLogin() . ') alterou sua senha');
                 $log->setDatetime(date('Y-m-d H:i:s'));
                 $log->setIdUser($user->getId());
                 $log->save();
@@ -266,11 +279,12 @@ class UserController extends Controller {
 
 
     // Realiza o Log do processo de logout
-    private function logLogout ($user){
+    private function logLogout($user)
+    {
         //Registra log
         $log = Log::make();
         $log->setTitle("Logout realizado");
-        $log->setDescription("O usuário #".$user->getID().' ('.$user->getLogin().') saiu do sistema');
+        $log->setDescription("O usuário #" . $user->getID() . ' (' . $user->getLogin() . ') saiu do sistema');
         $log->setDatetime(date('Y-m-d H:i:s'));
         $log->setIdUser($user->getId());
         $log->save();

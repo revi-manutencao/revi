@@ -26,7 +26,7 @@ p {
 }
 
 /* --------- Campos de formulário --------- */
-input, select, textarea {
+input[type='text'], input[type='email'], input[type='password'], select, textarea {
     -webkit-appearance: none;
     -moz-appearance: none;
     width: 80%;
@@ -38,13 +38,17 @@ input, select, textarea {
     border-radius: 0;
 }
 
-    input:focus, select:focus, textarea:focus {
+    input[type='text']:focus, input[type='email']:focus, input[type='password']:focus, select:focus, textarea:focus {
         border-color: rgb(150,150,150);
     }
 
     input[readonly] {
         color: rgb(120,120,120);
         background: rgb(253,253,253);
+    }
+
+    input[type='checkbox'] {
+        display: inline;
     }
 
     textarea {
@@ -317,7 +321,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button, a.btn {
     transition: 0.3s;
 }
 
-    .block input {
+    .block input[type='text'],.block input[type='email'],.block input[type='password'] {
         display: block;
         margin: 3px auto;
     }
@@ -354,6 +358,19 @@ input[type="button"], input[type="submit"], input[type="reset"], button, a.btn {
         max-width: 190px;
         max-height: 150px;
         user-select: none;
+    }
+
+    .blocklist.block-full li {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .blocklist.block-full label{
+        display: block;
+        width: 85%;
+        max-width: 85%;
+        margin: 30px auto;
     }
 
     .blocklist li input[type="radio"], input[type="checkbox"].radio {
@@ -414,6 +431,7 @@ input[type="button"], input[type="submit"], input[type="reset"], button, a.btn {
     padding: 15px;
     transition: 0.3s;
 }
+    
     .container-floating-right-button {
         width: 100%;
         text-align: right;

@@ -38,12 +38,16 @@
                     <form action="meusdados" method="post">
                         <input type="text" name="nome" placeholder="Seu nome" value="<?=$user->getName()?>">
                         <input type="email" name="email" placeholder="E-mail" value="<?=$user->getEmail()?>">
+                        <label style="display:block;text-align:left;padding-left: 7%; padding-top: 20px;">
+                            <input type="checkbox" <?= ($user->getSerialView() == 1) ? "checked" : "" ?> name="serialView"> Exibir etapas do processo em sequência
+                        </label>
                         <br>
                         <?=checkInputErrors('nome') || checkInputErrors('email') ?
                             '<div class="alert alert-error">'
                             .(checkInputErrors('nome') ? getInputErrors('nome'):'')
                             .(checkInputErrors('email') ? getInputErrors('email'):'')
                             .'</div><br>' : ''?>
+
                         <button>Alterar</button>
                     </form>
                 </div>

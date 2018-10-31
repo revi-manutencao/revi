@@ -1,12 +1,14 @@
-<?php  defined('INITIALIZED') OR exit('You cannot access this file directly');
+<?php defined('INITIALIZED') OR exit('You cannot access this file directly');
 
-class User extends Model{
+class User extends Model
+{
     private $id;
     private $name;
     private $email;
     private $login;
     private $password;
     private $active;
+    private $serialView;
 
     /**
      * @return mixed
@@ -102,6 +104,22 @@ class User extends Model{
     public function setActive($active)
     {
         $this->active = $active;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSerialView()
+    {
+        return $this->serialView;
+    }
+
+    /**
+     * @param mixed $serialView
+     */
+    public function setSerialView($serialView)
+    {
+        $this->serialView = $serialView;
     }
 
 
