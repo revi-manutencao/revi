@@ -59,7 +59,7 @@ ver processo | revi
                                 }
                             }
                             ?>
-                            <input type="checkbox" <?= $currentRadio ?> class="radio" onclick="checkDone(<?= $dados['id'] ?>)"
+                            <input type="checkbox" <?= $currentRadio ?> class="radio" onclick="checkDone(<?= $dados['id'] ?>, event)"
                                    style="margin: 0 -20px 0 10px;">
                             <li class="transluscentblock" onclick="checkData(<?= $dados['idFeature'] ?>, event)">
                                 <span class="blocktitle">
@@ -99,26 +99,15 @@ ver processo | revi
 <script>
     var baseurl = '<?=SYSROOT?>/api/feature/';
 
-    function checkDone(idPhase) {
-        var state = $(event.target).prop('checked');
+    function checkDone(idPhase, event) {
+        var ev = event || window.event;
+        var state = $(ev.target).prop('checked');
         $.ajax({
             method: 'post',
             data: { idPhase, state },
             dataType: 'json',
-            success: function (data) {
-                console.log(data)
-                return;
-                $('#instruction').css('display', 'none');
-                $('#featurecontent').html('<h4>' + data.Feature.name + '</h4>' +
-                    data.Feature.shortdescription +
-                    ((data.Feature.longdescription !== '') ?
-                        '<span id="vermais"><br><br>' +
-                        '<button type="button" onclick="showMore(' + idFeature + ')">Ver mais</button></span>' : ''));
-
-                $('#longdesc').html('');
-            },
             error: function (data) {
-                console.error('Não foi possível obter os dados da opção selecionada.');
+                console.error('Não foi possível atualizar a execução da etapa.');
             }
         });
     }
