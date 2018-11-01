@@ -97,7 +97,7 @@ class UserController extends Controller
 
                     $post = filterPost();
 
-                    $result = User::make()->where('login = ? or email = ?', [$post['username'], $post['email']])->find();
+                    $result = User::make()->where('login = ? or email = ?', [$post['nomeusuario'], $post['email']])->find();
 
                     if (count($result) > 0) {
                         back()->flash('error', 'Nome de usuário ou e-mail já cadastrado');
